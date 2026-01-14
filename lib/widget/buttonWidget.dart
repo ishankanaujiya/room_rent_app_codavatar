@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:room_rent_app/screen/homeScreen.dart';
 import 'package:room_rent_app/screen/loginScreen.dart';
 import 'package:room_rent_app/util/customColor.dart';
+import 'package:room_rent_app/util/forKeyForTextField.dart';
 
 class ButtonWidget extends StatefulWidget {
   final Widget? navigatorWidget;
@@ -17,9 +18,13 @@ class _ButtonWidgetState extends State<ButtonWidget> {
     return InkWell(
       onTap: ()
       {
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()
+        if(formKeyForSignInForm.currentState!.validate())
+        {
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()
         ));
 
+        }
+        
       },
       child: Container(
         width: 200,

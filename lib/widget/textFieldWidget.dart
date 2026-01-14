@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:room_rent_app/util/customColor.dart';
+import 'package:room_rent_app/util/forKeyForTextField.dart';
 
 class TextFieldWidget extends StatelessWidget {
 
@@ -10,10 +11,17 @@ class TextFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+    // GlobalKey<FormState> _formKey = GlobalKey<FormState>();
     return Form(
-      key: _formKey,
+      key: formKeyForSignInForm,
       child: TextFormField(
+        validator: (value)
+        {
+          if(value == "" || value == null)
+          {
+            return "Enter the field";
+          }
+        },
         obscureText: passwordVisibility,
         decoration: InputDecoration(
           hint: emailTextField ? Text("Email", style: TextStyle(
