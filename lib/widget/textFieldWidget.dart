@@ -13,46 +13,43 @@ class TextFieldWidget extends StatelessWidget {
     GlobalKey<FormState> _formKey = GlobalKey<FormState>();
     return Form(
       key: _formKey,
-      child: SizedBox(
-        width: 400,
-        child: TextFormField(
-          obscureText: passwordVisibility,
-          decoration: InputDecoration(
-            hint: emailTextField ? Text("Email", style: TextStyle(
-              color: CustomColor.borderDividerColor.withOpacity(0.7),
-            ),)
-            :
-            Text("Password", style: TextStyle(
-              color: CustomColor.borderDividerColor.withOpacity(0.7),
-            ),),
-
-
-            prefixIcon: emailTextField ? Icon(Icons.email, color: CustomColor.borderDividerColor.withOpacity(0.7), size: 19,) :Icon(Icons.password, color: CustomColor.borderDividerColor.withOpacity(0.7), size: 19,),
-           
-          
-            enabledBorder: OutlineInputBorder(
-             borderSide: BorderSide(
-               color: CustomColor.borderDividerColor,
-               width: 1,
-             ),
-            ),
-
-            disabledBorder: OutlineInputBorder(
-             borderSide: BorderSide(
-               color: CustomColor.borderDividerColor,
-               width: 1,
-             ),
-            ),
-
-             focusedBorder: OutlineInputBorder(
-             borderSide: BorderSide(
-               color: CustomColor.borderDividerColor,
-               width: 2,
-             ),
-            ),
-          ),
+      child: TextFormField(
+        obscureText: passwordVisibility,
+        decoration: InputDecoration(
+          hint: emailTextField ? Text("Email", style: TextStyle(
+            color: CustomColor.borderDividerColor.withOpacity(0.7),
+          ),)
+          :
+          Text("Password", style: TextStyle(
+            color: CustomColor.borderDividerColor.withOpacity(0.7),
+          ),),
+      
+      
+          prefixIcon: emailTextField ? Icon(Icons.email, color: CustomColor.borderDividerColor.withOpacity(0.7), size: 19,) :Icon(Icons.password, color: CustomColor.borderDividerColor.withOpacity(0.7), size: 19,),
+         
         
+          enabledBorder: OutlineInputBorder(
+           borderSide: BorderSide(
+             color: CustomColor.borderDividerColor,
+             width: 1,
+           ),
+          ),
+      
+          disabledBorder: OutlineInputBorder(
+           borderSide: BorderSide(
+             color: CustomColor.borderDividerColor,
+             width: 1,
+           ),
+          ),
+      
+           focusedBorder: OutlineInputBorder(
+           borderSide: BorderSide(
+             color: CustomColor.borderDividerColor,
+             width: 2,
+           ),
+          ),
         ),
+      
       ),
     );
 

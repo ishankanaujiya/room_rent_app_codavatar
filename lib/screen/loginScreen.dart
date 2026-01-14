@@ -82,7 +82,7 @@ class LoginInScreen extends StatelessWidget {
               ),
               SingleChildScrollView(
                 child: Container(
-                  padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
+                  padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 40.0),
                   width: double.infinity,
                   height: 160,
                   // color: Colors.cyan,
@@ -109,7 +109,7 @@ class LoginInScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text("Don't have an account?", style: TextStyle(
-                    fontSize: 10,
+                    fontSize: 13,
                     fontWeight: FontWeight.bold,
                     color: CustomColor.primaryTextColor.withOpacity(0.9),
                   ),),
@@ -127,7 +127,7 @@ class LoginInScreen extends StatelessWidget {
                         ));
                     },
                     child: Text("Sign Up", style: TextStyle(
-                      fontSize: 10,
+                      fontSize: 13,
                       fontWeight: FontWeight.bold,
                       color: Color(0xFF9547BF),
                     ),),
