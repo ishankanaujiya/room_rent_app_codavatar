@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class CustomColor
 {
   static const Color primaryColorForButton = Color(0xFFB794F4);
+  static const Color mainBodyColor = Color(0xFF9547BF);
   static const Color primaryColorForIcon = Color(0xFFB794F4);
   static const Color primaryColorActiveStatus = Color(0xFFB794F4);
   static const Color appBackgroundColor = Color.fromARGB(255, 236, 228, 252);

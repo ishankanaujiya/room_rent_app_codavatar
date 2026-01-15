@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:room_rent_app/screen/loginScreen.dart';
+import 'package:room_rent_app/screen/registrationScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         
           colorScheme: .fromSeed(seedColor: Colors.deepPurple),
         ),
-        home: const LoginInScreen(),
+        home: const RegistrationScreen()
       ),
     );
   }
