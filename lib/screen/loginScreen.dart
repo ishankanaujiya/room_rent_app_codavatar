@@ -103,7 +103,11 @@ class LoginInScreen extends StatelessWidget {
                           {
                             if(value == "" || value == null)
                             {
-                              return "Enter the field";
+                              return "Email Field is Required";
+                            }
+                            if(!value.contains('@gmail.com'))
+                            {
+                              return "Enter Valid Email";
                             }
                           },
                           obscureText: false,
@@ -150,7 +154,11 @@ class LoginInScreen extends StatelessWidget {
                           {
                             if(value == "" || value == null)
                             {
-                              return "Enter the field";
+                              return "Password Field is Required";
+                            }
+                            if(value.length <8)
+                            {
+                              return "Password must be of atleast 8 characters";
                             }
                           },
                           obscureText: true,
