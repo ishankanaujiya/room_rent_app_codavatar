@@ -25,12 +25,12 @@ class LoginInScreen extends StatelessWidget {
                 width: double.infinity.w,
           
                 decoration: BoxDecoration(
-                  color: Color(0xFFB794F4),
+                  color: Color(0xFFAC8AE9),
                   borderRadius: BorderRadius.only(bottomLeft: Radius.circular(200.r)),
                   boxShadow: [
                     BoxShadow(
                      color: Color(0xFFB794F4).withOpacity(0.7),
-                     blurRadius: 10,
+                     blurRadius: 15,
                      spreadRadius: 6,
                      
                     )
@@ -47,28 +47,28 @@ class LoginInScreen extends StatelessWidget {
           
               SizedBox(
               
-                height: 40.0.h,
+                height: 30.0.h,
               ),
           
           
               Text("Welcome To Room Khoj", style: TextStyle(
-                fontSize: 13.sp,
+                fontSize: 11.sp,
                 fontWeight: FontWeight.bold,
-                color: Colors.grey.withOpacity(0.5),
-                letterSpacing: 2.0,
+                color: CustomColor.primaryTextColor.withOpacity(0.4),
+                letterSpacing: 1.0,
               ),),
           
               SizedBox(
-              
-                height: 10.0.h,
+
+                height: 5.0.h,
               ),
-          
+
           
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text("Sign", style: TextStyle(
-                    fontSize: 30.sp,
+                    fontSize: 33.sp,
                     fontWeight: FontWeight.bold,
                     color: CustomColor.primaryTextColor.withOpacity(0.9),
                   ),),
@@ -81,21 +81,16 @@ class LoginInScreen extends StatelessWidget {
                 ],
               ),
           
-              SizedBox(
-              
-                height: 20.0.h,
-              ),
+
               SingleChildScrollView(
                 child: Form(
                   key: _formKey,
                   child: Container(
-                    padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 40.0),
-                    width: double.infinity.w,
-                    // height: 170,
                     // color: Colors.cyan,
+                    padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 40.0),
+                    width: double.infinity.w,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
-                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
               
                         TextFormField(
@@ -112,9 +107,12 @@ class LoginInScreen extends StatelessWidget {
                           },
                           obscureText: false,
                           decoration: InputDecoration(
-                            // hint: Text("Email", style: TextStyle(
-                            //   color: CustomColor.borderDividerColor.withOpacity(0.7),
-                            // ),),
+                            hintText: "Email",
+                            hintStyle: TextStyle(
+                              color: CustomColor.borderDividerColor.withOpacity(0.7),
+                              fontSize: 13.sp,
+                              fontWeight: FontWeight.bold,
+                            ),
                         
                         
                             prefixIcon: Icon(Icons.email, color: CustomColor.borderDividerColor.withOpacity(0.7), size: 19,),
@@ -146,7 +144,7 @@ class LoginInScreen extends StatelessWidget {
 
                       SizedBox(
                         
-                          height: 40.0.h,
+                          height: 20.0.h,
                         ),
 
                         TextFormField(
@@ -163,12 +161,18 @@ class LoginInScreen extends StatelessWidget {
                           },
                           obscureText: true,
                           decoration: InputDecoration(
+                            hintText: "Password",
+                            hintStyle: TextStyle(
+                              color: CustomColor.borderDividerColor.withOpacity(0.7),
+                              fontSize: 13.sp,
+                              fontWeight: FontWeight.bold,
+                            ),
                             // hint: Text("Password", style: TextStyle(
                             //   color: CustomColor.borderDividerColor.withOpacity(0.7),
                             // ),),
+
                         
-                        
-                            prefixIcon: Icon(Icons.password, color: CustomColor.borderDividerColor.withOpacity(0.7), size: 19,),
+                            prefixIcon: Icon(Icons.password, color: CustomColor.borderDividerColor.withOpacity(0.7), size: 20,),
                           
                           
                             enabledBorder: OutlineInputBorder(
@@ -217,7 +221,7 @@ class LoginInScreen extends StatelessWidget {
               width: 200.w,
               height: 50.h,
               decoration: BoxDecoration(
-                color: CustomColor.borderDividerColor,
+                color: Color(0xFFAC8AE9),
                 borderRadius: BorderRadius.circular(10),
             
               ),
@@ -225,7 +229,7 @@ class LoginInScreen extends StatelessWidget {
                 child: Text("Sign In", style: TextStyle(
                   color: Colors.white,
                   fontSize: 14.sp,
-                  fontWeight: FontWeight.w400,
+                  fontWeight: FontWeight.bold,
                 ),),
               ),
             ),
@@ -239,7 +243,7 @@ class LoginInScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text("Don't have an account?", style: TextStyle(
-                    fontSize: 13.sp,
+                    fontSize: 11.sp,
                     fontWeight: FontWeight.bold,
                     color: CustomColor.primaryTextColor.withOpacity(0.9),
                   ),),
@@ -257,7 +261,7 @@ class LoginInScreen extends StatelessWidget {
                         ));
                     },
                     child: Text("Sign Up", style: TextStyle(
-                      fontSize: 13.sp,
+                      fontSize: 11.sp,
                       fontWeight: FontWeight.bold,
                       color: Color(0xFF9547BF),
                     ),),
