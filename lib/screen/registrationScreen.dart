@@ -32,7 +32,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       width: double.infinity.w,
                       height: 145.h,
                       decoration: BoxDecoration(
-                        color: Color(0xFFAC8AE9),
+                          color: Color(0xFF5C1196).withOpacity(0.6),
                         borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(70),
                           // bottomRight: Radius.circular(15),
@@ -61,8 +61,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           boxShadow: [
                             BoxShadow(
                               color: Color(0xFFF7F7F7).withOpacity(0.4),
-                              blurRadius: 30,
-                              spreadRadius: 10,
+                              blurRadius: 20,
+                              spreadRadius: 6,
                               // offset: Offset(5, 4),
                             ),
                           ],
@@ -93,7 +93,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                               "Room Khoj,",
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 21.sp,
+                                fontSize: 17.sp,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -172,7 +172,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
                               Text("Create Account,", style: TextStyle(
-                                color: CustomColor.borderDividerColor,
+                                color: Color(0xFF5C1196),
                                 fontSize: 17.sp,
                                 fontWeight: FontWeight.bold,
                               ),),
@@ -202,35 +202,35 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
                                   prefixIcon: Icon(
                                     Icons.person,
-                                    color: CustomColor.borderDividerColor
+                                    color:Color(0xFF5C1196)
                                         .withOpacity(0.7),
                                     size: 19,
                                   ),
 
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: CustomColor.borderDividerColor,
+                                      color: Color(0xFF5C1196),
                                       width: 1.w,
                                     ),
                                   ),
 
                                   disabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: CustomColor.borderDividerColor,
+                                      color: Color(0xFF5C1196),
                                       width: 1.w,
                                     ),
                                   ),
 
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: CustomColor.borderDividerColor,
+                                      color: Color(0xFF5C1196),
                                       width: 2.w,
                                     ),
                                   ),
 
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: CustomColor.borderDividerColor,
+                                      color: Color(0xFF5C1196),
                                       width: 1.w,
                                     ),
                                   ),
@@ -260,35 +260,35 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
                                   prefixIcon: Icon(
                                     Icons.email,
-                                    color: CustomColor.borderDividerColor
+                                      color: Color(0xFF5C1196)
                                         .withOpacity(0.7),
                                     size: 19,
                                   ),
 
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: CustomColor.borderDividerColor,
+                                      color: Color(0xFF5C1196),
                                       width: 1.w,
                                     ),
                                   ),
 
                                   disabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: CustomColor.borderDividerColor,
+                                      color: Color(0xFF5C1196),
                                       width: 1.w,
                                     ),
                                   ),
 
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: CustomColor.borderDividerColor,
+                                      color: Color(0xFF5C1196),
                                       width: 2.w,
                                     ),
                                   ),
 
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: CustomColor.borderDividerColor,
+                                      color: Color(0xFF5C1196),
                                       width: 1.w,
                                     ),
                                   ),
@@ -319,35 +319,35 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
                                   prefixIcon: Icon(
                                     Icons.phone,
-                                    color: CustomColor.borderDividerColor
+                                      color: Color(0xFF5C1196)
                                         .withOpacity(0.7),
                                     size: 19,
                                   ),
 
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: CustomColor.borderDividerColor,
+                                      color: Color(0xFF5C1196),
                                       width: 1.w,
                                     ),
                                   ),
 
                                   disabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: CustomColor.borderDividerColor,
+                                      color: Color(0xFF5C1196),
                                       width: 1.w,
                                     ),
                                   ),
 
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: CustomColor.borderDividerColor,
+                                      color: Color(0xFF5C1196),
                                       width: 2.w,
                                     ),
                                   ),
 
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: CustomColor.borderDividerColor,
+                                      color: Color(0xFF5C1196),
                                       width: 1.w,
                                     ),
                                   ),
@@ -377,35 +377,35 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
                                   prefixIcon: Icon(
                                     Icons.password,
-                                    color: CustomColor.borderDividerColor
+                                      color: Color(0xFF5C1196)
                                         .withOpacity(0.7),
                                     size: 19,
                                   ),
 
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: CustomColor.borderDividerColor,
+                                      color: Color(0xFF5C1196),
                                       width: 1.w,
                                     ),
                                   ),
 
                                   disabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: CustomColor.borderDividerColor,
+                                      color: Color(0xFF5C1196),
                                       width: 1.w,
                                     ),
                                   ),
 
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: CustomColor.borderDividerColor,
+                                      color: Color(0xFF5C1196),
                                       width: 2.w,
                                     ),
                                   ),
 
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: CustomColor.borderDividerColor,
+                                      color: Color(0xFF5C1196),
                                       width: 1.w,
                                     ),
                                   ),
@@ -435,35 +435,35 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
                                   prefixIcon: Icon(
                                     Icons.password,
-                                    color: CustomColor.borderDividerColor
+                                      color: Color(0xFF5C1196)
                                         .withOpacity(0.7),
                                     size: 19,
                                   ),
 
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: CustomColor.borderDividerColor,
+                                      color: Color(0xFF5C1196),
                                       width: 1.w,
                                     ),
                                   ),
 
                                   disabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: CustomColor.borderDividerColor,
+                                      color: Color(0xFF5C1196),
                                       width: 1.w,
                                     ),
                                   ),
 
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: CustomColor.borderDividerColor,
+                                      color: Color(0xFF5C1196),
                                       width: 2.w,
                                     ),
                                   ),
 
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: CustomColor.borderDividerColor,
+                                      color: Color(0xFF5C1196),
                                       width: 1.w,
                                     ),
                                   ),
@@ -516,7 +516,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         width: 200.w,
                         height: 50.h,
                         decoration: BoxDecoration(
-                          color: Color(0xFFAC8AE9),
+                          color: Color(0xFF5C1196).withOpacity(0.6),
                           borderRadius: BorderRadius.circular(15.r),
                         ),
                         child: Center(child: Text("Sign Up", style: TextStyle(

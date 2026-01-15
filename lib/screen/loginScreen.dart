@@ -195,6 +195,13 @@ class LoginInScreen extends StatelessWidget {
                               width: 2.w,
                             ),
                             ),
+
+                            errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: CustomColor.borderDividerColor,
+                                width: 1.w,
+                              ),
+                            ),
                           ),
                         ),
                   
