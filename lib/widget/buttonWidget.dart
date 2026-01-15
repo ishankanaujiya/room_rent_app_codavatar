@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:room_rent_app/screen/homeScreen.dart';
 import 'package:room_rent_app/screen/loginScreen.dart';
 import 'package:room_rent_app/util/customColor.dart';
@@ -27,17 +28,17 @@ class _ButtonWidgetState extends State<ButtonWidget> {
         
       },
       child: Container(
-        width: 200,
-        height: 50,
+        width: 200.w,
+        height: 50.h,
         decoration: BoxDecoration(
           color: CustomColor.borderDividerColor,
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(10.r),
       
         ),
         child: Center(
           child: Text("Sign In", style: TextStyle(
             color: Colors.white,
-            fontSize: 14,
+            fontSize: 14.sp,
             fontWeight: FontWeight.w400,
           ),),
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:room_rent_app/screen/homeScreen.dart';
 import 'package:room_rent_app/screen/registrationScreen.dart';
 import 'package:room_rent_app/util/customColor.dart';
@@ -22,11 +23,11 @@ class LoginInScreen extends StatelessWidget {
             children: <Widget>[
               Container(
                 padding: EdgeInsets.only(top: 10.0, bottom: 20.0),
-                width: double.infinity,
+                width: double.infinity.w,
           
                 decoration: BoxDecoration(
                   color: Color(0xFFB794F4),
-                  borderRadius: BorderRadius.only(bottomLeft: Radius.circular(200)),
+                  borderRadius: BorderRadius.only(bottomLeft: Radius.circular(200.r)),
                   boxShadow: [
                     BoxShadow(
                      color: Color(0xFFB794F4).withOpacity(0.7),
@@ -38,8 +39,8 @@ class LoginInScreen extends StatelessWidget {
                 ),
               
                 child: Container(
-                  width: double.infinity,
-                  height: 300,
+                  width: double.infinity.w,
+                  height: 300.h,
                   // color: Colors.cyan,
                   child: Image(image: AssetImage("logInScreenPersonPicture.png"),fit: BoxFit.contain,),
                 ),
@@ -47,12 +48,12 @@ class LoginInScreen extends StatelessWidget {
           
               SizedBox(
               
-                height: 40.0,
+                height: 40.0.h,
               ),
           
           
               Text("Welcome To Room Khoj", style: TextStyle(
-                fontSize: 13,
+                fontSize: 13.sp,
                 fontWeight: FontWeight.bold,
                 color: Colors.grey.withOpacity(0.5),
                 letterSpacing: 2.0,
@@ -60,7 +61,7 @@ class LoginInScreen extends StatelessWidget {
           
               SizedBox(
               
-                height: 10.0,
+                height: 10.0.h,
               ),
           
           
@@ -68,13 +69,13 @@ class LoginInScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text("Sign", style: TextStyle(
-                    fontSize: 30,
+                    fontSize: 30.sp,
                     fontWeight: FontWeight.bold,
                     color: CustomColor.primaryTextColor.withOpacity(0.9),
                   ),),
           
                   Text("In", style: TextStyle(
-                    fontSize: 30,
+                    fontSize: 30.sp,
                     fontWeight: FontWeight.bold,
                     color: Color(0xFF9547BF),
                   ),),
@@ -83,14 +84,14 @@ class LoginInScreen extends StatelessWidget {
           
               SizedBox(
               
-                height: 20.0,
+                height: 20.0.h,
               ),
               SingleChildScrollView(
                 child: Form(
                   key: _formKey,
                   child: Container(
                     padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 40.0),
-                    width: double.infinity,
+                    width: double.infinity.w,
                     // height: 170,
                     // color: Colors.cyan,
                     child: Column(
@@ -123,21 +124,21 @@ class LoginInScreen extends StatelessWidget {
                             enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: CustomColor.borderDividerColor,
-                              width: 1,
+                              width: 1.w,
                             ),
                             ),
                         
                             disabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: CustomColor.borderDividerColor,
-                              width: 1,
+                              width: 1.w,
                             ),
                             ),
                         
                             focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: CustomColor.borderDividerColor,
-                              width: 2,
+                              width: 2.w,
                             ),
                             ),
                           ),
@@ -146,7 +147,7 @@ class LoginInScreen extends StatelessWidget {
 
                       SizedBox(
                         
-                          height: 40.0,
+                          height: 40.0.h,
                         ),
 
                         TextFormField(
@@ -174,21 +175,21 @@ class LoginInScreen extends StatelessWidget {
                             enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: CustomColor.borderDividerColor,
-                              width: 1,
+                              width: 1.w,
                             ),
                             ),
                         
                             disabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: CustomColor.borderDividerColor,
-                              width: 1,
+                              width: 1.w,
                             ),
                             ),
                         
                             focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: CustomColor.borderDividerColor,
-                              width: 2,
+                              width: 2.w,
                             ),
                             ),
                           ),
@@ -199,7 +200,7 @@ class LoginInScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 20.0,
+                height: 20.0.h,
               ),
             
            InkWell(
@@ -214,8 +215,8 @@ class LoginInScreen extends StatelessWidget {
               
             },
             child: Container(
-              width: 200,
-              height: 50,
+              width: 200.w,
+              height: 50.h,
               decoration: BoxDecoration(
                 color: CustomColor.borderDividerColor,
                 borderRadius: BorderRadius.circular(10),
@@ -224,7 +225,7 @@ class LoginInScreen extends StatelessWidget {
               child: Center(
                 child: Text("Sign In", style: TextStyle(
                   color: Colors.white,
-                  fontSize: 14,
+                  fontSize: 14.sp,
                   fontWeight: FontWeight.w400,
                 ),),
               ),
@@ -232,21 +233,21 @@ class LoginInScreen extends StatelessWidget {
           ),
           
               SizedBox(
-                    height: 40.0,
+                    height: 40.0.h,
                   ),
                   
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text("Don't have an account?", style: TextStyle(
-                    fontSize: 13,
+                    fontSize: 13.sp,
                     fontWeight: FontWeight.bold,
                     color: CustomColor.primaryTextColor.withOpacity(0.9),
                   ),),
 
                 
                 SizedBox(
-                  width: 10.0,
+                  width: 10.0.w,
                 ),
                   
           
@@ -257,7 +258,7 @@ class LoginInScreen extends StatelessWidget {
                         ));
                     },
                     child: Text("Sign Up", style: TextStyle(
-                      fontSize: 13,
+                      fontSize: 13.sp,
                       fontWeight: FontWeight.bold,
                       color: Color(0xFF9547BF),
                     ),),

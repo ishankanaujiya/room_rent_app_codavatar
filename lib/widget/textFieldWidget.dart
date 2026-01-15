@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:room_rent_app/util/customColor.dart';
 import 'package:room_rent_app/util/forKeyForTextField.dart';
 
@@ -39,21 +40,21 @@ class TextFieldWidget extends StatelessWidget {
           enabledBorder: OutlineInputBorder(
            borderSide: BorderSide(
              color: CustomColor.borderDividerColor,
-             width: 1,
+             width: 1.w,
            ),
           ),
       
           disabledBorder: OutlineInputBorder(
            borderSide: BorderSide(
              color: CustomColor.borderDividerColor,
-             width: 1,
+             width: 1.w,
            ),
           ),
       
            focusedBorder: OutlineInputBorder(
            borderSide: BorderSide(
              color: CustomColor.borderDividerColor,
-             width: 2,
+             width: 2.w,
            ),
           ),
         ),
