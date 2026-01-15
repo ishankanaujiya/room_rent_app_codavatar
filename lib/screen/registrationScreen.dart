@@ -187,13 +187,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                               },
                               obscureText: false,
                               decoration: InputDecoration(
-                                hint: Text(
-                                  "Full Name",
-                                  style: TextStyle(
-                                    color: CustomColor.borderDividerColor
-                                        .withOpacity(0.7),
-                                  ),
-                                ),
+                                // hint: Text(
+                                //   "Full Name",
+                                //   style: TextStyle(
+                                //     color: CustomColor.borderDividerColor
+                                //         .withOpacity(0.7),
+                                //   ),
+                                // ),
 
                                 prefixIcon: Icon(
                                   Icons.person,
@@ -238,13 +238,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                               },
                               obscureText: false,
                               decoration: InputDecoration(
-                                hint: Text(
-                                  "Email",
-                                  style: TextStyle(
-                                    color: CustomColor.borderDividerColor
-                                        .withOpacity(0.7),
-                                  ),
-                                ),
+                                // hint: Text(
+                                //   "Email",
+                                //   style: TextStyle(
+                                //     color: CustomColor.borderDividerColor
+                                //         .withOpacity(0.7),
+                                //   ),
+                                // ),
 
                                 prefixIcon: Icon(
                                   Icons.email,
@@ -290,13 +290,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                               obscureText: false,
                               keyboardType: TextInputType.number ,
                               decoration: InputDecoration(
-                                hint: Text(
-                                  "Phone Number",
-                                  style: TextStyle(
-                                    color: CustomColor.borderDividerColor
-                                        .withOpacity(0.7),
-                                  ),
-                                ),
+                                // hint: Text(
+                                //   "Phone Number",
+                                //   style: TextStyle(
+                                //     color: CustomColor.borderDividerColor
+                                //         .withOpacity(0.7),
+                                //   ),
+                                // ),
 
                                 prefixIcon: Icon(
                                   Icons.phone,
@@ -341,13 +341,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                               },
                               obscureText: true,
                               decoration: InputDecoration(
-                                hint: Text(
-                                  "Password",
-                                  style: TextStyle(
-                                    color: CustomColor.borderDividerColor
-                                        .withOpacity(0.7),
-                                  ),
-                                ),
+                                // hint: Text(
+                                //   "Password",
+                                //   style: TextStyle(
+                                //     color: CustomColor.borderDividerColor
+                                //         .withOpacity(0.7),
+                                //   ),
+                                // ),
 
                                 prefixIcon: Icon(
                                   Icons.password,
@@ -392,13 +392,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                               },
                               obscureText: true,
                               decoration: InputDecoration(
-                                hint: Text(
-                                  "Confirm Password",
-                                  style: TextStyle(
-                                    color: CustomColor.borderDividerColor
-                                        .withOpacity(0.7),
-                                  ),
-                                ),
+                                // hint: Text(
+                                //   "Confirm Password",
+                                //   style: TextStyle(
+                                //     color: CustomColor.borderDividerColor
+                                //         .withOpacity(0.7),
+                                //   ),
+                                // ),
 
                                 prefixIcon: Icon(
                                   Icons.password,

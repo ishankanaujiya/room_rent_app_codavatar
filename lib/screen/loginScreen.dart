@@ -4,7 +4,6 @@ import 'package:room_rent_app/screen/homeScreen.dart';
 import 'package:room_rent_app/screen/registrationScreen.dart';
 import 'package:room_rent_app/util/customColor.dart';
 import 'package:room_rent_app/widget/buttonWidget.dart';
-import 'package:room_rent_app/widget/textFieldWidget.dart';
 
 class LoginInScreen extends StatelessWidget {
   const LoginInScreen({super.key});
@@ -42,7 +41,7 @@ class LoginInScreen extends StatelessWidget {
                   width: double.infinity.w,
                   height: 300.h,
                   // color: Colors.cyan,
-                  child: Image(image: AssetImage("logInScreenPersonPicture.png"),fit: BoxFit.contain,),
+                  child: Image.asset("assets/logInScreenPersonPicture.png"),
                 ),
               ),
           
@@ -113,9 +112,9 @@ class LoginInScreen extends StatelessWidget {
                           },
                           obscureText: false,
                           decoration: InputDecoration(
-                            hint: Text("Email", style: TextStyle(
-                              color: CustomColor.borderDividerColor.withOpacity(0.7),
-                            ),),
+                            // hint: Text("Email", style: TextStyle(
+                            //   color: CustomColor.borderDividerColor.withOpacity(0.7),
+                            // ),),
                         
                         
                             prefixIcon: Icon(Icons.email, color: CustomColor.borderDividerColor.withOpacity(0.7), size: 19,),
@@ -164,9 +163,9 @@ class LoginInScreen extends StatelessWidget {
                           },
                           obscureText: true,
                           decoration: InputDecoration(
-                            hint: Text("Password", style: TextStyle(
-                              color: CustomColor.borderDividerColor.withOpacity(0.7),
-                            ),),
+                            // hint: Text("Password", style: TextStyle(
+                            //   color: CustomColor.borderDividerColor.withOpacity(0.7),
+                            // ),),
                         
                         
                             prefixIcon: Icon(Icons.password, color: CustomColor.borderDividerColor.withOpacity(0.7), size: 19,),
