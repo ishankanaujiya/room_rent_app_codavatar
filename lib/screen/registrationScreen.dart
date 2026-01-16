@@ -562,21 +562,21 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         "PublicId": ""
                       };
 
-                       await FirebaseService().storeUserDetail(userDetail);
-                          print("Details Stored Successfully");
-
-                      // try {
-                      //   print("Database Method");
-                      //   UserCredential user = await FirebaseAuthentication()
-                      //       .registerUser(
-                      //           emailController.text, passwordController.text);
-                      //   if (user.user != null) {
-                      //     await FirebaseService().storeUserDetail(userDetail);
+                      //  await FirebaseService().storeUserDetail(userDetail);
                       //     print("Details Stored Successfully");
-                      //   }
-                      // } catch (e) {
-                      //   print("Error");
-                      // }
+
+                      try {
+                        print("Database Method");
+                        UserCredential user = await FirebaseAuthentication()
+                            .registerUser(
+                                emailController.text, passwordController.text);
+                        if (user.user != null) {
+                          await FirebaseService().storeUserDetail(userDetail);
+                          print("Details Stored Successfully");
+                        }
+                      } catch (e) {
+                        print("Error");
+                      }
                     } else {
                       print("Password Not Matched");
                     }
