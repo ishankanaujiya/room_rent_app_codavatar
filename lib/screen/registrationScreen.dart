@@ -12,6 +12,12 @@ class RegistrationScreen extends StatefulWidget {
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
 
+  var fullNameController = new TextEditingController();
+  var emailController = new TextEditingController();
+  var phoneNumberController = new TextEditingController();
+  var passwordController = new TextEditingController();
+  var confirmPasswordController = new TextEditingController();
+
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -184,6 +190,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
 
                               TextFormField(
+                                controller: fullNameController,
                                 validator: (value) {
                                   if (value == "" || value == null) {
                                     return "Full Name is Required";
@@ -192,13 +199,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                 },
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  // hint: Text(
-                                  //   "Full Name",
-                                  //   style: TextStyle(
-                                  //     color: CustomColor.borderDividerColor
-                                  //         .withOpacity(0.7),
-                                  //   ),
-                                  // ),
+                                 hintText: "Full Name",
+                                  hintStyle: TextStyle(
+                                   color: Color(0xFF5C1196).withOpacity(0.6),
+                                    fontSize: 13.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
 
                                   prefixIcon: Icon(
                                     Icons.person,
@@ -240,6 +246,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                               SizedBox(height: 20.0.h),
 
                               TextFormField(
+                                controller: emailController,
                                 validator: (value) {
                                   if (value == "" || value == null) {
                                     return "Email is Required";
@@ -250,13 +257,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                 },
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  // hint: Text(
-                                  //   "Email",
-                                  //   style: TextStyle(
-                                  //     color: CustomColor.borderDividerColor
-                                  //         .withOpacity(0.7),
-                                  //   ),
-                                  // ),
+                                 hintText: "Email",
+                                  hintStyle: TextStyle(
+                                    color: Color(0xFF5C1196).withOpacity(0.6),
+                                    fontSize: 13.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
 
                                   prefixIcon: Icon(
                                     Icons.email,
@@ -298,6 +304,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                SizedBox(height: 20.0.h),
 
                               TextFormField(
+                                controller: phoneNumberController,
                                 validator: (value) {
                                   if (value == "" || value == null) {
                                     return "Phone Number is Required";
@@ -309,13 +316,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                 obscureText: false,
                                 keyboardType: TextInputType.number ,
                                 decoration: InputDecoration(
-                                  // hint: Text(
-                                  //   "Phone Number",
-                                  //   style: TextStyle(
-                                  //     color: CustomColor.borderDividerColor
-                                  //         .withOpacity(0.7),
-                                  //   ),
-                                  // ),
+                                 hintText: "Phone Number",
+                                  hintStyle: TextStyle(
+                                    color: Color(0xFF5C1196).withOpacity(0.6),
+                                    fontSize: 13.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
 
                                   prefixIcon: Icon(
                                     Icons.phone,
@@ -357,6 +363,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                SizedBox(height: 20.0.h),
 
                               TextFormField(
+                                controller: passwordController,
                                 validator: (value) {
                                   if (value == "" || value == null) {
                                     return "Password Field is Required";
@@ -367,14 +374,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                 },
                                 obscureText: true,
                                 decoration: InputDecoration(
-                                  // hint: Text(
-                                  //   "Password",
-                                  //   style: TextStyle(
-                                  //     color: CustomColor.borderDividerColor
-                                  //         .withOpacity(0.7),
-                                  //   ),
-                                  // ),
-
+                                 hintText: "Password",
+                                  hintStyle: TextStyle(
+                                   color: Color(0xFF5C1196).withOpacity(0.6),
+                                    fontSize: 13.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                   prefixIcon: Icon(
                                     Icons.password,
                                       color: Color(0xFF5C1196)
@@ -415,6 +420,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                SizedBox(height: 20.0.h),
 
                               TextFormField(
+                                controller: confirmPasswordController,
                                 validator: (value) {
                                    if (value == "" || value == null) {
                                     return "Password Field is Required";
@@ -425,13 +431,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                 },
                                 obscureText: true,
                                 decoration: InputDecoration(
-                                  // hint: Text(
-                                  //   "Confirm Password",
-                                  //   style: TextStyle(
-                                  //     color: CustomColor.borderDividerColor
-                                  //         .withOpacity(0.7),
-                                  //   ),
-                                  // ),
+                                   hintText: "Confirm Password",
+                                  hintStyle: TextStyle(
+                                    color: Color(0xFF5C1196).withOpacity(0.6),
+                                    fontSize: 13.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
 
                                   prefixIcon: Icon(
                                     Icons.password,
@@ -509,15 +514,26 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         if(_formKey.currentState!.validate())
                         {
                           print("Value Stored");
+                          print(passwordController.text);
+                          print(confirmPasswordController.text);
+                          if(passwordController.text != confirmPasswordController.text)
+                          {
+                            print("Password Doesnot Match");
+                          }
+                          else
+                          {
+                            print("Password Matched");
+                          }
+
                         }
 
                       },
                       child: Container(
-                        width: 200.w,
-                        height: 50.h,
+                        width: 273.w,
+                        height: 55.h,
                         decoration: BoxDecoration(
                           color: Color(0xFF5C1196).withOpacity(0.6),
-                          borderRadius: BorderRadius.circular(15.r),
+                          borderRadius: BorderRadius.circular(10.r),
                         ),
                         child: Center(child: Text("Sign Up", style: TextStyle(
                           color: Colors.white,
@@ -526,7 +542,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
                       ),
                     ),
-                    SizedBox(height: 20.0.h),
+                    SizedBox(height: 15.0.h),
 
                     Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -555,8 +571,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         color: Color(0xFF9547BF),
                       ),),
                     ),
-
-
 
                   ],
                 ),
