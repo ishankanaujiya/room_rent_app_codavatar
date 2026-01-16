@@ -573,6 +573,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         if (user.user != null) {
                           await FirebaseService().storeUserDetail(userDetail);
                           print("Details Stored Successfully");
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginInScreen()
+                          ));
                         }
                       } catch (e) {
                         print("Error");

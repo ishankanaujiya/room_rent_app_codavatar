@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:room_rent_app/screen/homeScreen.dart';
 import 'package:room_rent_app/screen/registrationScreen.dart';
+import 'package:room_rent_app/service/firebaseAuth.dart';
 import 'package:room_rent_app/util/customColor.dart';
 import 'package:room_rent_app/widget/buttonWidget.dart';
 
@@ -10,6 +12,10 @@ class LoginInScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    var emailController = new TextEditingController();
+    var passwordController = new TextEditingController();
+
 
     GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -94,6 +100,7 @@ class LoginInScreen extends StatelessWidget {
                       children: <Widget>[
               
                         TextFormField(
+                          controller: emailController,
                           validator: (value)
                           {
                             if(value == "" || value == null)
@@ -162,6 +169,7 @@ class LoginInScreen extends StatelessWidget {
                         ),
 
                         TextFormField(
+                          controller: passwordController,
                           validator: (value)
                           {
                             if(value == "" || value == null)
@@ -235,12 +243,21 @@ class LoginInScreen extends StatelessWidget {
               ),
             
            InkWell(
-            onTap: ()
+            onTap: () async
             {
               if(_formKey.currentState!.validate())
               {
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()
+                try{
+                  UserCredential user = await FirebaseAuthentication().userSignIn(emailController.text, passwordController.text);
+                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()
               ));
+
+                }
+                catch(e)
+                {
+                  print("Error");
+                }
+               
 
               }
               
