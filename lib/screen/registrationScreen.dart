@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:room_rent_app/screen/loginScreen.dart';
 import 'package:room_rent_app/util/customColor.dart';
 
@@ -17,6 +20,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   var phoneNumberController = new TextEditingController();
   var passwordController = new TextEditingController();
   var confirmPasswordController = new TextEditingController();
+  
+  ImagePicker selectedPicture = new ImagePicker();
+
+  File? pickedPicture;
+
+  bool isPictureSelected = false;
 
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
@@ -58,25 +67,49 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     Positioned(
                       left: 117,
                       bottom: 0,
-                      child: Container(
-                        width: 150.w,
-                        height: 150.h,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          shape: BoxShape.circle,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Color(0xFFF7F7F7).withOpacity(0.4),
-                              blurRadius: 20,
-                              spreadRadius: 6,
-                              // offset: Offset(5, 4),
-                            ),
-                          ],
-                        ),
-                        child: Icon(
-                          Icons.person,
-                          size: 90.0,
-                          color: CustomColor.primaryTextColor.withOpacity(0.2),
+                      child: InkWell(
+                        onTap: () async
+                        {
+                          print("Select Picture");
+
+                          XFile? pickPicture = await selectedPicture.pickImage(source: ImageSource.gallery);
+
+                          if(pickPicture !=null)
+                          {
+                            setState(() {
+                              pickedPicture = File(pickPicture.path);
+                              isPictureSelected = true;
+                            });
+                            
+                          }
+
+                        },
+                      splashColor: Colors.transparent,
+                        child: Container(
+                          width: 150.w,
+                          height: 150.h,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            shape: BoxShape.circle,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color(0xFFF7F7F7).withOpacity(0.4),
+                                blurRadius: 20,
+                                spreadRadius: 6,
+                                // offset: Offset(5, 4),
+                              ),
+                            ],
+                          ),
+                          child: CircleAvatar(
+                            backgroundColor: Colors.white,
+                            backgroundImage: isPictureSelected ?
+                            FileImage(pickedPicture!)
+                          :
+                           null,
+                           child: !isPictureSelected ? Icon(Icons.person, color: CustomColor.primaryTextColor.withOpacity(0.2), size: 60,) : null,
+                          ),
+                          
+                          
                         ),
                       ),
                     ),
@@ -518,7 +551,15 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           print(confirmPasswordController.text);
                           if(passwordController.text != confirmPasswordController.text)
                           {
-                            print("Password Doesnot Match");
+                          //   Fluttertoast.showToast(
+                          //   msg: "Password Does't Match",
+                          //   toastLength: Toast.LENGTH_LONG,
+                          //   gravity: ToastGravity.CENTER,
+                          //   timeInSecForIosWeb: 1,
+                          //   backgroundColor: Color(0xFF5C1196),
+                          //   textColor: Colors.white,
+                          //   fontSize: 16.0,
+                          // );
                           }
                           else
                           {
