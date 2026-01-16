@@ -1,9 +1,13 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:room_rent_app/screen/loginScreen.dart';
 import 'package:room_rent_app/screen/registrationScreen.dart';
 
-void main() {
+void main() async 
+{
+  await WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
