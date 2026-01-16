@@ -138,6 +138,20 @@ class LoginInScreen extends StatelessWidget {
                               width: 2.w,
                             ),
                             ),
+
+                             errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: CustomColor.borderDividerColor,
+                                width: 1.w,
+                              ),
+                            ),
+
+                            focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0xFF5C1196),
+                                width: 2.w,
+                              ),
+                            ),
                           ),
                         
                         ),
@@ -202,6 +216,13 @@ class LoginInScreen extends StatelessWidget {
                                 width: 1.w,
                               ),
                             ),
+
+                            focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0xFF5C1196),
+                                width: 2.w,
+                              ),
+                          ),
                           ),
                         ),
                   

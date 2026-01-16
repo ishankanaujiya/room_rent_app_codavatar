@@ -273,6 +273,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                       width: 1.w,
                                     ),
                                   ),
+
+                                    focusedErrorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0xFF5C1196),
+                                      width: 2.w,
+                                    ),
+                                  ),
+
                                 ),
                               ),
 
@@ -329,6 +337,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                     borderSide: BorderSide(
                                       color: Color(0xFF5C1196),
                                       width: 1.w,
+                                    ),
+                                  ),
+
+                                  focusedErrorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0xFF5C1196),
+                                      width: 2.w,
                                     ),
                                   ),
                                 ),
@@ -390,6 +405,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                       width: 1.w,
                                     ),
                                   ),
+                                  
+                                  focusedErrorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0xFF5C1196),
+                                      width: 2.w,
+                                    ),
+                                  ),
                                 ),
                               ),
 
@@ -445,6 +467,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                     borderSide: BorderSide(
                                       color: Color(0xFF5C1196),
                                       width: 1.w,
+                                    ),
+                                  ),
+
+                                  focusedErrorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0xFF5C1196),
+                                      width: 2.w,
                                     ),
                                   ),
                                 ),
@@ -503,6 +532,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                     borderSide: BorderSide(
                                       color: Color(0xFF5C1196),
                                       width: 1.w,
+                                    ),
+                                  ),
+
+                                  focusedErrorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0xFF5C1196),
+                                      width: 2.w,
                                     ),
                                   ),
                                 ),
