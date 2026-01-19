@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+import 'package:room_rent_app/provider/multiplePictureDisplayProvider.dart';
 import 'package:room_rent_app/screen/loginScreen.dart';
 import 'package:room_rent_app/screen/registrationScreen.dart';
 import 'package:room_rent_app/screen/selectMultiplePicture.dart';
@@ -9,7 +11,12 @@ void main() async
 {
   await WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (context) => MultiplePictureDisplayProvider(),),
+    ],
+    child: const MyApp(),
+    ));
 }
 
 class MyApp extends StatelessWidget {
