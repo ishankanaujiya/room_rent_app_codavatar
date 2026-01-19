@@ -13,7 +13,7 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 235, 228, 253),
+      backgroundColor: Color.fromARGB(255, 240, 234, 255),
       body: SingleChildScrollView(
         child: Container(
           width: double.infinity.w,
@@ -33,7 +33,7 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                   height: 70.h,
                   decoration: BoxDecoration(
                       // color: Color.fromARGB(255, 221, 207, 253),
-                      color: Color.fromARGB(255, 234, 227, 252),
+                      color: Color.fromARGB(26, 233, 226, 250),
                       ),
                   child: Row(
                     children: <Widget>[
@@ -88,11 +88,11 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           Text("Upload Picture", style: TextStyle(
-                            color: CustomColor.primaryTextColor.withOpacity(0.3),
+                            color: Color(0xFFAC8AE9).withOpacity(0.9),
                             fontSize: 11.sp,
                             fontWeight: FontWeight.bold,
                           ),),
-                          IconButton(onPressed: (){}, icon: Icon(Icons.add, color: CustomColor.primaryTextColor.withOpacity(0.3),), splashColor: Colors.transparent)
+                          IconButton(onPressed: (){}, icon: Icon(Icons.add, color: Color(0xFFAC8AE9).withOpacity(0.9),), splashColor: Colors.transparent)
                         ],
                       ),
 
@@ -127,7 +127,7 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                   decoration: BoxDecoration(
                     // color: Colors.cyan,
                     border: Border.all(
-                      color: Color(0xFFAC8AE9),
+                      color: CustomColor.primaryTextColor.withOpacity(0.2),
                     ),
                     borderRadius: BorderRadius.circular(15.r),
                   ),
@@ -135,9 +135,9 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text("Room Title", style: TextStyle(
-                        color: Color(0xFFAC8AE9),
-                        fontSize: 13.sp,
-                        fontWeight: FontWeight.bold,
+                         color: Color(0xFFAC8AE9).withOpacity(0.8),
+                        fontSize: 11.sp,
+                        fontWeight: FontWeight.w500,
                       ),),
                       SizedBox(
                         height: 40.h,
@@ -176,7 +176,7 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
 
                           ),
                           style: TextStyle(
-                             color: CustomColor.primaryTextColor.withOpacity(0.4),
+                             color: CustomColor.primaryTextColor.withOpacity(0.8),
                             fontSize: 11.sp,
                             fontWeight: FontWeight.bold,
                           ),
@@ -200,7 +200,8 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                   decoration: BoxDecoration(
                     // color: Colors.cyan,
                     border: Border.all(
-                      color: Color(0xFFAC8AE9),
+                      color: CustomColor.primaryTextColor.withOpacity(0.2),
+
                     ),
                     borderRadius: BorderRadius.circular(15.r),
                   ),
@@ -208,9 +209,9 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text("Description", style: TextStyle(
-                        color: Color(0xFFAC8AE9),
-                        fontSize: 13.sp,
-                        fontWeight: FontWeight.bold,
+                       color: Color(0xFFAC8AE9).withOpacity(0.8),
+                        fontSize: 11.sp,
+                        fontWeight: FontWeight.w500,
                       ),),
                       SizedBox(
                         height: 90.h,
@@ -250,7 +251,7 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
 
                           ),
                           style: TextStyle(
-                             color: CustomColor.primaryTextColor.withOpacity(0.4),
+                             color: CustomColor.primaryTextColor.withOpacity(0.8),
                             fontSize: 11.sp,
                             fontWeight: FontWeight.bold,
                           ),
