@@ -219,13 +219,13 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                           decoration: InputDecoration(
                           border: UnderlineInputBorder(
                             borderSide: BorderSide(
-                              color: Colors.cyan,
+                               color: Colors.transparent,
                             ),
                           ),
 
                            enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
-                              color: Colors.cyan,
+                              color: Colors.transparent,
                             ),
                           ),
 
