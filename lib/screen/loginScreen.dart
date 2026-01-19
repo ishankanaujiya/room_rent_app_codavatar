@@ -270,6 +270,7 @@ class _LoginInScreenState extends State<LoginInScreen> {
               
 
                   await SharedPreferenceForUserDetailProvider().storeUserDetail(documentSnapshot['FullName'], documentSnapshot['Email'], documentSnapshot['PhoneNumber']);
+                  // await SharedPreferenceForUserDetailProvider().getStoredUserDetail();
 
                 //   final sharedPreference = Provider.of<SharedPreferenceForUserDetailProvider>(context, listen: false);
 

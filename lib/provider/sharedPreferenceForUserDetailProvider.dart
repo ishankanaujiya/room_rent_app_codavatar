@@ -21,6 +21,8 @@ class SharedPreferenceForUserDetailProvider extends ChangeNotifier
         _userEmail = await pref.getString(KeyForSharedPreference.KEYFOREMAIL) ?? ""; 
         _userPhoneNumber = await pref.getString(KeyForSharedPreference.KEYFORPHONENUMBER) ?? ""; 
         print("The User Full Name is: $_userFullName");
+        print("The User Full Name is: $_userEmail");
+        print("The User Full Name is: $_userPhoneNumber");
         notifyListeners();
       }
       catch(e)
