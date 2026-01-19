@@ -1,9 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:room_rent_app/provider/sharedPreferenceForUserDetailProvider.dart';
 import 'package:room_rent_app/screen/homeScreen.dart';
 import 'package:room_rent_app/screen/registrationScreen.dart';
 import 'package:room_rent_app/service/firebaseAuth.dart';
+import 'package:room_rent_app/service/firebaseService.dart';
 import 'package:room_rent_app/util/customColor.dart';
 import 'package:room_rent_app/widget/buttonWidget.dart';
 
@@ -249,13 +252,24 @@ class LoginInScreen extends StatelessWidget {
               {
                 try{
                   UserCredential user = await FirebaseAuthentication().userSignIn(emailController.text, passwordController.text);
-                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()
-              ));
+                  QuerySnapshot signedInUserDetail = await FirebaseService().getSignedInUserDetail(emailController.text);
+                  DocumentSnapshot documentSnapshot = signedInUserDetail.docs.first;
+                  
+                  print("The Value are");
+
+                  print(documentSnapshot['PhoneNumber']);
+                  print(documentSnapshot['Email']);
+                  print(documentSnapshot['FullName']);
+
+                  await SharedPreferenceForUserDetailProvider().storeUserDetail(documentSnapshot['FullName'], documentSnapshot['Email'], documentSnapshot['PhoneNumber']);
+                  
+              //      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()
+              // ));
 
                 }
                 catch(e)
                 {
-                  print("Error");
+                  print("This is Catch Error: ${e.toString()}");
                 }
                
 

@@ -8,4 +8,10 @@ class FirebaseService
   {
     return await firebaseFirestore.doc().set(userDetail);
   }
+
+  
+  Future<QuerySnapshot>getSignedInUserDetail(String userEmail) async
+  {
+    return firebaseFirestore.where("Email", isEqualTo: userEmail).get();
+  }
 }

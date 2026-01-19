@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:room_rent_app/provider/multiplePictureDisplayProvider.dart';
+import 'package:room_rent_app/provider/sharedPreferenceForUserDetailProvider.dart';
 import 'package:room_rent_app/screen/loginScreen.dart';
 import 'package:room_rent_app/screen/registrationScreen.dart';
 import 'package:room_rent_app/screen/selectMultiplePicture.dart';
@@ -14,6 +15,7 @@ void main() async
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(create: (context) => MultiplePictureDisplayProvider(),),
+      ChangeNotifierProvider(create: (context) => SharedPreferenceForUserDetailProvider(),),
     ],
     child: const MyApp(),
     ));
@@ -36,7 +38,7 @@ class MyApp extends StatelessWidget {
         
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
-        home: const SelectMultiplePicture(),
+        home: const LoginInScreen(),
       ),
     );
   }

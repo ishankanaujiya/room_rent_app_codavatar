@@ -9,6 +9,7 @@ class MultiplePictureDisplayProvider extends ChangeNotifier
 
   updateSelectedPictureList() async
   {
+    
     selectedPicture.clear();
      selectedPicture = await pickPicture.pickMultiImage(
         imageQuality: 80,
