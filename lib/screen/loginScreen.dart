@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 import 'package:room_rent_app/provider/sharedPreferenceForUserDetailProvider.dart';
 import 'package:room_rent_app/screen/homeScreen.dart';
 import 'package:room_rent_app/screen/registrationScreen.dart';
@@ -10,18 +11,22 @@ import 'package:room_rent_app/service/firebaseService.dart';
 import 'package:room_rent_app/util/customColor.dart';
 import 'package:room_rent_app/widget/buttonWidget.dart';
 
-class LoginInScreen extends StatelessWidget {
+class LoginInScreen extends StatefulWidget {
   const LoginInScreen({super.key});
 
   @override
+  State<LoginInScreen> createState() => _LoginInScreenState();
+}
+
+class _LoginInScreenState extends State<LoginInScreen> {
+  @override
   Widget build(BuildContext context) {
 
-    var emailController = new TextEditingController();
-    var passwordController = new TextEditingController();
+    final emailController = new TextEditingController();
+    final passwordController = new TextEditingController();
 
 
     GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
 
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 250, 248, 255),
@@ -261,8 +266,21 @@ class LoginInScreen extends StatelessWidget {
                   print(documentSnapshot['Email']);
                   print(documentSnapshot['FullName']);
 
+                  print("Shared Preferences To Store Value");
+              
+
                   await SharedPreferenceForUserDetailProvider().storeUserDetail(documentSnapshot['FullName'], documentSnapshot['Email'], documentSnapshot['PhoneNumber']);
-                  
+
+                //   final sharedPreference = Provider.of<SharedPreferenceForUserDetailProvider>(context, listen: false);
+
+                //   try
+                //   {
+                //      await sharedPreference.storeUserDetail(documentSnapshot['FullName'], documentSnapshot['Email'], documentSnapshot['PhoneNumber']);
+                //   }
+                //  catch(e)
+                //  {
+                //   print("This is Login In Error: ${e.toString()}");
+                //  }
               //      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()
               // ));
 

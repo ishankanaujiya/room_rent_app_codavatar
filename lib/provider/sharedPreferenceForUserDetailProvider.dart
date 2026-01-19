@@ -34,16 +34,16 @@ class SharedPreferenceForUserDetailProvider extends ChangeNotifier
     {
       try
       {
-        print("The Name is: $fullName");
         var pref = await SharedPreferences.getInstance();
-        print("The Name1 is: $fullName");
+      
         await pref.setString(KeyForSharedPreference.KEYFORFULLNAME, fullName);
-        print("The Name2 is: $fullName");
+       
         await pref.setString(KeyForSharedPreference.KEYFOREMAIL, userEmail);
-        print("The Name3 is: $fullName");
+       
         await pref.setString(KeyForSharedPreference.KEYFORPHONENUMBER, userPhoneNumber);
-        print("The Name4 is: $fullName");
+  
         print("Value Stored");
+        notifyListeners();
       }
       catch(e)
       {
