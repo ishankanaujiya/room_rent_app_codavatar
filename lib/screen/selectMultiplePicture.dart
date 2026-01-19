@@ -66,35 +66,33 @@ class _SelectMultiplePictureState extends State<SelectMultiplePicture> {
               ),
             ),
           ),
-
-          Consumer<MultiplePictureDisplayProvider>(
-            builder: (context, displayProvider, _)
-            {
-               print("This is Display build");
-              return Container(
+           Container(
                 width: double.infinity.w,
                 height: 400.h,
                 color: Colors.white,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: Provider.of<MultiplePictureDisplayProvider>(context,listen: false).selectedPicture.length,
-                  itemBuilder: (context, index)
-                  {
-                    return Container(
-                      margin: EdgeInsets.only(right: 20.0),
-                      width: 200.w,
-                      height: 200.h,
-                      // color: Colors.black,
-                      // child: Image.file(File(displayProvider.selectedPicture[index].path), fit: BoxFit.contain,),
-                       child: Image.file(File(Provider.of<MultiplePictureDisplayProvider>(context,listen: false).selectedPicture[index].path), fit: BoxFit.contain,),
+                child: Consumer<MultiplePictureDisplayProvider>(
+            builder: (context, displayProvider, _)
+            {
+              print("This is Display build");
+                  return ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: Provider.of<MultiplePictureDisplayProvider>(context,listen: false).selectedPicture.length,
+                    itemBuilder: (context, index)
+                    {
+                      return Container(
+                        margin: EdgeInsets.only(right: 20.0),
+                        width: 200.w,
+                        height: 200.h,
+                        // color: Colors.black,
+                        // child: Image.file(File(displayProvider.selectedPicture[index].path), fit: BoxFit.contain,),
+                         child: Image.file(File(Provider.of<MultiplePictureDisplayProvider>(context,listen: false).selectedPicture[index].path), fit: BoxFit.contain,),
+                      );
+                    
+                    }
                     );
-                  
-                  }),
-              );
             },
-          
-          ),
-
+                ),
+              ),
           
         ],
       ),
