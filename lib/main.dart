@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:room_rent_app/screen/loginScreen.dart';
 import 'package:room_rent_app/screen/registrationScreen.dart';
+import 'package:room_rent_app/screen/selectMultiplePicture.dart';
 
 void main() async 
 {
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
         
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
-        home: const LoginInScreen()
+        home: const SelectMultiplePicture(),
       ),
     );
   }
