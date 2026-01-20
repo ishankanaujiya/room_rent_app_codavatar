@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:room_rent_app/provider/multiplePictureDisplayProvider.dart';
+import 'package:room_rent_app/service/pictureToCloudinary.dart';
 
 class SelectMultiplePicture extends StatefulWidget {
   const SelectMultiplePicture({super.key});
@@ -14,6 +15,8 @@ class SelectMultiplePicture extends StatefulWidget {
 }
 
 class _SelectMultiplePictureState extends State<SelectMultiplePicture> {
+
+  List<String> secureUrlFromCloudinary = [];
 
       // ImagePicker pickPicture = new ImagePicker();
 
@@ -92,6 +95,29 @@ class _SelectMultiplePictureState extends State<SelectMultiplePicture> {
                     );
             },
                 ),
+              ),
+
+              Consumer<MultiplePictureDisplayProvider>(
+                builder: (context, uploadPictureToCloudinary, _)
+                {
+
+                  return ElevatedButton(onPressed: () async
+                {
+                  for(int i = 0; i<Provider.of<MultiplePictureDisplayProvider>(context,listen: false).selectedPicture.length; i++)
+                  {
+                    XFile? selectedPicturePath = await Provider.of<MultiplePictureDisplayProvider>(context,listen: false).selectedPicture[i];
+                    File? convertedValue = File(selectedPicturePath.path);
+
+                   String secureUrl = await PictureToCloudinary().uploadPictureToCloudinary(convertedValue);
+                   secureUrlFromCloudinary.add(secureUrl);
+                  
+                  }
+                  print("Value are");
+                  print(secureUrlFromCloudinary);
+                }, child: Text("Send Photo"),
+                );
+                },
+                
               ),
           
         ],
