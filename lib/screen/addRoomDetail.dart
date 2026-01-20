@@ -481,30 +481,27 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                     ),
                   ),
                 ),
-                // SizedBox(
-                //   height: 5.h,
-                // ),
-
+               
 
                 Container(
-                  margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+                  margin:
+                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
                   // color: Colors.cyan,
                   width: double.infinity.w,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text("Detail",
+                      Text(
+                        "Detail",
                         style: TextStyle(
                           color: Color(0xFFAC8AE9).withOpacity(0.9),
                           fontSize: 11.sp,
                           fontWeight: FontWeight.bold,
-                        ),),
-
-                        SizedBox(
+                        ),
+                      ),
+                      SizedBox(
                         height: 15.h,
                       ),
-
-
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
@@ -624,13 +621,10 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                           ),
                         ],
                       ),
-
                       SizedBox(
                         height: 5.h,
                       ),
-
-
-                       Row(
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           SizedBox(
@@ -749,12 +743,10 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                           ),
                         ],
                       ),
-
-                        SizedBox(
+                      SizedBox(
                         height: 5.h,
                       ),
-
-                       Row(
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           SizedBox(
@@ -772,7 +764,7 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                                   fontWeight: FontWeight.bold,
                                 ),
                                 prefixIcon: Icon(
-                                 Icons.electric_bolt,
+                                  Icons.electric_bolt,
                                   color: Color(0xFFAC8AE9).withOpacity(0.8),
                                 ),
                                 border: OutlineInputBorder(
@@ -873,39 +865,33 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                           ),
                         ],
                       ),
-
-
                     ],
                   ),
                 ),
 
-                 InkWell(
-                onTap: () async {
-                  
-                },
-                child: Container(
-                  width: 325.w,
-                  height: 50.h,
-                  decoration: BoxDecoration(
-                    color: Color(0xFF5C1196).withOpacity(0.6),
-                    borderRadius: BorderRadius.circular(15.r),
-                  ),
-                  child: Center(
-                      child: Text(
-                    "Publish Room",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
+                InkWell(
+                  onTap: () async {},
+                  child: Container(
+                    width: 325.w,
+                    height: 50.h,
+                    decoration: BoxDecoration(
+                      color: Color(0xFF5C1196).withOpacity(0.6),
+                      borderRadius: BorderRadius.circular(15.r),
                     ),
-                  )),
+                    child: Center(
+                        child: Text(
+                      "Publish Room",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )),
+                  ),
                 ),
-              ),
 
                 SizedBox(
-                        height: 30.h,
-                      ),
-
-
+                  height: 30.h,
+                ),
               ],
             ),
           ),
