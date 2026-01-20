@@ -449,6 +449,7 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                                 return "Phone Number must be of 10 digit";
                               }
                             },
+                            keyboardType: TextInputType.number,
                         decoration: InputDecoration(
                           contentPadding: EdgeInsets.only(bottom: 1),
                           hintText: "Contact Number",
@@ -1015,30 +1016,45 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                 ),
                 
 
-                InkWell(
-                  onTap: ()
+                Consumer<MultiplePictureDisplayProvider>(
+                  builder: (context, validateField, _)
                   {
-                    if(_formkey.currentState!.validate())
+                    return InkWell(
+                    onTap: ()
                     {
-                      print("Value Stored");
-                    }
-                  },
-                  child: Container(
-                    width: 325.w,
-                    height: 50.h,
-                    decoration: BoxDecoration(
-                      color: Color(0xFF5C1196).withOpacity(0.6),
-                      borderRadius: BorderRadius.circular(15.r),
-                    ),
-                    child: Center(
-                        child: Text(
-                      "Publish Room",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
+                      if(_formkey.currentState!.validate())
+                      {
+                        if(validateField.selectedPicture.isNotEmpty)
+                        {
+                            print("Value Stored");
+                        }
+                        else
+                        {
+                          print("Upload room Photo");
+                        }
+                      
+                        
+                      }
+                    },
+                    child: Container(
+                      width: 325.w,
+                      height: 50.h,
+                      decoration: BoxDecoration(
+                        color: Color(0xFF5C1196).withOpacity(0.6),
+                        borderRadius: BorderRadius.circular(15.r),
                       ),
-                    )),
-                  ),
+                      child: Center(
+                          child: Text(
+                        "Publish Room",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      )),
+                    ),
+                  );  
+                  },
+                  
                 ),
 
                 SizedBox(
