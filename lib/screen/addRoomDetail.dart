@@ -60,7 +60,7 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
   }
 
   @override
-  void initState() async
+  void initState()
   {
     asynchronousMethodForFetchingRoomDetail();
     super.initState();
