@@ -1,5 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+import 'package:room_rent_app/provider/multiplePictureDisplayProvider.dart';
 import 'package:room_rent_app/util/customColor.dart';
 
 class AddRoomDetail extends StatefulWidget {
@@ -93,7 +97,11 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                             ),
                           ),
                           IconButton(
-                              onPressed: () {},
+                              onPressed: () 
+                              {
+                                 Provider.of<MultiplePictureDisplayProvider>(context, listen: false).updateSelectedPictureList();
+
+                              },
                               icon: Icon(
                                 Icons.add,
                                 color: Color(0xFFAC8AE9).withOpacity(0.9),
@@ -104,20 +112,32 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                       Container(
                         width: double.infinity.w,
                         height: 110.h,
-                        child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: 10,
-                            itemBuilder: (context, index) {
-                              return Container(
-                                margin: EdgeInsets.only(right: 10.0),
-                                width: 150.w,
-                                // height: 60.h,
-                                decoration: BoxDecoration(
-                                    color: CustomColor.primaryTextColor
-                                        .withOpacity(0.1),
-                                    borderRadius: BorderRadius.circular(25.r)),
+                        child: Consumer<MultiplePictureDisplayProvider>(
+                          builder: (context, displaySelectedPicture, _)
+                          {
+                            return ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              itemCount: Provider.of<MultiplePictureDisplayProvider>(context,listen: false).selectedPicture.isEmpty ? 5 : Provider.of<MultiplePictureDisplayProvider>(context,listen: false).selectedPicture.length,
+                              itemBuilder: (context, index) {
+                                return Container(
+                                  margin: EdgeInsets.only(right: 10.0),
+                                  width: 150.w,
+                                  // height: 60.h,
+                                  decoration: BoxDecoration(
+                                      color: CustomColor.primaryTextColor
+                                          .withOpacity(0.1),
+                                      borderRadius: BorderRadius.circular(25.r),
+                                      ),
+                                      child: Provider.of<MultiplePictureDisplayProvider>(context,listen: false).selectedPicture.isEmpty ? null : ClipRRect(
+                                         borderRadius: BorderRadius.circular(25.r),
+                                        child: Image.file(File(Provider.of<MultiplePictureDisplayProvider>(context,listen: false).selectedPicture[index].path), fit: BoxFit.cover,),
+                                        ),
+                                );
+                              }
                               );
-                            }),
+                          },
+                         
+                        ),
                       ),
                     ],
                   ),
