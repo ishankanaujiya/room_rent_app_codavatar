@@ -352,36 +352,41 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                       ],
                     ),
                   ),
-                  Container(
-                    margin:
-                        EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
-                    // color: Colors.cyan,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          "Location",
-                          style: TextStyle(
-                            color: Color(0xFFAC8AE9).withOpacity(0.9),
-                            fontSize: 11.sp,
-                            fontWeight: FontWeight.bold,
-                          ),
+                  // Container(
+                  //   margin:
+                  //       EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+                  //   // color: Colors.cyan,
+                  //   child: Column(
+                  //     crossAxisAlignment: CrossAxisAlignment.start,
+                  //     children: <Widget>[
+                  //       Text(
+                  //         "Location",
+                  //         style: TextStyle(
+                  //           color: Color(0xFFAC8AE9).withOpacity(0.9),
+                  //           fontSize: 11.sp,
+                  //           fontWeight: FontWeight.bold,
+                  //         ),
+                  //       ),
+                  //       SizedBox(
+                  //         height: 15.h,
+                  //       ),
+                  //       Container(
+                  //         // margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+                  //         width: double.infinity.w,
+                  //         height: 200.h,
+                  //         decoration: BoxDecoration(
+                  //             color:
+                  //                 CustomColor.primaryTextColor.withOpacity(0.1),
+                  //             borderRadius: BorderRadius.circular(25.r)),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
+
+                   SizedBox(
+                          height: 20.h,
                         ),
-                        SizedBox(
-                          height: 15.h,
-                        ),
-                        Container(
-                          // margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
-                          width: double.infinity.w,
-                          height: 200.h,
-                          decoration: BoxDecoration(
-                              color:
-                                  CustomColor.primaryTextColor.withOpacity(0.1),
-                              borderRadius: BorderRadius.circular(25.r)),
-                        ),
-                      ],
-                    ),
-                  ),
+
                   Container(
                     margin: EdgeInsets.symmetric(horizontal: 20.0),
                     padding: EdgeInsets.only(
