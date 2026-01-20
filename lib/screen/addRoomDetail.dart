@@ -2,9 +2,14 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:room_rent_app/provider/multiplePictureDisplayProvider.dart';
+import 'package:room_rent_app/service/firebaseService.dart';
+import 'package:room_rent_app/service/pictureToCloudinary.dart';
 import 'package:room_rent_app/util/customColor.dart';
+import 'package:room_rent_app/util/keyForSharedPreference.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AddRoomDetail extends StatefulWidget {
   const AddRoomDetail({super.key});
@@ -24,11 +29,42 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
   var emailController = new TextEditingController();
   var roomPriceController = new TextEditingController();
   var numberOfRoomController = new TextEditingController();
-  var numberPfBathroomController = new TextEditingController();
+  var numberofBathroomController = new TextEditingController();
   var squareFeetController = new TextEditingController();
   var electricityPriceController = new TextEditingController();
   var waterPriceController = new TextEditingController();
 
+   List<String> secureUrlFromCloudinary = [];
+
+  String? userFullName;
+  String? userEmail;
+  String? userPhoneNumber;
+
+  getStoredValue() async
+  {
+    var pref = await SharedPreferences.getInstance();
+    userFullName = await pref.getString(KeyForSharedPreference.KEYFORFULLNAME) ?? ""; 
+    userEmail = await pref.getString(KeyForSharedPreference.KEYFOREMAIL) ?? ""; 
+    userPhoneNumber = await pref.getString(KeyForSharedPreference.KEYFORPHONENUMBER) ?? ""; 
+
+    print(userFullName);
+    setState(() {
+      
+    });
+
+  }
+
+  asynchronousMethodForFetchingRoomDetail() async
+  {
+    await getStoredValue();
+  }
+
+  @override
+  void initState() async
+  {
+    asynchronousMethodForFetchingRoomDetail();
+    super.initState();
+  }
 
 
   @override
@@ -740,7 +776,7 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                               width: 160.w,
                               height: 40.h,
                               child: TextFormField(
-                                controller: numberPfBathroomController,
+                                controller: numberofBathroomController,
                                 validator: (value)
                                 {
                                   if(value == null || value == "")
@@ -1020,13 +1056,52 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                   builder: (context, validateField, _)
                   {
                     return InkWell(
-                    onTap: ()
+                    onTap: () async
                     {
                       if(_formkey.currentState!.validate())
                       {
                         if(validateField.selectedPicture.isNotEmpty)
                         {
-                            print("Value Stored");
+                           for(int i = 0; i<Provider.of<MultiplePictureDisplayProvider>(context,listen: false).selectedPicture.length; i++)
+                            {
+                              XFile? selectedPicturePath = await Provider.of<MultiplePictureDisplayProvider>(context,listen: false).selectedPicture[i];
+                              File? convertedValue = File(selectedPicturePath.path);
+
+                            String secureUrl = await PictureToCloudinary().uploadPictureToCloudinary(convertedValue);
+                            secureUrlFromCloudinary.add(secureUrl);
+                            
+                            }
+
+                          if(secureUrlFromCloudinary.isNotEmpty)
+                          {
+                            Map<String, dynamic> roomDetail = {
+                              "Full Name" : userFullName,
+                              "Email" : userEmail,
+                              "Phone Number" : userPhoneNumber,
+                              "secureUrl" : secureUrlFromCloudinary,
+                              "Room Title" : roomTitleController.text,
+                              "Description" : descriptionController.text,
+                              "Location" : addressController.text,
+                              "Contact Number" : phoneNumberController.text,
+                              "Contact Email" : emailController.text,
+                              "Room Price" : roomPriceController.text,
+                              "Number Of Room" : numberOfRoomController.text,
+                              "Number Of Bathroom" : numberofBathroomController.text,
+                              "Square Feet" : squareFeetController.text,
+                              "Electricity Price" : electricityPriceController.text,
+                              "Water Price" : waterPriceController.text,
+                            };
+
+                            await FirebaseService().storeRoomDetail(roomDetail);
+
+                            print("Room Details Stored In FirebaseFirestore");
+
+                            
+
+                            
+                          }
+                          print("Value are");
+                          print(secureUrlFromCloudinary);
                         }
                         else
                         {
