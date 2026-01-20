@@ -7,6 +7,7 @@ class FirebaseService
   storeUserDetail(Map<String, dynamic> userDetail) async
   {
     return await firebaseFirestore.doc().set(userDetail);
+    
   }
 
   
