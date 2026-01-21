@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
+import 'package:room_rent_app/provider/circularLoadingProvider.dart';
 import 'package:room_rent_app/provider/multiplePictureDisplayProvider.dart';
 import 'package:room_rent_app/service/firebaseService.dart';
 import 'package:room_rent_app/service/pictureToCloudinary.dart';
@@ -1064,6 +1065,7 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                     return InkWell(
                     onTap: () async
                     {
+                      await Provider.of<CircularLoadingProvider>(context, listen: false).changeLoadingStatus(true);
                       if(_formkey.currentState!.validate())
                       {
                         if(validateField.selectedPicture.isNotEmpty)
@@ -1102,6 +1104,8 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
 
                             await FirebaseService().storeRoomDetail(roomDetail);
 
+                            await Provider.of<CircularLoadingProvider>(context, listen: false).changeLoadingStatus(false);
+
                             print("Room Details Stored In FirebaseFirestore");
 
                             
@@ -1110,30 +1114,46 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                           }
                           print("Value are");
                           print(secureUrlFromCloudinary);
+
+                          
                         }
                         else
                         {
+                          await Future.delayed(Duration(seconds: 2));
+                          await Provider.of<CircularLoadingProvider>(context, listen: false).changeLoadingStatus(false);
                           print("Upload room Photo");
                         }
-                      
+                      }
+                      else
+                      {
+                        await Future.delayed(Duration(seconds: 2));
                         
+                        await Provider.of<CircularLoadingProvider>(context, listen: false).changeLoadingStatus(false);
                       }
                     },
-                    child: Container(
-                      width: 325.w,
-                      height: 50.h,
-                      decoration: BoxDecoration(
-                        color: Color(0xFF5C1196).withOpacity(0.6),
-                        borderRadius: BorderRadius.circular(15.r),
-                      ),
-                      child: Center(
-                          child: Text(
-                        "Publish Room",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
+                    child: Consumer<CircularLoadingProvider>(
+                      builder: (context, circularLoading, _)
+                      {
+                        return Container(
+                        width: 325.w,
+                        height: 50.h,
+                        decoration: BoxDecoration(
+                          color: Color(0xFF5C1196).withOpacity(0.6),
+                          borderRadius: BorderRadius.circular(15.r),
                         ),
-                      )),
+                        child: Center(
+                            child: Provider.of<CircularLoadingProvider>(context).isLoading ? CircularProgressIndicator() 
+                            :
+                             Text(
+                          "Publish Room",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        )),
+                      );
+                      },
+                      
                     ),
                   );  
                   },

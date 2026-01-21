@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import 'package:room_rent_app/provider/circularLoadingProvider.dart';
 import 'package:room_rent_app/provider/multiplePictureDisplayProvider.dart';
 import 'package:room_rent_app/provider/sharedPreferenceForUserDetailProvider.dart';
 import 'package:room_rent_app/screen/addRoomDetail.dart';
@@ -17,6 +18,7 @@ void main() async
     providers: [
       ChangeNotifierProvider(create: (context) => MultiplePictureDisplayProvider(),),
       ChangeNotifierProvider(create: (context) => SharedPreferenceForUserDetailProvider(),),
+      ChangeNotifierProvider(create: (context) => CircularLoadingProvider(),),
     ],
     child: const MyApp(),
     ));
