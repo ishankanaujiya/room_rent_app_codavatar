@@ -21,4 +21,9 @@ class FirebaseService
   {
     return await firebaseFirestoreForRoomDetail.doc().set(roomDetail);
   }
+
+  Future<Stream<QuerySnapshot>> getRoomDetail() async
+  {
+    return await firebaseFirestoreForRoomDetail.snapshots();
+  }
 }

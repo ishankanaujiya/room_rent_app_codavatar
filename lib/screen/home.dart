@@ -1,5 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
+import 'package:room_rent_app/service/firebaseService.dart';
 import 'package:room_rent_app/util/customColor.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -10,6 +13,18 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  Stream? roomStream;
+  getRoomDetail() async {
+    roomStream = await FirebaseService().getRoomDetail();
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    getRoomDetail();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,168 +72,248 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
+          
+
               Expanded(
-                child: SingleChildScrollView(
-                  child: Container(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
-                    width: double.infinity.w,
-                    decoration: BoxDecoration(
-                      // color: Colors.cyan,
-                      //  color: Color.fromARGB(255, 213, 176, 241).withOpacity(0.1),
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(25.r),
-                      ),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Container(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 10.0, vertical: 10.0),
-                          width: double.infinity.w,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(25.r),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black.withOpacity(0.1),
-                                  blurRadius: 10,
-                                  spreadRadius: 1,
-                                  offset: Offset(7, 10),
-                                )
-                              ]),
-                          child: Column(
-                            children: <Widget>[
-                              Container(
+                child: Container(
+                  // height: 400.h,
+                  child: StreamBuilder(
+                      stream: roomStream,
+                      builder: (context, AsyncSnapshot snapshot) {
+                        return snapshot.hasData
+                            ? ListView.builder(
+                              itemCount: snapshot.data.docs.length,
+                              itemBuilder: (context, index) 
+                            {
+                              DocumentSnapshot documentSnapshot = snapshot.data.docs[index];
+                              Timestamp timeStamp = documentSnapshot['TimeStamp'];
+                              DateTime date = timeStamp.toDate();
+
+                              String formattedDate = DateFormat('yyyy-MM-dd').format(date);
+                              print("The Value are: ");
+                              print(documentSnapshot.data());
+                              print(documentSnapshot['TimeStamp']);
+
+                              
+                                return Container(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 16.0, vertical: 10.0),
                                   width: double.infinity.w,
-                                  height: 200.h,
                                   decoration: BoxDecoration(
-                                    color: Color.fromARGB(255, 114, 100, 124)
-                                        .withOpacity(0.1),
-                                    borderRadius: BorderRadius.circular(25.r),
+                                    // color: Colors.cyan,
+                                    //  color: Color.fromARGB(255, 213, 176, 241).withOpacity(0.1),
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(25.r),
+                                    ),
                                   ),
-                                  child: Image.asset(
-                                      "assets/logInScreenPersonPicture.png")),
-                              Container(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 10.0,
-                                ),
-                                margin: EdgeInsets.symmetric(vertical: 17.0),
-                                width: double.infinity.w,
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: <Widget>[
-                                    Text(
-                                      "Room Title",
-                                      style: TextStyle(
-                                        color: CustomColor.primaryTextColor,
-                                        fontSize: 18.sp,
-                                        fontWeight: FontWeight.bold,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Container(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 10.0, vertical: 10.0),
+                                        width: double.infinity.w,
+                                        decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(25.r),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.black
+                                                    .withOpacity(0.1),
+                                                blurRadius: 10,
+                                                spreadRadius: 1,
+                                                offset: Offset(7, 10),
+                                              )
+                                            ]),
+                                        child: Column(
+                                          children: <Widget>[
+                                            Container(
+                                                width: double.infinity.w,
+                                                height: 200.h,
+                                                decoration: BoxDecoration(
+                                                  color: Color.fromARGB(
+                                                          255, 114, 100, 124)
+                                                      .withOpacity(0.1),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          25.r),
+                                                ),
+                                                child: Image.asset(
+                                                    "assets/logInScreenPersonPicture.png")),
+                                            Container(
+                                              padding: EdgeInsets.symmetric(
+                                                horizontal: 10.0,
+                                              ),
+                                              margin: EdgeInsets.symmetric(
+                                                  vertical: 17.0),
+                                              width: double.infinity.w,
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: <Widget>[
+                                                  Text(
+                                                    documentSnapshot['Room Title'],
+                                                    style: TextStyle(
+                                                      color: CustomColor
+                                                          .primaryTextColor,
+                                                      fontSize: 18.sp,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    documentSnapshot['Room Price'],
+                                                    style: TextStyle(
+                                                      color: Color(0xFF5C1196),
+                                                      fontSize: 18.sp,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Container(
+                                              padding: EdgeInsets.symmetric(
+                                                horizontal: 10.0,
+                                              ),
+                                              margin: EdgeInsets.only(
+                                                  top: 0.0, bottom: 0.0),
+                                              width: double.infinity.w,
+                                              child: Text(
+                                                documentSnapshot['Description'],
+                                                style: TextStyle(
+                                                  color: CustomColor
+                                                      .primaryTextColor
+                                                      .withOpacity(0.7),
+                                                  fontSize: 13.sp,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                                maxLines: 2,
+                                                overflow: TextOverflow.ellipsis,
+                                              ),
+                                            ),
+                                            Container(
+                                              // color: Colors.cyan,
+                                              padding: EdgeInsets.symmetric(
+                                                horizontal: 10.0,
+                                              ),
+                                              margin: EdgeInsets.only(
+                                                  top: 20.0, bottom: 15.0),
+                                              width: double.infinity.w,
+                                              child: Column(
+                                               crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: <Widget>[
+                                                  Row(
+                                                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                    children: <Widget>[
+                                                      Icon(
+                                                        Icons.call,
+                                                        color: Colors.green,
+                                                        size: 20,
+                                                      ),
+                                                      SizedBox(
+                                                        width: 10.w,
+                                                      ),
+                                                      Text(
+                                                        documentSnapshot['Contact Number'],
+                                                        style: TextStyle(
+                                                          color: CustomColor
+                                                              .primaryTextColor
+                                                              .withOpacity(0.7),
+                                                          fontSize: 13.sp,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+
+                                                   SizedBox(
+                                                    height: 20.h,
+                                                   ),
+                                                  Row(
+                                                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                    children: <Widget>[
+                                                      Icon(
+                                                        Icons.mail,
+                                                        color: Colors
+                                                            .deepOrangeAccent,
+                                                        size: 20,
+                                                      ),
+                                                      SizedBox(
+                                                        width: 8.w,
+                                                      ),
+                                                      Text(
+                                                        documentSnapshot['Contact Email'],
+                                                        style: TextStyle(
+                                                          color: CustomColor
+                                                              .primaryTextColor
+                                                              .withOpacity(0.7),
+                                                          fontSize: 13.sp,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+
+                                            Container(
+                                               padding: EdgeInsets.symmetric(
+                                                horizontal: 10.0,
+                                              ),
+                                              margin: EdgeInsets.only(
+                                                  top: 5.0, bottom: 15.0),
+                                              width: double.infinity.w,
+                                              child: Row(
+                                                children: <Widget>[
+                                                  Text(
+                                                  "Posted on: ",
+                                                  style: TextStyle(
+                                                    color: CustomColor
+                                                        .primaryTextColor
+                                                        .withOpacity(0.7),
+                                                    fontSize: 13.sp,
+                                                    fontWeight:
+                                                        FontWeight.w500,
+                                                  ),
+                                                ),
+
+                                                Text(
+                                                  // DateFormat('dd MMMM yyyy').format((documentSnapshot['TimeStamp'] as Timestamp).toDate(),),
+                                                 formattedDate,
+                                                  style: TextStyle(
+                                                    color: CustomColor
+                                                        .primaryTextColor
+                                                        .withOpacity(0.7),
+                                                    fontSize: 13.sp,
+                                                    fontWeight:
+                                                        FontWeight.w500,
+                                                  ),
+                                                ),
+                                                ],
+                                              ),
+                                            )
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                    Text(
-                                      "Rs. 70000",
-                                      style: TextStyle(
-                                        color: Color(0xFF5C1196),
-                                        fontSize: 18.sp,
-                                        fontWeight: FontWeight.bold,
+                                      SizedBox(
+                                        height: 50.h,
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Container(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 10.0,
-                                ),
-                                margin: EdgeInsets.symmetric(vertical: 0.0),
-                                width: double.infinity.w,
-                                child: Text(
-                                  "This is the description of the room which post is published",
-                                  style: TextStyle(
-                                    color: CustomColor.primaryTextColor
-                                        .withOpacity(0.7),
-                                    fontSize: 13.sp,
-                                    fontWeight: FontWeight.w500,
+                                    ],
                                   ),
-                                  maxLines: 2,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ),
-                              Container(
-                                // color: Colors.cyan,
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 10.0,
-                                ),
-                                margin: EdgeInsets.symmetric(vertical: 15.0),
-                                width: double.infinity.w,
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: <Widget>[
-                                    Row(
-                                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: <Widget>[
-                                        Icon(
-                                          Icons.call,
-                                          color: Colors.green,
-                                          size: 20,
-                                        ),
-                                        SizedBox(
-                                          width: 10.w,
-                                        ),
-                                        Text(
-                                          "9861351391",
-                                          style: TextStyle(
-                                            color: CustomColor.primaryTextColor
-                                                .withOpacity(0.7),
-                                            fontSize: 13.sp,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: <Widget>[
-                                        Icon(
-                                          Icons.mail,
-                                          color: Colors.deepOrangeAccent,
-                                          size: 20,
-                                        ),
-                                        SizedBox(
-                                          width: 8.w,
-                                        ),
-                                        Text(
-                                          "ram@gmail.com",
-                                          style: TextStyle(
-                                            color: CustomColor.primaryTextColor
-                                                .withOpacity(0.7),
-                                            fontSize: 13.sp,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          height: 50.h,
-                        ),
-                
-                       
-                
-                      ],
-                    ),
-                  ),
+                                );
+                              })
+                            : Text("No Room");
+                      }),
                 ),
-              ),
+              )
             ],
           ),
         ),
