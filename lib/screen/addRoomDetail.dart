@@ -240,6 +240,7 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                                 return "Room Title is required";
                               }
                             },
+                            maxLength: 20,
                             decoration: InputDecoration(
                               border: UnderlineInputBorder(
                                 borderSide: BorderSide(
@@ -1107,10 +1108,10 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
 
                             Fluttertoast.showToast(
                             msg: "Room Published Successfully",
-                            toastLength: Toast.LENGTH_SHORT,
+                            toastLength: Toast.LENGTH_LONG,
                             gravity: ToastGravity.CENTER,
                             timeInSecForIosWeb: 1,
-                            backgroundColor: Colors.red,
+                            backgroundColor: Color(0xFF5C1196).withOpacity(0.6),
                             textColor: Colors.white,
                             fontSize: 16.0
                             );
@@ -1133,10 +1134,10 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                           await Future.delayed(Duration(seconds: 2));
                           Fluttertoast.showToast(
                             msg: "Upload Room Photo",
-                            toastLength: Toast.LENGTH_SHORT,
+                            toastLength: Toast.LENGTH_LONG,
                             gravity: ToastGravity.CENTER,
                             timeInSecForIosWeb: 1,
-                            backgroundColor: Colors.red,
+                            backgroundColor: Color(0xFF5C1196).withOpacity(0.6),
                             textColor: Colors.white,
                             fontSize: 16.0
                             );

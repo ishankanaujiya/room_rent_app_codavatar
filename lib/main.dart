@@ -6,6 +6,7 @@ import 'package:room_rent_app/provider/circularLoadingProvider.dart';
 import 'package:room_rent_app/provider/multiplePictureDisplayProvider.dart';
 import 'package:room_rent_app/provider/sharedPreferenceForUserDetailProvider.dart';
 import 'package:room_rent_app/screen/addRoomDetail.dart';
+import 'package:room_rent_app/screen/home.dart';
 import 'package:room_rent_app/screen/loginScreen.dart';
 import 'package:room_rent_app/screen/registrationScreen.dart';
 import 'package:room_rent_app/screen/selectMultiplePicture.dart';
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
         
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
-        home: const AddRoomDetail(),
+        home: const HomeScreen(),
       ),
     );
   }
