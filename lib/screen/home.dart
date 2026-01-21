@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
+import 'package:room_rent_app/provider/sharedPreferenceForUserDetailProvider.dart';
 import 'package:room_rent_app/service/firebaseService.dart';
 import 'package:room_rent_app/util/customColor.dart';
 
@@ -14,19 +16,32 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   Stream? roomStream;
+
   getRoomDetail() async {
     roomStream = await FirebaseService().getRoomDetail();
     setState(() {});
   }
+  
+  getLoggedInUserDetail(BuildContext context) async
+  {
+    Provider.of<SharedPreferenceForUserDetailProvider>(context, listen: false).getStoredUserDetail();
+  }
+
+  getDetail() async
+  {
+    await getRoomDetail();
+    await getLoggedInUserDetail(context);
+  }
 
   @override
   void initState() {
-    getRoomDetail();
+     getDetail();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    print("This is Main Builder");
     return Scaffold(
       // backgroundColor: Color.fromARGB(255, 248, 245, 255),
       backgroundColor: Colors.white,
@@ -55,13 +70,19 @@ class _HomeScreenState extends State<HomeScreen> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Text(
-                          "UserName",
-                          style: TextStyle(
-                            color: CustomColor.primaryTextColor,
-                            fontSize: 22.sp,
-                            fontWeight: FontWeight.bold,
-                          ),
+                        Consumer<SharedPreferenceForUserDetailProvider>(
+                          builder: (context, sharedPreferenceValue, _)
+                          {
+                            return Text(
+                            Provider.of<SharedPreferenceForUserDetailProvider>(context, listen: false).getUserFullName,
+                            style: TextStyle(
+                              color: CustomColor.primaryTextColor,
+                              fontSize: 22.sp,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          );
+                          },
+                          
                         ),
                       ],
                     ),
@@ -140,8 +161,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                                       BorderRadius.circular(
                                                           25.r),
                                                 ),
-                                                child: Image.asset(
-                                                    "assets/logInScreenPersonPicture.png")),
+                                                child: Image.network(
+                                                    documentSnapshot['secureUrl'][0], fit: BoxFit.contain,)),
                                             Container(
                                               padding: EdgeInsets.symmetric(
                                                 horizontal: 10.0,
@@ -165,7 +186,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                     ),
                                                   ),
                                                   Text(
-                                                    documentSnapshot['Room Price'],
+                                                    "Rs. ${documentSnapshot['Room Price']}",
                                                     style: TextStyle(
                                                       color: Color(0xFF5C1196),
                                                       fontSize: 18.sp,
@@ -278,10 +299,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   style: TextStyle(
                                                     color: CustomColor
                                                         .primaryTextColor
-                                                        .withOpacity(0.7),
-                                                    fontSize: 13.sp,
+                                                        .withOpacity(0.2),
+                                                    fontSize: 11.sp,
                                                     fontWeight:
-                                                        FontWeight.w500,
+                                                        FontWeight.w600,
                                                   ),
                                                 ),
 
@@ -291,10 +312,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   style: TextStyle(
                                                     color: CustomColor
                                                         .primaryTextColor
-                                                        .withOpacity(0.7),
-                                                    fontSize: 13.sp,
+                                                        .withOpacity(0.2),
+                                                    fontSize: 11.sp,
                                                     fontWeight:
-                                                        FontWeight.w500,
+                                                        FontWeight.w600,
                                                   ),
                                                 ),
                                                 ],
@@ -310,7 +331,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                 );
                               })
-                            : Text("No Room");
+                            : Text("");
                       }),
                 ),
               )
