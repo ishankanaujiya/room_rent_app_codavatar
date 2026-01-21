@@ -27,11 +27,6 @@ class PictureToCloudinary
       return jsonResponse['secure_url'];
 
     }
-    else
-    {
-      return null;
-    }
-    
     
 
   }

@@ -1065,9 +1065,9 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                     return InkWell(
                     onTap: () async
                     {
-                      await Provider.of<CircularLoadingProvider>(context, listen: false).changeLoadingStatus(true);
                       if(_formkey.currentState!.validate())
                       {
+                        await Provider.of<CircularLoadingProvider>(context, listen: false).changeLoadingStatus(true);
                         if(validateField.selectedPicture.isNotEmpty)
                         {
                           secureUrlFromCloudinary.clear();
@@ -1124,12 +1124,12 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                           print("Upload room Photo");
                         }
                       }
-                      else
-                      {
-                        await Future.delayed(Duration(seconds: 2));
+                      // else
+                      // {
+                      //   await Future.delayed(Duration(seconds: 2));
                         
-                        await Provider.of<CircularLoadingProvider>(context, listen: false).changeLoadingStatus(false);
-                      }
+                      //   await Provider.of<CircularLoadingProvider>(context, listen: false).changeLoadingStatus(false);
+                      // }
                     },
                     child: Consumer<CircularLoadingProvider>(
                       builder: (context, circularLoading, _)
