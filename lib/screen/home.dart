@@ -43,7 +43,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     print("This is Main Builder");
     return Scaffold(
-      // backgroundColor: Color.fromARGB(255, 248, 245, 255),
       backgroundColor: Colors.white,
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 20.0),
