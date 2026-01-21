@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:room_rent_app/provider/circularLoadingProvider.dart';
@@ -1104,6 +1105,16 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
 
                             await FirebaseService().storeRoomDetail(roomDetail);
 
+                            Fluttertoast.showToast(
+                            msg: "Room Published Successfully",
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.CENTER,
+                            timeInSecForIosWeb: 1,
+                            backgroundColor: Colors.red,
+                            textColor: Colors.white,
+                            fontSize: 16.0
+                            );
+
                             await Provider.of<CircularLoadingProvider>(context, listen: false).changeLoadingStatus(false);
 
                             print("Room Details Stored In FirebaseFirestore");
@@ -1120,6 +1131,15 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                         else
                         {
                           await Future.delayed(Duration(seconds: 2));
+                          Fluttertoast.showToast(
+                            msg: "Upload Room Photo",
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.CENTER,
+                            timeInSecForIosWeb: 1,
+                            backgroundColor: Colors.red,
+                            textColor: Colors.white,
+                            fontSize: 16.0
+                            );
                           await Provider.of<CircularLoadingProvider>(context, listen: false).changeLoadingStatus(false);
                           print("Upload room Photo");
                         }
