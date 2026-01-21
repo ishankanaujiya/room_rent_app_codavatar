@@ -59,36 +59,40 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          "Hello,",
-                          style: TextStyle(
-                            color: CustomColor.primaryTextColor,
-                            fontSize: 22.sp,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Consumer<SharedPreferenceForUserDetailProvider>(
-                          builder: (context, sharedPreferenceValue, _)
-                          {
-                            return Text(
-                            Provider.of<SharedPreferenceForUserDetailProvider>(context, listen: false).getUserFullName,
+                    Container(
+                      padding: EdgeInsets.only( top: 15.0),
+                      // color: Colors.cyan,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            "Hello",
                             style: TextStyle(
-                              color: CustomColor.primaryTextColor,
-                              fontSize: 22.sp,
-                              fontWeight: FontWeight.bold,
+                              color: CustomColor.primaryTextColor, 
+                              fontSize: 20.sp,
+                              fontWeight: FontWeight.w500,
                             ),
-                          );
-                          },
-                          
-                        ),
-                      ],
+                          ),
+                          Consumer<SharedPreferenceForUserDetailProvider>(
+                            builder: (context, sharedPreferenceValue, _)
+                            {
+                              return Text(
+                              Provider.of<SharedPreferenceForUserDetailProvider>(context, listen: false).getUserFullName,
+                              style: TextStyle(
+                                color: Color(0xFF5C1196).withOpacity(0.6),
+                                fontSize: 22.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            );
+                            },
+                            
+                          ),
+                        ],
+                      ),
                     ),
                     CircleAvatar(
                       backgroundColor: Color(0xFF5C1196).withOpacity(0.6),
-                      radius: 35.r,
+                      radius: 30.r,
                     ),
                   ],
                 ),
@@ -339,6 +343,24 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
+      floatingActionButton: SizedBox(
+        width: 130.w,
+        height: 70.h,
+        child: FloatingActionButton(
+          onPressed: ()
+          {
+
+          },
+           child: Text("Publish Room", style: TextStyle(
+            color: Colors.white,
+            fontSize: 13.sp,
+            fontWeight: FontWeight.bold,
+           ),),
+           backgroundColor: Color(0xFF5C1196).withOpacity(0.5),
+           foregroundColor: Colors.white,
+           splashColor: Color(0xFF5C1196),
+           ),
+           ),
     );
   }
 }
