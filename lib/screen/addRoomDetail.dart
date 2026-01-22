@@ -8,6 +8,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:room_rent_app/provider/circularLoadingProvider.dart';
 import 'package:room_rent_app/provider/multiplePictureDisplayProvider.dart';
+import 'package:room_rent_app/screen/home.dart';
 import 'package:room_rent_app/service/firebaseService.dart';
 import 'package:room_rent_app/service/pictureToCloudinary.dart';
 import 'package:room_rent_app/util/customColor.dart';
@@ -113,7 +114,11 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                               )
                             ]),
                         child: IconButton(
-                            onPressed: () {},
+                            onPressed: () 
+                            {
+                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()
+                                ));
+                            },
                             icon: Icon(Icons.keyboard_arrow_left_outlined),
                             color: Color.fromARGB(255, 237, 231, 252),
                             iconSize: 30.0,
@@ -1117,6 +1122,9 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                             );
 
                             await Provider.of<CircularLoadingProvider>(context, listen: false).changeLoadingStatus(false);
+
+                             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()
+                            ));
 
                             print("Room Details Stored In FirebaseFirestore");
 

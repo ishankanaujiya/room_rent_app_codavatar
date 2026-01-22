@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:room_rent_app/provider/sharedPreferenceForUserDetailProvider.dart';
+import 'package:room_rent_app/screen/addRoomDetail.dart';
 import 'package:room_rent_app/service/firebaseService.dart';
 import 'package:room_rent_app/util/customColor.dart';
 
@@ -348,6 +349,8 @@ class _HomeScreenState extends State<HomeScreen> {
         child: FloatingActionButton(
           onPressed: ()
           {
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => AddRoomDetail()
+            ));
 
           },
            child: Text("Publish Room", style: TextStyle(
