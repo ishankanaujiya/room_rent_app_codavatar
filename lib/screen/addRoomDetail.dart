@@ -74,7 +74,7 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 242, 237, 253),
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       body: SingleChildScrollView(
         child: Container(
           width: double.infinity.w,
@@ -93,7 +93,7 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                   height: 70.h,
                   decoration: BoxDecoration(
                     // color: Color.fromARGB(255, 221, 207, 253),
-                    color: Color.fromARGB(26, 233, 226, 250),
+                    color: Color.fromARGB(26, 78, 19, 218),
                   ),
                   child: Row(
                     children: <Widget>[
