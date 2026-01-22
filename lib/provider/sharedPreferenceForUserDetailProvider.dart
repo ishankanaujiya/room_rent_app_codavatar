@@ -7,10 +7,12 @@ class SharedPreferenceForUserDetailProvider extends ChangeNotifier
   String _userFullName = "";
   String _userEmail = "";
   String _userPhoneNumber = "";
+  String _userProfileSecureUrl = "";
 
   String get getUserFullName => _userFullName;
   String get getUserEmail => _userEmail;
   String get getUserPhoneNumber => _userPhoneNumber;
+  String get getUserProfileSecureUrl => _userProfileSecureUrl;
 
     getStoredUserDetail() async
     {
@@ -20,9 +22,11 @@ class SharedPreferenceForUserDetailProvider extends ChangeNotifier
         _userFullName = await pref.getString(KeyForSharedPreference.KEYFORFULLNAME) ?? ""; 
         _userEmail = await pref.getString(KeyForSharedPreference.KEYFOREMAIL) ?? ""; 
         _userPhoneNumber = await pref.getString(KeyForSharedPreference.KEYFORPHONENUMBER) ?? ""; 
+        _userProfileSecureUrl = await pref.getString(KeyForSharedPreference.KEYFORPROFILESECUREURL) ?? ""; 
         print("The User Full Name is: $_userFullName");
         print("The User Full Name is: $_userEmail");
         print("The User Full Name is: $_userPhoneNumber");
+        print("The User Profile SecureUrl is: $_userProfileSecureUrl");
         notifyListeners();
       }
       catch(e)
@@ -32,7 +36,7 @@ class SharedPreferenceForUserDetailProvider extends ChangeNotifier
       
     }
 
-    storeUserDetail(String fullName, String userEmail, String userPhoneNumber) async
+    storeUserDetail(String fullName, String userEmail, String userPhoneNumber, String userProfileSecureUrl) async
     {
       try
       {
@@ -43,6 +47,9 @@ class SharedPreferenceForUserDetailProvider extends ChangeNotifier
         await pref.setString(KeyForSharedPreference.KEYFOREMAIL, userEmail);
        
         await pref.setString(KeyForSharedPreference.KEYFORPHONENUMBER, userPhoneNumber);
+
+        await pref.setString(KeyForSharedPreference.KEYFORPROFILESECUREURL, userProfileSecureUrl);
+
   
         print("Value Stored");
         notifyListeners();

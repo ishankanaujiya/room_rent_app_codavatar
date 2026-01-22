@@ -3,10 +3,12 @@ import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:room_rent_app/screen/loginScreen.dart';
 import 'package:room_rent_app/service/firebaseAuth.dart';
 import 'package:room_rent_app/service/firebaseService.dart';
+import 'package:room_rent_app/service/pictureToCloudinary.dart';
 import 'package:room_rent_app/util/customColor.dart';
 
 class RegistrationScreen extends StatefulWidget {
@@ -554,13 +556,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       //   fontSize: 16.0,
                       // );
 
-                      Map<String, dynamic> userDetail = {
-                        "FullName": fullNameController.text,
-                        "Email": emailController.text,
-                        "PhoneNumber": phoneNumberController.text,
-                        "SecureUrl": "",
-                        "PublicId": ""
-                      };
 
                       //  await FirebaseService().storeUserDetail(userDetail);
                       //     print("Details Stored Successfully");
@@ -570,9 +565,31 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         UserCredential user = await FirebaseAuthentication()
                             .registerUser(
                                 emailController.text, passwordController.text);
-                        if (user.user != null) {
+                        if (user.user != null) 
+                        {
+                          String secureUrl = await PictureToCloudinary().uploadPictureToCloudinary(pickedPicture);
+
+                            Map<String, dynamic> userDetail = {
+                            "FullName": fullNameController.text,
+                            "Email": emailController.text,
+                            "PhoneNumber": phoneNumberController.text,
+                            "SecureUrl": secureUrl,
+                          };
                           await FirebaseService().storeUserDetail(userDetail);
                           print("Details Stored Successfully");
+
+                           Fluttertoast.showToast(
+                            msg: "User Registered Successfully",
+                            toastLength: Toast.LENGTH_LONG,
+                            gravity: ToastGravity.CENTER,
+                            timeInSecForIosWeb: 1,
+                            backgroundColor: Color(0xFF5C1196).withOpacity(0.6),
+                            textColor: Colors.white,
+                            fontSize: 16.0
+                            );
+
+
+
                           Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginInScreen()
                           ));
                         }

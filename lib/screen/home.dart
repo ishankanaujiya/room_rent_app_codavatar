@@ -52,50 +52,56 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Container(
-                width: double.infinity.w,
-                height: 100.h,
-                // color: Colors.cyan,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Container(
-                      padding: EdgeInsets.only( top: 15.0),
-                      // color: Colors.cyan,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            "Hello",
+              Consumer(
+                builder: (context, sharedPreferenceForSignedInUser, _)
+                {
+                  return Container(
+                  width: double.infinity.w,
+                  height: 100.h,
+                  // color: Colors.cyan,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Container(
+                        padding: EdgeInsets.only( top: 15.0),
+                        // color: Colors.cyan,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              "Hello",
+                              style: TextStyle(
+                                color: CustomColor.primaryTextColor, 
+                                fontSize: 20.sp,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                       
+                            Text(
+                            Provider.of<SharedPreferenceForUserDetailProvider>(context, listen: false).getUserFullName,
                             style: TextStyle(
-                              color: CustomColor.primaryTextColor, 
-                              fontSize: 20.sp,
-                              fontWeight: FontWeight.w500,
+                              color: Color(0xFF5C1196).withOpacity(0.6),
+                              fontSize: 22.sp,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                          Consumer<SharedPreferenceForUserDetailProvider>(
-                            builder: (context, sharedPreferenceValue, _)
-                            {
-                              return Text(
-                              Provider.of<SharedPreferenceForUserDetailProvider>(context, listen: false).getUserFullName,
-                              style: TextStyle(
-                                color: Color(0xFF5C1196).withOpacity(0.6),
-                                fontSize: 22.sp,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            );
-                            },
-                            
-                          ),
-                        ],
+                             
+                              
+                          
+                          ],
+                        ),
                       ),
-                    ),
-                    CircleAvatar(
-                      backgroundColor: Color(0xFF5C1196).withOpacity(0.6),
-                      radius: 30.r,
-                    ),
-                  ],
-                ),
+                      CircleAvatar(
+                        backgroundColor: Color(0xFF5C1196).withOpacity(0.6),
+                        backgroundImage: Provider.of<SharedPreferenceForUserDetailProvider>(context, listen: false).getUserProfileSecureUrl == "" ? null : NetworkImage(Provider.of<SharedPreferenceForUserDetailProvider>(context, listen: false).getUserProfileSecureUrl),
+                        radius: 30.r,
+                        child: Provider.of<SharedPreferenceForUserDetailProvider>(context, listen: false).getUserProfileSecureUrl == "" ? Icon(Icons.person, color: Colors.white,) : null,
+                      ),
+                    ],
+                  ),
+                );
+                },
+                
               ),
           
 

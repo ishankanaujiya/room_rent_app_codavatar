@@ -2,8 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 import 'package:room_rent_app/provider/sharedPreferenceForUserDetailProvider.dart';
+import 'package:room_rent_app/screen/home.dart';
 import 'package:room_rent_app/screen/homeScreen.dart';
 import 'package:room_rent_app/screen/registrationScreen.dart';
 import 'package:room_rent_app/service/firebaseAuth.dart';
@@ -269,12 +271,26 @@ class _LoginInScreenState extends State<LoginInScreen> {
                   print("Shared Preferences To Store Value");
               
 
-                  await SharedPreferenceForUserDetailProvider().storeUserDetail(documentSnapshot['FullName'], documentSnapshot['Email'], documentSnapshot['PhoneNumber']);
+                  await SharedPreferenceForUserDetailProvider().storeUserDetail(documentSnapshot['FullName'], documentSnapshot['Email'], documentSnapshot['PhoneNumber'], documentSnapshot['SecureUrl']);
+
+                  Fluttertoast.showToast(
+                  msg: "Logged In Successfully",
+                  toastLength: Toast.LENGTH_LONG,
+                  gravity: ToastGravity.CENTER,
+                  timeInSecForIosWeb: 1,
+                  backgroundColor: Color(0xFF5C1196).withOpacity(0.6),
+                  textColor: Colors.white,
+                  fontSize: 16.0
+                  );
+
+
+                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()
+                    ));
                   // await SharedPreferenceForUserDetailProvider().getStoredUserDetail();
 
                 //   final sharedPreference = Provider.of<SharedPreferenceForUserDetailProvider>(context, listen: false);
 
-                //   try
+                //   try  
                 //   {
                 //      await sharedPreference.storeUserDetail(documentSnapshot['FullName'], documentSnapshot['Email'], documentSnapshot['PhoneNumber']);
                 //   }
