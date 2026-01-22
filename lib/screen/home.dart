@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
+import 'package:room_rent_app/provider/roomDetailProvider.dart';
 import 'package:room_rent_app/provider/sharedPreferenceForUserDetailProvider.dart';
 import 'package:room_rent_app/screen/addRoomDetail.dart';
+import 'package:room_rent_app/screen/displayRoomDetail.dart';
 import 'package:room_rent_app/service/firebaseService.dart';
 import 'package:room_rent_app/util/customColor.dart';
 
@@ -130,7 +132,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 return InkWell(
                                   onTap: ()
                                   {
-                                    print(documentSnapshot.id);
+                                    Provider.of<RoomDetailProvider>(context, listen: false).updateDocumentSnapshot(documentSnapshot);
+                                     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => DisplayRoomDetail()
+                                    ));
                                   },
                                   splashColor: Colors.transparent,
                                   child: Container(

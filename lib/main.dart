@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:room_rent_app/provider/circularLoadingProvider.dart';
 import 'package:room_rent_app/provider/multiplePictureDisplayProvider.dart';
+import 'package:room_rent_app/provider/roomDetailProvider.dart';
 import 'package:room_rent_app/provider/sharedPreferenceForUserDetailProvider.dart';
 import 'package:room_rent_app/screen/addRoomDetail.dart';
 import 'package:room_rent_app/screen/displayRoomDetail.dart';
@@ -21,6 +22,7 @@ void main() async
       ChangeNotifierProvider(create: (context) => MultiplePictureDisplayProvider(),),
       ChangeNotifierProvider(create: (context) => SharedPreferenceForUserDetailProvider(),),
       ChangeNotifierProvider(create: (context) => CircularLoadingProvider(),),
+      ChangeNotifierProvider(create: (context) => RoomDetailProvider(),),
     ],
     child: const MyApp(),
     ));
@@ -43,7 +45,7 @@ class MyApp extends StatelessWidget {
         
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
-        home: const DisplayRoomDetail(),
+        home: const HomeScreen(),
       ),
     );
   }
