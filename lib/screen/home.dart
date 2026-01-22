@@ -124,220 +124,257 @@ class _HomeScreenState extends State<HomeScreen> {
                               print("The Value are: ");
                               print(documentSnapshot.data());
                               print(documentSnapshot['TimeStamp']);
+                              
 
                               
-                                return Container(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: 16.0, vertical: 10.0),
-                                  width: double.infinity.w,
-                                  decoration: BoxDecoration(
-                                    // color: Colors.cyan,
-                                    //  color: Color.fromARGB(255, 213, 176, 241).withOpacity(0.1),
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(25.r),
+                                return InkWell(
+                                  onTap: ()
+                                  {
+                                    print(documentSnapshot.id);
+                                  },
+                                  splashColor: Colors.transparent,
+                                  child: Container(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 16.0, vertical: 10.0),
+                                    width: double.infinity.w,
+                                    decoration: BoxDecoration(
+                                      // color: Colors.cyan,
+                                      //  color: Color.fromARGB(255, 213, 176, 241).withOpacity(0.1),
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(25.r),
+                                      ),
                                     ),
-                                  ),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      Container(
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: 10.0, vertical: 10.0),
-                                        width: double.infinity.w,
-                                        decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            borderRadius:
-                                                BorderRadius.circular(25.r),
-                                            boxShadow: [
-                                              BoxShadow(
-                                                color: Colors.black
-                                                    .withOpacity(0.1),
-                                                blurRadius: 10,
-                                                spreadRadius: 1,
-                                                offset: Offset(7, 10),
-                                              )
-                                            ]),
-                                        child: Column(
-                                          children: <Widget>[
-                                            Container(
-                                                width: double.infinity.w,
-                                                height: 200.h,
-                                                decoration: BoxDecoration(
-                                                  color: Color.fromARGB(
-                                                          255, 114, 100, 124)
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Container(
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 10.0, vertical: 10.0),
+                                          width: double.infinity.w,
+                                          decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius:
+                                                  BorderRadius.circular(25.r),
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  color: Colors.black
                                                       .withOpacity(0.1),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          25.r),
+                                                  blurRadius: 10,
+                                                  spreadRadius: 1,
+                                                  offset: Offset(7, 10),
+                                                )
+                                              ]),
+                                          child: Column(
+                                            children: <Widget>[
+                                              Container(
+                                                  width: double.infinity.w,
+                                                  height: 200.h,
+                                                  decoration: BoxDecoration(
+                                                    color: Color.fromARGB(
+                                                            255, 114, 100, 124)
+                                                        .withOpacity(0.1),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            25.r),
+                                                  ),
+                                                  child: Image.network(
+                                                      documentSnapshot['secureUrl'][0], fit: BoxFit.contain,)),
+                                              Container(
+                                                padding: EdgeInsets.symmetric(
+                                                  horizontal: 10.0,
                                                 ),
-                                                child: Image.network(
-                                                    documentSnapshot['secureUrl'][0], fit: BoxFit.contain,)),
-                                            Container(
-                                              padding: EdgeInsets.symmetric(
-                                                horizontal: 10.0,
+                                                margin: EdgeInsets.symmetric(
+                                                    vertical: 17.0),
+                                                width: double.infinity.w,
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: <Widget>[
+                                                    Text(
+                                                      documentSnapshot['Room Title'],
+                                                      style: TextStyle(
+                                                        color: CustomColor
+                                                            .primaryTextColor,
+                                                        fontSize: 18.sp,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      "Rs. ${documentSnapshot['Room Price']}",
+                                                      style: TextStyle(
+                                                        color: Color(0xFF5C1196),
+                                                        fontSize: 18.sp,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
-                                              margin: EdgeInsets.symmetric(
-                                                  vertical: 17.0),
-                                              width: double.infinity.w,
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: <Widget>[
-                                                  Text(
-                                                    documentSnapshot['Room Title'],
+                                              Container(
+                                                padding: EdgeInsets.symmetric(
+                                                  horizontal: 10.0,
+                                                ),
+                                                margin: EdgeInsets.only(
+                                                    top: 0.0, bottom: 0.0),
+                                                width: double.infinity.w,
+                                                child: Text(
+                                                  documentSnapshot['Description'],
+                                                  style: TextStyle(
+                                                    color: CustomColor
+                                                        .primaryTextColor
+                                                        .withOpacity(0.7),
+                                                    fontSize: 13.sp,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                                  maxLines: 2,
+                                                  overflow: TextOverflow.ellipsis,
+                                                ),
+                                              ),
+                                              Container(
+                                                // color: Colors.cyan,
+                                                padding: EdgeInsets.symmetric(
+                                                  horizontal: 10.0,
+                                                ),
+                                                margin: EdgeInsets.only(
+                                                    top: 20.0, bottom: 15.0),
+                                                width: double.infinity.w,
+                                                child: Column(
+                                                 crossAxisAlignment: CrossAxisAlignment.start,
+                                                  children: <Widget>[
+                                                    Row(
+                                                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                      children: <Widget>[
+                                                        Icon(
+                                                          Icons.call,
+                                                          color: Colors.green,
+                                                          size: 20,
+                                                        ),
+                                                        SizedBox(
+                                                          width: 10.w,
+                                                        ),
+                                                        Text(
+                                                          documentSnapshot['Contact Number'],
+                                                          style: TextStyle(
+                                                            color: CustomColor
+                                                                .primaryTextColor
+                                                                .withOpacity(0.7),
+                                                            fontSize: 13.sp,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                  
+                                                     SizedBox(
+                                                      height: 20.h,
+                                                     ),
+                                                    Row(
+                                                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                      children: <Widget>[
+                                                        Icon(
+                                                          Icons.mail,
+                                                          color: Colors
+                                                              .deepOrangeAccent,
+                                                          size: 20,
+                                                        ),
+                                                        SizedBox(
+                                                          width: 8.w,
+                                                        ),
+                                                        Text(
+                                                          documentSnapshot['Contact Email'],
+                                                          style: TextStyle(
+                                                            color: CustomColor
+                                                                .primaryTextColor
+                                                                .withOpacity(0.7),
+                                                            fontSize: 13.sp,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+
+                                                    SizedBox(
+                                                      height: 20.h,
+                                                     ),
+                                                    Row(
+                                                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                      children: <Widget>[
+                                                        Icon(
+                                                          Icons.location_pin,
+                                                          color: Color(0xFF5C1196),
+                                                          size: 20,
+                                                        ),
+                                                        SizedBox(
+                                                          width: 8.w,
+                                                        ),
+                                                        Text(
+                                                          documentSnapshot['Location'],
+                                                          style: TextStyle(
+                                                            color: CustomColor
+                                                                .primaryTextColor
+                                                                .withOpacity(0.7),
+                                                            fontSize: 13.sp,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    
+                                                  ],
+                                                ),
+                                              ),
+                                  
+                                              Container(
+                                                 padding: EdgeInsets.symmetric(
+                                                  horizontal: 10.0,
+                                                ),
+                                                margin: EdgeInsets.only(
+                                                    top: 5.0, bottom: 15.0),
+                                                width: double.infinity.w,
+                                                child: Row(
+                                                  children: <Widget>[
+                                                    Text(
+                                                    "Posted on: ",
                                                     style: TextStyle(
                                                       color: CustomColor
-                                                          .primaryTextColor,
-                                                      fontSize: 18.sp,
+                                                          .primaryTextColor
+                                                          .withOpacity(0.2),
+                                                      fontSize: 11.sp,
                                                       fontWeight:
-                                                          FontWeight.bold,
+                                                          FontWeight.w600,
                                                     ),
                                                   ),
+                                  
                                                   Text(
-                                                    "Rs. ${documentSnapshot['Room Price']}",
+                                                    // DateFormat('dd MMMM yyyy').format((documentSnapshot['TimeStamp'] as Timestamp).toDate(),),
+                                                   formattedDate,
                                                     style: TextStyle(
-                                                      color: Color(0xFF5C1196),
-                                                      fontSize: 18.sp,
+                                                      color: CustomColor
+                                                          .primaryTextColor
+                                                          .withOpacity(0.2),
+                                                      fontSize: 11.sp,
                                                       fontWeight:
-                                                          FontWeight.bold,
+                                                          FontWeight.w600,
                                                     ),
                                                   ),
-                                                ],
-                                              ),
-                                            ),
-                                            Container(
-                                              padding: EdgeInsets.symmetric(
-                                                horizontal: 10.0,
-                                              ),
-                                              margin: EdgeInsets.only(
-                                                  top: 0.0, bottom: 0.0),
-                                              width: double.infinity.w,
-                                              child: Text(
-                                                documentSnapshot['Description'],
-                                                style: TextStyle(
-                                                  color: CustomColor
-                                                      .primaryTextColor
-                                                      .withOpacity(0.7),
-                                                  fontSize: 13.sp,
-                                                  fontWeight: FontWeight.w500,
+                                                  ],
                                                 ),
-                                                maxLines: 2,
-                                                overflow: TextOverflow.ellipsis,
-                                              ),
-                                            ),
-                                            Container(
-                                              // color: Colors.cyan,
-                                              padding: EdgeInsets.symmetric(
-                                                horizontal: 10.0,
-                                              ),
-                                              margin: EdgeInsets.only(
-                                                  top: 20.0, bottom: 15.0),
-                                              width: double.infinity.w,
-                                              child: Column(
-                                               crossAxisAlignment: CrossAxisAlignment.start,
-                                                children: <Widget>[
-                                                  Row(
-                                                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                    children: <Widget>[
-                                                      Icon(
-                                                        Icons.call,
-                                                        color: Colors.green,
-                                                        size: 20,
-                                                      ),
-                                                      SizedBox(
-                                                        width: 10.w,
-                                                      ),
-                                                      Text(
-                                                        documentSnapshot['Contact Number'],
-                                                        style: TextStyle(
-                                                          color: CustomColor
-                                                              .primaryTextColor
-                                                              .withOpacity(0.7),
-                                                          fontSize: 13.sp,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-
-                                                   SizedBox(
-                                                    height: 20.h,
-                                                   ),
-                                                  Row(
-                                                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                    children: <Widget>[
-                                                      Icon(
-                                                        Icons.mail,
-                                                        color: Colors
-                                                            .deepOrangeAccent,
-                                                        size: 20,
-                                                      ),
-                                                      SizedBox(
-                                                        width: 8.w,
-                                                      ),
-                                                      Text(
-                                                        documentSnapshot['Contact Email'],
-                                                        style: TextStyle(
-                                                          color: CustomColor
-                                                              .primaryTextColor
-                                                              .withOpacity(0.7),
-                                                          fontSize: 13.sp,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-
-                                            Container(
-                                               padding: EdgeInsets.symmetric(
-                                                horizontal: 10.0,
-                                              ),
-                                              margin: EdgeInsets.only(
-                                                  top: 5.0, bottom: 15.0),
-                                              width: double.infinity.w,
-                                              child: Row(
-                                                children: <Widget>[
-                                                  Text(
-                                                  "Posted on: ",
-                                                  style: TextStyle(
-                                                    color: CustomColor
-                                                        .primaryTextColor
-                                                        .withOpacity(0.2),
-                                                    fontSize: 11.sp,
-                                                    fontWeight:
-                                                        FontWeight.w600,
-                                                  ),
-                                                ),
-
-                                                Text(
-                                                  // DateFormat('dd MMMM yyyy').format((documentSnapshot['TimeStamp'] as Timestamp).toDate(),),
-                                                 formattedDate,
-                                                  style: TextStyle(
-                                                    color: CustomColor
-                                                        .primaryTextColor
-                                                        .withOpacity(0.2),
-                                                    fontSize: 11.sp,
-                                                    fontWeight:
-                                                        FontWeight.w600,
-                                                  ),
-                                                ),
-                                                ],
-                                              ),
-                                            )
-                                          ],
+                                              )
+                                            ],
+                                          ),
                                         ),
-                                      ),
-                                      SizedBox(
-                                        height: 50.h,
-                                      ),
-                                    ],
+                                        SizedBox(
+                                          height: 50.h,
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 );
                               })
