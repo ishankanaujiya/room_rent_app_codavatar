@@ -133,7 +133,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
                                 Text(
-                                  "Sea Facing Room",
+                                   value?['Room Title'] ?? "",
                                   style: TextStyle(
                                     color: Color(0xFF541678),
                                     fontSize: 24.sp,
@@ -141,7 +141,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                   ),
                                 ),
                                 Text(
-                                  "Rs. 200",
+                                   "Rs. ${value?['Room Price']}" ?? "",
                                   style: TextStyle(
                                     color: Color.fromARGB(255, 14, 209, 72),
                                     fontSize: 19.sp,
@@ -180,7 +180,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                   ),
                                 ),
                                 Text(
-                                  "Baluwatar, Kathmandu",
+                                  value?['Location'] ?? "",
                                   style: TextStyle(
                                     color: CustomColor.primaryTextColor
                                         .withOpacity(0.4),
@@ -215,7 +215,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                           height: 20.h,
                         ),
                         Text(
-                          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                             value?['Description'] ?? "",
                           style: TextStyle(
                             color: CustomColor.primaryTextColor,
                             fontWeight: FontWeight.w500,
@@ -275,7 +275,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                     ),
                                   ),
                                   Text(
-                                    "Rs. 70000",
+                                      "Rs. ${value?['Room Price']}" ?? "",
                                     style: TextStyle(
                                       color: Color.fromARGB(255, 233, 212, 51),
                                       fontSize: 14.sp,
@@ -299,7 +299,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                     ),
                                   ),
                                   Text(
-                                    "1",
+                                       value?['Number Of Room'] ?? "",
                                     style: TextStyle(
                                       color: Color.fromARGB(255, 233, 212, 51),
                                       fontSize: 14.sp,
@@ -323,7 +323,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                     ),
                                   ),
                                   Text(
-                                    "1",
+                                       value?['Number Of Bathroom'] ?? "",
                                     style: TextStyle(
                                       color: Color.fromARGB(255, 233, 212, 51),
                                       fontSize: 14.sp,
@@ -347,7 +347,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                     ),
                                   ),
                                   Text(
-                                    "1",
+                                      value?['Square Feet'] ?? "",
                                     style: TextStyle(
                                       color: Color.fromARGB(255, 233, 212, 51),
                                       fontSize: 14.sp,
@@ -371,7 +371,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                     ),
                                   ),
                                   Text(
-                                    "1",
+                                      value?['Electricity Price'] ?? "",
                                     style: TextStyle(
                                       color: Color.fromARGB(255, 233, 212, 51),
                                       fontSize: 14.sp,
@@ -395,7 +395,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                     ),
                                   ),
                                   Text(
-                                    "1",
+                                       value?['Water Price'] ?? "",
                                     style: TextStyle(
                                       color: Color.fromARGB(255, 233, 212, 51),
                                       fontSize: 14.sp,
@@ -450,7 +450,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                   width: 5.w,
                                 ),
                                 Text(
-                                  "9864125649",
+                                   value?['Contact Number'] ?? "",
                                   style: TextStyle(
                                     color: CustomColor.primaryTextColor,
                                     fontSize: 14.sp,
@@ -469,7 +469,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                   width: 5.w,
                                 ),
                                 Text(
-                                  "ram@gmail.com",
+                                     value?['Contact Email'] ?? "",
                                   style: TextStyle(
                                     color: CustomColor.primaryTextColor,
                                     fontSize: 14.sp,
