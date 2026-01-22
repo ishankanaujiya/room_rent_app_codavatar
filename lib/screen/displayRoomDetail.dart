@@ -128,7 +128,6 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                             padding: EdgeInsets.symmetric(horizontal: 20.0),
                             width: double.infinity.w,
                             height: 100.h,
-                            // color: Colors.cyan,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
@@ -162,7 +161,6 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                             height: 100.h,
                             // color: Colors.cyan,
                             child: Row(
-                              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
                                 Icon(
                                   Icons.location_pin,
