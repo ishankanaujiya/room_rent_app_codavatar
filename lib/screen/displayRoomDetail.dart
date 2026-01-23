@@ -142,7 +142,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                 Text(
                                    "Rs. ${value?['Room Price']}" ?? "",
                                   style: TextStyle(
-                                    color: Color.fromARGB(255, 14, 209, 72),
+                                    color: Color(0xFF541678),
                                     fontSize: 19.sp,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -216,7 +216,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                              value?['Description'] ?? "",
                           style: TextStyle(
                             color: CustomColor.primaryTextColor,
-                            fontWeight: FontWeight.w500,
+                            fontWeight: FontWeight.bold,
                           ),
                           textAlign: TextAlign.justify,
                         ),
@@ -268,7 +268,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                     "Room Price (Per Month)",
                                     style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 14.sp,
+                                      fontSize: 13.sp,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -276,7 +276,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                       "Rs. ${value?['Room Price']}" ?? "",
                                     style: TextStyle(
                                       color: Color.fromARGB(255, 233, 212, 51),
-                                      fontSize: 14.sp,
+                                      fontSize: 13.sp,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -292,7 +292,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                     "Number of Rooms",
                                     style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 14.sp,
+                                      fontSize: 13.sp,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -300,7 +300,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                        value?['Number Of Room'] ?? "",
                                     style: TextStyle(
                                       color: Color.fromARGB(255, 233, 212, 51),
-                                      fontSize: 14.sp,
+                                      fontSize: 13.sp,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -316,7 +316,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                     "Number of Bathrooms",
                                     style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 14.sp,
+                                      fontSize: 13.sp,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -324,7 +324,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                        value?['Number Of Bathroom'] ?? "",
                                     style: TextStyle(
                                       color: Color.fromARGB(255, 233, 212, 51),
-                                      fontSize: 14.sp,
+                                      fontSize: 13.sp,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -340,7 +340,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                     "Square Feet",
                                     style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 14.sp,
+                                      fontSize: 13.sp,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -348,7 +348,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                       value?['Square Feet'] ?? "",
                                     style: TextStyle(
                                       color: Color.fromARGB(255, 233, 212, 51),
-                                      fontSize: 14.sp,
+                                      fontSize: 13.sp,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -364,7 +364,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                     "Electricity Price (Per)",
                                     style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 14.sp,
+                                      fontSize: 13.sp,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -372,7 +372,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                       value?['Electricity Price'] ?? "",
                                     style: TextStyle(
                                       color: Color.fromARGB(255, 233, 212, 51),
-                                      fontSize: 14.sp,
+                                      fontSize: 13.sp,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -388,7 +388,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                     "Water Price",
                                     style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 14.sp,
+                                      fontSize: 13.sp,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -396,7 +396,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                        value?['Water Price'] ?? "",
                                     style: TextStyle(
                                       color: Color.fromARGB(255, 233, 212, 51),
-                                      fontSize: 14.sp,
+                                      fontSize: 13.sp,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -451,7 +451,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                    value?['Contact Number'] ?? "",
                                   style: TextStyle(
                                     color: CustomColor.primaryTextColor,
-                                    fontSize: 14.sp,
+                                    fontSize: 13.sp,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -470,7 +470,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                      value?['Contact Email'] ?? "",
                                   style: TextStyle(
                                     color: CustomColor.primaryTextColor,
-                                    fontSize: 14.sp,
+                                    fontSize: 13.sp,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
