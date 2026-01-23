@@ -182,8 +182,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                                         BorderRadius.circular(
                                                             25.r),
                                                   ),
-                                                  child: Image.network(
-                                                      documentSnapshot['secureUrl'][0], fit: BoxFit.contain,)),
+                                                  child: ClipRRect(
+                                                    borderRadius: BorderRadius.circular(25.r),
+                                                    child: Image.network(
+                                                        documentSnapshot['secureUrl'][0], fit: BoxFit.cover,),
+                                                  )),
                                               Container(
                                                 padding: EdgeInsets.symmetric(
                                                   horizontal: 10.0,
