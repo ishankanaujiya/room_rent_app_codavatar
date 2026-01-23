@@ -71,59 +71,47 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                             ],
                           ),
                         ),
-                        Positioned(
+
+                         Positioned(
                           left: 0,
                           right: 0,
-                          top: 90,
-                          child: SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: Container(
-                              padding: EdgeInsets.only(left: 20.0),
-                              // margin: EdgeInsets.only(left: 20.0, right: 0.0),
-                              // width: double.infinity.w,
-                              height: 200.h,
-                              // color: Colors.cyan,
-                              child: Row(
-                                children: <Widget>[
-                                  Container(
-                                    margin: EdgeInsets.only(right: 10.0),
-                                    width: 150.w,
-                                    height: 150.h,
-                                    decoration: BoxDecoration(
-                                      color: CustomColor.primaryTextColor
-                                          .withOpacity(0.1),
-                                      borderRadius: BorderRadius.circular(25.r),
-                                    ),
-                                  ),
-                                  Container(
-                                    margin: EdgeInsets.only(right: 10.0),
-                                    width: 150.w,
-                                    height: 150.h,
-                                    decoration: BoxDecoration(
-                                      color: CustomColor.primaryTextColor
-                                          .withOpacity(0.1),
-                                      borderRadius: BorderRadius.circular(25.r),
-                                    ),
-                                  ),
-                                  Container(
-                                    margin: EdgeInsets.only(right: 10.0),
-                                    width: 150.w,
-                                    height: 150.h,
-                                    decoration: BoxDecoration(
-                                      color: CustomColor.primaryTextColor
-                                          .withOpacity(0.1),
-                                      borderRadius: BorderRadius.circular(25.r),
-                                    ),
-                                  ),
-                                ],
+                          top: 105,
+                          child: Container(
+                            padding: EdgeInsets.only(left: 20.0),
+                            // margin: EdgeInsets.only(left: 20.0, right: 0.0),
+                            // width: double.infinity.w,
+                            height: 150.h,
+                            // color: Colors.cyan,
+                            child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              itemCount: value['secureUrl'].length,
+                              itemBuilder: (context, index)
+                            {
+                              return  Container(
+                              margin: EdgeInsets.only(right: 10.0),
+                              width: 190.w,
+                              height: 150.h,
+                              decoration: BoxDecoration(
+                                color: CustomColor.primaryTextColor
+                                    .withOpacity(0.1),
+                                borderRadius: BorderRadius.circular(25.r),
                               ),
-                            ),
+                              
+                              child: ClipRRect(
+                                child: Image.network(value['secureUrl'][index]),
+                                ),
+                            );
+                        
+
+                            })
                           ),
                         ),
+                        
+                       
                         Positioned(
                           left: 0,
                           right: 0,
-                          top: 260,
+                          top: 245,
                           child: Container(
                             padding: EdgeInsets.symmetric(horizontal: 20.0),
                             width: double.infinity.w,
@@ -154,7 +142,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                         Positioned(
                           left: 0,
                           right: 0,
-                          top: 290,
+                          top: 275,
                           child: Container(
                             padding: EdgeInsets.symmetric(horizontal: 20.0),
                             width: double.infinity.w,
