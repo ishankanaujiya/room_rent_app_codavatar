@@ -71,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
-                              "Hello",
+                              "Hello,",
                               style: TextStyle(
                                 color: CustomColor.primaryTextColor, 
                                 fontSize: 20.sp,
@@ -94,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       CircleAvatar(
-                        backgroundColor: Color(0xFF5C1196).withOpacity(0.6),
+                        backgroundColor: Colors.transparent,
                         backgroundImage: Provider.of<SharedPreferenceForUserDetailProvider>(context, listen: false).getUserProfileSecureUrl == "" ? null : NetworkImage(Provider.of<SharedPreferenceForUserDetailProvider>(context, listen: false).getUserProfileSecureUrl),
                         radius: 30.r,
                         child: Provider.of<SharedPreferenceForUserDetailProvider>(context, listen: false).getUserProfileSecureUrl == "" ? Icon(Icons.person, color: Colors.white,) : null,
