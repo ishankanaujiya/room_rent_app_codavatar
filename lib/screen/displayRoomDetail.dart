@@ -139,12 +139,23 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  Text(
-                                     "Rs. ${value?['Room Price']}" ?? "",
-                                    style: TextStyle(
-                                      color: Color(0xFF541678),
-                                      fontSize: 19.sp,
-                                      fontWeight: FontWeight.bold,
+                                  Expanded(
+                                    child: SingleChildScrollView(
+                                      child: Container(
+                                          margin: EdgeInsets.only(
+                                                  left: 20.0,
+                                                ),
+                                        alignment: Alignment.centerRight,
+                                        // color: Colors.cyan,
+                                        child: Text(
+                                           "Rs. ${value?['Room Price']}" ?? "",
+                                          style: TextStyle(
+                                            color: Color(0xFF541678),
+                                            fontSize: 19.sp,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 ],

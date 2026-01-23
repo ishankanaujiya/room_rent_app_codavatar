@@ -209,13 +209,23 @@ class _HomeScreenState extends State<HomeScreen> {
                                                             FontWeight.bold,
                                                       ),
                                                     ),
-                                                    Text(
-                                                      "Rs. ${documentSnapshot['Room Price']}",
-                                                      style: TextStyle(
-                                                        color: Color(0xFF5C1196),
-                                                        fontSize: 18.sp,
-                                                        fontWeight:
-                                                            FontWeight.bold,
+                                                    Expanded(
+                                                      child: Container(
+                                                        margin: EdgeInsets.only(
+                                                  left: 15.0,
+                                                ),
+                                                        alignment: Alignment.centerRight,
+                                                        // color: Colors.cyan,
+                                                        
+                                                        child: Text(
+                                                          "Rs. ${documentSnapshot['Room Price']}",
+                                                          style: TextStyle(
+                                                            color: Color(0xFF5C1196),
+                                                            fontSize: 18.sp,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                          ),
+                                                        ),
                                                       ),
                                                     ),
                                                   ],

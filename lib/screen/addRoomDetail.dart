@@ -58,9 +58,11 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
 
   }
 
+
   asynchronousMethodForFetchingRoomDetail() async
   {
     await getStoredValue();
+  
   }
 
   @override
@@ -245,7 +247,7 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                                 return "Room Title is required";
                               }
                             },
-                            maxLength: 20,
+                            maxLength: 15,
                             decoration: InputDecoration(
                               border: UnderlineInputBorder(
                                 borderSide: BorderSide(
