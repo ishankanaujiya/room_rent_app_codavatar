@@ -105,7 +105,6 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                     height: 70.h,
                     decoration: BoxDecoration(
                       // color: Color.fromARGB(255, 221, 207, 253),
-                      // color: Color.fromARGB(26, 78, 19, 218),
                     ),
                     child: Container(
                       // margin: EdgeInsets.only(right: 60.0),
@@ -377,18 +376,6 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                     //       SizedBox(
                     //         height: 15.h,
                     //       ),
-                    //       Container(
-                    //         // margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
-                    //         width: double.infinity.w,
-                    //         height: 200.h,
-                    //         decoration: BoxDecoration(
-                    //             color:
-                    //                 CustomColor.primaryTextColor.withOpacity(0.1),
-                    //             borderRadius: BorderRadius.circular(25.r)),
-                    //       ),
-                    //     ],
-                    //   ),
-                    // ),
       
                      SizedBox(
                             height: 20.h,
