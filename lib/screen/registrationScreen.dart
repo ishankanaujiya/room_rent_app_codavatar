@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:provider/provider.dart';
+import 'package:room_rent_app/provider/circularLoadingProvider.dart';
 import 'package:room_rent_app/screen/loginScreen.dart';
 import 'package:room_rent_app/service/firebaseAuth.dart';
 import 'package:room_rent_app/service/firebaseService.dart';
@@ -538,8 +540,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   ),
                 ),
               ),
-              InkWell(
+
+              Consumer<CircularLoadingProvider>(builder: (context, circularLoading, _)
+              {
+                return  InkWell(
                 onTap: () async {
+                  Provider.of<CircularLoadingProvider>(context, listen: false).changeLoadingStatus(true);
                   if (_formKey.currentState!.validate()) {
                     print("Value Stored");
                     print(passwordController.text);
@@ -587,16 +593,41 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             textColor: Colors.white,
                             fontSize: 16.0
                             );
-
-
-
+                            
                           Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginInScreen()
                           ));
                         }
-                      } catch (e) {
+                      } catch (e) 
+                      {
+                        
+                           Fluttertoast.showToast(
+                            msg: "Wrong Credientals",
+                            toastLength: Toast.LENGTH_LONG,
+                            gravity: ToastGravity.CENTER,
+                            timeInSecForIosWeb: 1,
+                            backgroundColor: Color(0xFF5C1196).withOpacity(0.6),
+                            textColor: Colors.white,
+                            fontSize: 16.0
+                            );
                         print("Error");
                       }
+                      finally
+                      {
+                        Provider.of<CircularLoadingProvider>(context, listen: false).changeLoadingStatus(false);
+                        print("This is the finally block which is called befor the navigation of the screen");
+                      }
                     } else {
+                      
+                           Fluttertoast.showToast(
+                            msg: "Password Not Matched",
+                            toastLength: Toast.LENGTH_LONG,
+                            gravity: ToastGravity.CENTER,
+                            timeInSecForIosWeb: 1,
+                            backgroundColor: Color(0xFF5C1196).withOpacity(0.6),
+                            textColor: Colors.white,
+                            fontSize: 16.0
+                            );
+                            Provider.of<CircularLoadingProvider>(context, listen: false).changeLoadingStatus(false);
                       print("Password Not Matched");
                     }
                   }
@@ -609,7 +640,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     borderRadius: BorderRadius.circular(10.r),
                   ),
                   child: Center(
-                      child: Text(
+                      child: Provider.of<CircularLoadingProvider>(context, listen: true).isLoading ? CircularProgressIndicator(
+                  
+                  color: Colors.white,
+                ) : Text(
                     "Sign Up",
                     style: TextStyle(
                       color: Colors.white,
@@ -617,7 +651,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     ),
                   )),
                 ),
+              );
+              }
               ),
+             
               SizedBox(height: 15.0.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

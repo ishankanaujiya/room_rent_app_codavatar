@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
+import 'package:room_rent_app/provider/circularLoadingProvider.dart';
 import 'package:room_rent_app/provider/sharedPreferenceForUserDetailProvider.dart';
 import 'package:room_rent_app/screen/home.dart';
 import 'package:room_rent_app/screen/homeScreen.dart';
@@ -252,9 +253,13 @@ class _LoginInScreenState extends State<LoginInScreen> {
                 height: 20.0.h,
               ),
             
-           InkWell(
+
+            Consumer<CircularLoadingProvider>(builder: (context, circularLoading, _)
+            {
+              return InkWell(
             onTap: () async
             {
+              Provider.of<CircularLoadingProvider>(context, listen: false).changeLoadingStatus(true);
               if(_formKey.currentState!.validate())
               {
                 try{
@@ -304,30 +309,57 @@ class _LoginInScreenState extends State<LoginInScreen> {
                 }
                 catch(e)
                 {
+                  await Future.delayed(Duration(seconds: 1));
+                  Fluttertoast.showToast(
+                  msg: "Wrong Credientals",
+                  toastLength: Toast.LENGTH_LONG,
+                  gravity: ToastGravity.CENTER,
+                  timeInSecForIosWeb: 1,
+                  backgroundColor: Color(0xFF5C1196).withOpacity(0.6),
+                  textColor: Colors.white,
+                  fontSize: 16.0
+                  );
+                  
                   print("This is Catch Error: ${e.toString()}");
+                }
+                finally
+                {
+                  Provider.of<CircularLoadingProvider>(context, listen: false).changeLoadingStatus(false);
+                  print("This is the finally block which is called before the navigator");
                 }
                
 
+              }
+              else
+              {
+                // await Future.delayed(Duration(seconds: 2));
+                 Provider.of<CircularLoadingProvider>(context, listen: false).changeLoadingStatus(false);
               }
               
             },
             child: Container(
               width: 200.w,
-              height: 50.h,
+              height: 60.h,
               decoration: BoxDecoration(
                 color: Color(0xFFAC8AE9),
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(10.r),
             
               ),
               child: Center(
-                child: Text("Sign In", style: TextStyle(
+                child: Provider.of<CircularLoadingProvider>(context, listen: true).isLoading ? CircularProgressIndicator(
+                  // backgroundColor: Colors.white,
+                  color: Colors.white,
+                ) : Text("Sign In", style: TextStyle(
                   color: Colors.white,
                   fontSize: 14.sp,
                   fontWeight: FontWeight.bold,
                 ),),
               ),
             ),
-          ),
+          );
+            }
+            ),
+           
           
               SizedBox(
                     height: 40.0.h,
