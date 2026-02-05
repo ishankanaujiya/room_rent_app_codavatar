@@ -134,7 +134,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                   Text(
                                      value?['Room Title'] ?? "",
                                     style: TextStyle(
-                                      color: Color(0xFF541678),
+                                     color: Color(0xFF5C1196),
                                       fontSize: 24.sp,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -150,7 +150,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                         child: Text(
                                            "Rs. ${value?['Room Price']}" ?? "",
                                           style: TextStyle(
-                                            color: Color(0xFF541678),
+                                            color: Color(0xFF0F766E),
                                             fontSize: 19.sp,
                                             fontWeight: FontWeight.bold,
                                           ),
@@ -215,7 +215,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                           Text(
                             "Description",
                             style: TextStyle(
-                              color: Color(0xFF541678),
+                              color: Color(0xFF5C1196).withOpacity(0.6),
                               fontSize: 18.sp,
                               fontWeight: FontWeight.bold,
                             ),
@@ -251,7 +251,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                           Text(
                             "Room Detail",
                             style: TextStyle(
-                              color: Color(0xFF541678),
+                              color: Color(0xFF5C1196).withOpacity(0.6),
                               fontSize: 18.sp,
                               fontWeight: FontWeight.bold,
                             ),
@@ -438,7 +438,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                           Text(
                       "Contact Information",
                       style: TextStyle(
-                        color: Color(0xFF541678),
+                        color: Color(0xFF5C1196).withOpacity(0.6),
                         fontSize: 18.sp,
                         fontWeight: FontWeight.bold,
                       ),
@@ -453,7 +453,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                 children: <Widget>[
                                   Icon(
                                     Icons.phone,
-                                    color: Colors.green,
+                                    color: Color(0xFF0F766E),
                                   ),
                                   SizedBox(
                                     width: 5.w,
@@ -472,7 +472,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                 children: <Widget>[
                                   Icon(
                                     Icons.email,
-                                    color: Colors.orangeAccent,
+                                    color: Colors.orangeAccent.withOpacity(0.7),
                                   ),
                                   SizedBox(
                                     width: 5.w,
