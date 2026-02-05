@@ -540,122 +540,138 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   ),
                 ),
               ),
+              Consumer<CircularLoadingProvider>(
+                  builder: (context, circularLoading, _) {
+                return InkWell(
+                  onTap: () async {
+                    Provider.of<CircularLoadingProvider>(context, listen: false)
+                        .changeLoadingStatus(true);
+                    if (_formKey.currentState!.validate()) {
+                      print("Value Stored");
+                      print(passwordController.text);
+                      print(confirmPasswordController.text);
+                      if (passwordController.text ==
+                          confirmPasswordController.text) {
+                        //   Fluttertoast.showToast(
+                        //   msg: "Password Does't Match",
+                        //   toastLength: Toast.LENGTH_LONG,
+                        //   gravity: ToastGravity.CENTER,
+                        //   timeInSecForIosWeb: 1,
+                        //   backgroundColor: Color(0xFF5C1196),
+                        //   textColor: Colors.white,
+                        //   fontSize: 16.0,
+                        // );
 
-              Consumer<CircularLoadingProvider>(builder: (context, circularLoading, _)
-              {
-                return  InkWell(
-                onTap: () async {
-                  Provider.of<CircularLoadingProvider>(context, listen: false).changeLoadingStatus(true);
-                  if (_formKey.currentState!.validate()) {
-                    print("Value Stored");
-                    print(passwordController.text);
-                    print(confirmPasswordController.text);
-                    if (passwordController.text ==
-                        confirmPasswordController.text) {
-                      //   Fluttertoast.showToast(
-                      //   msg: "Password Does't Match",
-                      //   toastLength: Toast.LENGTH_LONG,
-                      //   gravity: ToastGravity.CENTER,
-                      //   timeInSecForIosWeb: 1,
-                      //   backgroundColor: Color(0xFF5C1196),
-                      //   textColor: Colors.white,
-                      //   fontSize: 16.0,
-                      // );
+                        //  await FirebaseService().storeUserDetail(userDetail);
+                        //     print("Details Stored Successfully");
 
+                        try {
+                          print("Database Method");
+                          UserCredential user = await FirebaseAuthentication()
+                              .registerUser(emailController.text,
+                                  passwordController.text);
+                          if (user.user != null) 
+                          {
+                            Map<String, dynamic> userDetail;
+                            if (pickedPicture != null) 
+                            {
+                              String secureUrl = await PictureToCloudinary()
+                                  .uploadPictureToCloudinary(pickedPicture);
 
-                      //  await FirebaseService().storeUserDetail(userDetail);
-                      //     print("Details Stored Successfully");
-
-                      try {
-                        print("Database Method");
-                        UserCredential user = await FirebaseAuthentication()
-                            .registerUser(
-                                emailController.text, passwordController.text);
-                        if (user.user != null) 
-                        {
-                          String secureUrl = await PictureToCloudinary().uploadPictureToCloudinary(pickedPicture);
-
-                            Map<String, dynamic> userDetail = {
-                            "FullName": fullNameController.text,
-                            "Email": emailController.text,
-                            "PhoneNumber": phoneNumberController.text,
-                            "SecureUrl": secureUrl,
-                          };
-                          await FirebaseService().storeUserDetail(userDetail);
-                          print("Details Stored Successfully");
-
-                           Fluttertoast.showToast(
-                            msg: "User Registered Successfully",
-                            toastLength: Toast.LENGTH_LONG,
-                            gravity: ToastGravity.CENTER,
-                            timeInSecForIosWeb: 1,
-                            backgroundColor: Color(0xFF5C1196).withOpacity(0.6),
-                            textColor: Colors.white,
-                            fontSize: 16.0
-                            );
+                              userDetail = {
+                                "FullName": fullNameController.text,
+                                "Email": emailController.text,
+                                "PhoneNumber": phoneNumberController.text,
+                                "SecureUrl": secureUrl,
+                              };
+                            }
                             
-                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginInScreen()
-                          ));
+                              userDetail = {
+                                "FullName": fullNameController.text,
+                                "Email": emailController.text,
+                                "PhoneNumber": phoneNumberController.text,
+                                "SecureUrl": "",
+                              };
+                          
+                            
+                           
+                            await FirebaseService().storeUserDetail(userDetail);
+                            print("Details Stored Successfully");
+
+                            Fluttertoast.showToast(
+                                msg: "User Registered Successfully",
+                                toastLength: Toast.LENGTH_LONG,
+                                gravity: ToastGravity.CENTER,
+                                timeInSecForIosWeb: 1,
+                                backgroundColor:
+                                    Color(0xFF5C1196).withOpacity(0.6),
+                                textColor: Colors.white,
+                                fontSize: 16.0);
+
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LoginInScreen()));
+                          }
+                        } catch (e) {
+                          Fluttertoast.showToast(
+                              msg: "Wrong Credientals",
+                              toastLength: Toast.LENGTH_LONG,
+                              gravity: ToastGravity.CENTER,
+                              timeInSecForIosWeb: 1,
+                              backgroundColor:
+                                  Color(0xFF5C1196).withOpacity(0.6),
+                              textColor: Colors.white,
+                              fontSize: 16.0);
+                          print("Error");
+                          print(e.toString());
+                        } finally {
+                          Provider.of<CircularLoadingProvider>(context,
+                                  listen: false)
+                              .changeLoadingStatus(false);
+                          print(
+                              "This is the finally block which is called befor the navigation of the screen");
                         }
-                      } catch (e) 
-                      {
-                        
-                           Fluttertoast.showToast(
-                            msg: "Wrong Credientals",
-                            toastLength: Toast.LENGTH_LONG,
-                            gravity: ToastGravity.CENTER,
-                            timeInSecForIosWeb: 1,
-                            backgroundColor: Color(0xFF5C1196).withOpacity(0.6),
-                            textColor: Colors.white,
-                            fontSize: 16.0
-                            );
-                        print("Error");
-                        print(e.toString());
-                      }
-                      finally
-                      {
-                        Provider.of<CircularLoadingProvider>(context, listen: false).changeLoadingStatus(false);
-                        print("This is the finally block which is called befor the navigation of the screen");
-                      }
-                    } else {
-                      
-                           Fluttertoast.showToast(
+                      } else {
+                        Fluttertoast.showToast(
                             msg: "Password Not Matched",
                             toastLength: Toast.LENGTH_LONG,
                             gravity: ToastGravity.CENTER,
                             timeInSecForIosWeb: 1,
                             backgroundColor: Color(0xFF5C1196).withOpacity(0.6),
                             textColor: Colors.white,
-                            fontSize: 16.0
-                            );
-                            Provider.of<CircularLoadingProvider>(context, listen: false).changeLoadingStatus(false);
-                      print("Password Not Matched");
+                            fontSize: 16.0);
+                        Provider.of<CircularLoadingProvider>(context,
+                                listen: false)
+                            .changeLoadingStatus(false);
+                        print("Password Not Matched");
+                      }
                     }
-                  }
-                },
-                child: Container(
-                  width: 273.w,
-                  height: 55.h,
-                  decoration: BoxDecoration(
-                    color: Color(0xFF5C1196).withOpacity(0.6),
-                    borderRadius: BorderRadius.circular(10.r),
-                  ),
-                  child: Center(
-                      child: Provider.of<CircularLoadingProvider>(context, listen: true).isLoading ? CircularProgressIndicator(
-                  
-                  color: Colors.white,
-                ) : Text(
-                    "Sign Up",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
+                  },
+                  child: Container(
+                    width: 273.w,
+                    height: 55.h,
+                    decoration: BoxDecoration(
+                      color: Color(0xFF5C1196).withOpacity(0.6),
+                      borderRadius: BorderRadius.circular(10.r),
                     ),
-                  )),
-                ),
-              );
-              }
-              ),
-             
+                    child: Center(
+                        child: Provider.of<CircularLoadingProvider>(context,
+                                    listen: true)
+                                .isLoading
+                            ? CircularProgressIndicator(
+                                color: Colors.white,
+                              )
+                            : Text(
+                                "Sign Up",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              )),
+                  ),
+                );
+              }),
               SizedBox(height: 15.0.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
