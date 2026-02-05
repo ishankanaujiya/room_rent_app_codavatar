@@ -51,7 +51,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                       width: double.infinity.w,
                       height: 450.h,
                       decoration: BoxDecoration(
-                        color: Color(0xFFAC8AE9),
+                        color: Color(0xFFAC8AE9).withOpacity(0.1),
                         borderRadius:
                             BorderRadius.only(bottomLeft: Radius.circular(450.r)),
                       ),
@@ -66,7 +66,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                 Text(
                                   "Hi,",
                                   style: TextStyle(
-                                    color: Color.fromARGB(255, 233, 212, 51),
+                                    // color: Color.fromARGB(255, 233, 212, 51),
                                     fontSize: 18.sp,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -74,7 +74,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                 Text(
                                   "From ${value?['Full Name']}" ?? "",
                                   style: TextStyle(
-                                    color: Colors.white,
+                                    color: Color(0xFF5C1196).withOpacity(0.6),
                                     fontSize: 22.sp,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -261,11 +261,11 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                           ),
                           Container(
                             padding: EdgeInsets.symmetric(
-                                horizontal: 30.0, vertical: 20.0),
+                                horizontal: 25.0, vertical: 20.0),
                             width: double.infinity.w,
                             // height: 200.h,
                             decoration: BoxDecoration(
-                              color: Color(0xFFAC8AE9),
+                              color: Color(0xFFAC8AE9).withOpacity(0.1),
                               borderRadius: BorderRadius.circular(25.r),
                             ),
             
@@ -278,7 +278,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                     Text(
                                       "Room Price (Per Month)",
                                       style: TextStyle(
-                                        color: Colors.white,
+                                       //color: Colors.white,
                                         fontSize: 13.sp,
                                         fontWeight: FontWeight.bold,
                                       ),
@@ -302,7 +302,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                     Text(
                                       "Number of Rooms",
                                       style: TextStyle(
-                                        color: Colors.white,
+                                       //color: Colors.white,
                                         fontSize: 13.sp,
                                         fontWeight: FontWeight.bold,
                                       ),
@@ -326,7 +326,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                     Text(
                                       "Number of Bathrooms",
                                       style: TextStyle(
-                                        color: Colors.white,
+                                       //color: Colors.white,
                                         fontSize: 13.sp,
                                         fontWeight: FontWeight.bold,
                                       ),
@@ -350,7 +350,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                     Text(
                                       "Square Feet",
                                       style: TextStyle(
-                                        color: Colors.white,
+                                       //color: Colors.white,
                                         fontSize: 13.sp,
                                         fontWeight: FontWeight.bold,
                                       ),
@@ -374,7 +374,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                     Text(
                                       "Electricity Price (Per)",
                                       style: TextStyle(
-                                        color: Colors.white,
+                                       //color: Colors.white,
                                         fontSize: 13.sp,
                                         fontWeight: FontWeight.bold,
                                       ),
@@ -398,7 +398,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                     Text(
                                       "Water Price",
                                       style: TextStyle(
-                                        color: Colors.white,
+                                       //color: Colors.white,
                                         fontSize: 13.sp,
                                         fontWeight: FontWeight.bold,
                                       ),
