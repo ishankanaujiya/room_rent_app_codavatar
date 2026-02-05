@@ -610,6 +610,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             fontSize: 16.0
                             );
                         print("Error");
+                        print(e.toString());
                       }
                       finally
                       {
