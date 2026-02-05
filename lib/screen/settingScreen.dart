@@ -126,72 +126,135 @@ class _SettingScreenState extends State<SettingScreen> {
                         iconData: Icons.edit,
                         textLabel: "Edit Profile",
                       ),
-                      SizedBox(
-                      height: 5.h,
+                     
+                       
+                        SizedBox(
+                      height: 10.h,
                     ),
                       SettingContainer(
                         iconData: Icons.post_add,
                         textLabel: "Posts",
                       ),
+                       
+                       
+                        SizedBox(
+                      height: 10.h,
+                    ),
                       SettingContainer(
                         iconData: Icons.support_agent,
                         textLabel: "Customer Service & Support",
                       ),
-                      Container(
-                        padding: EdgeInsets.only(right: 15.0),
-                        width: double.infinity.w,
-                        height: 60.h,
-                      //  color: Colors.cyan,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Container(
-                             
-                              // width: 200.h,
-                              height: double.infinity.h,
-                              // color: Colors.black,
-                              child: Row(
-                                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: <Widget>[
-                                  Icon(
-                                    Icons.verified_user_outlined,
-                                    color: Color(0xFF5C1196).withOpacity(0.6),
-                                    size: 25,
-                                  ),
-                                  SizedBox(
-                                    width: 20.w,
-                                  ),
-                                  Text(
-                                    "Version",
-                                    style: TextStyle(
-                                      // color: Colors.white,
-                                      fontSize: 14.sp,
-                                      fontWeight: FontWeight.bold,
+                       
+                       
+                        SizedBox(
+                      height: 10.h,
+                    ),
+
+                    
+                    InkWell(
+                      onTap: ()
+                      {
+                        print("Pressed");
+                      },
+                      child: Container(
+                          padding: EdgeInsets.only(right: 15.0),
+                          width: double.infinity.w,
+                          height: 60.h,
+                        //  color: Colors.cyan,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Container(
+                               
+                                // width: 200.h,
+                                height: double.infinity.h,
+                                // color: Colors.black,
+                                child: Row(
+                                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    Icon(
+                                      Icons.verified_user_outlined,
+                                      color: Color(0xFF5C1196).withOpacity(0.6),
+                                      size: 25,
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Text(
-                                "1.0.0.0",
-                                style: TextStyle(
-                                  color: Colors.grey.withOpacity(0.5),
-                                  fontSize: 10.sp,
-                                  fontWeight: FontWeight.bold,
+                                    SizedBox(
+                                      width: 20.w,
+                                    ),
+                                    Text(
+                                      "Version",
+                                      style: TextStyle(
+                                        // color: Colors.white,
+                                        fontSize: 14.sp,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
-
-                          
-                          ],
+                              Text(
+                                  "1.0.0.0",
+                                  style: TextStyle(
+                                    color: Colors.grey.withOpacity(0.5),
+                                    fontSize: 10.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                      
+                            
+                            ],
+                          ),
                         ),
-                      ),
-                      SettingContainer(
-                        iconData: Icons.logout,
-                        textLabel: "Logout",
-                        isEnabled: false,
-                        iconColor: Colors.red,
-                        textColor: Colors.red.withOpacity(0.6),
-                      ),
+                    ),
+
+                       
+                        SizedBox(
+                      height: 10.h,
+                    ),
+
+                    InkWell(
+                      onTap: ()
+                      {
+                        print("Pressed");
+                      },
+                      child: Container(
+                          padding: EdgeInsets.only(right: 15.0),
+                          width: double.infinity.w,
+                          height: 60.h,
+                        //  color: Colors.cyan,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Container(
+                               
+                                // width: 200.h,
+                                height: double.infinity.h,
+                                // color: Colors.black,
+                                child: Row(
+                                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    Icon(
+                                      Icons.logout,
+                                      color: Colors.red,
+                                      size: 25,
+                                    ),
+                                    SizedBox(
+                                      width: 20.w,
+                                    ),
+                                    Text(
+                                      "Logout",
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontSize: 14.sp,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                    ),
                     ],
                   ),
                 )
