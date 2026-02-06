@@ -26,7 +26,7 @@ class _SettingContainerState extends State<SettingContainer> {
       child: Container(
         width: double.infinity.w,
         height: 60.h,
-        color: Colors.white,
+        // color: Colors.white,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
