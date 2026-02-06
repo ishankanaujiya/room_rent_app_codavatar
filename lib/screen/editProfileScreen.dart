@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class EditProfileSreen extends StatefulWidget {
   const EditProfileSreen({super.key});
@@ -17,8 +18,9 @@ class _EditProfileSreenState extends State<EditProfileSreen> {
 
   bool isLoading = false;
 
-  changeLoadingStatus(bool loadingStatus)
-  {
+  GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
+
+  changeLoadingStatus(bool loadingStatus) {
     setState(() {
       isLoading = loadingStatus;
     });
@@ -119,237 +121,266 @@ class _EditProfileSreenState extends State<EditProfileSreen> {
                   ),
                 ),
               ),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 30.0),
-                margin: EdgeInsets.only(top: 70.0),
-                width: double.infinity.w,
-                // height: 20.h,
-                // color: Colors.cyan,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Container(
-                      // color: Colors.cyan,
-                      padding: EdgeInsets.only(left: 6.0),
-                      width: double.infinity.w,
-                      child: Row(
+              Form(
+                key: _formKey,
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 30.0),
+                  margin: EdgeInsets.only(top: 60.0),
+                  width: double.infinity.w,
+                  // height: 20.h,
+                  // color: Colors.cyan,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Container(
+                        // color: Colors.cyan,
+                        padding: EdgeInsets.only(left: 6.0),
+                        width: double.infinity.w,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text(
+                              "Editable details",
+                              style: TextStyle(
+                                color: Colors.black.withOpacity(0.3),
+                                fontSize: 10.sp,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () async {
+                                 if (_formKey.currentState!.validate()) 
+                                 {
+                                   changeLoadingStatus(true);
+                                    await Future.delayed(Duration(seconds: 2));
+                                    changeLoadingStatus(false);
+                                 }
+                               
+                              },
+                              icon: isLoading
+                                  ? SizedBox(
+                                      width: 20.w,
+                                      height: 20.h,
+                                      child: CircularProgressIndicator(
+                                        color: Color(0xFF0F766E),
+                                      ))
+                                  : Icon(
+                                      Icons.check,
+                                      size: 22,
+                                      color: Color(0xFF0F766E),
+                                    ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 30.h,
+                      ),
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                          Text(
-                            "Editable details",
-                            style: TextStyle(
-                              color: Colors.black.withOpacity(0.3),
-                              fontSize: 10.sp,
-                              fontWeight: FontWeight.w500,
+                          Container(
+                            // alignment: Alignment.center,
+                            // width: 100.w,
+                            // height: 20.h,
+                            // color: Colors.black,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                CircleAvatar(
+                                  backgroundColor:
+                                      Color(0xFF5C1196).withOpacity(0.4),
+                                  child: Icon(
+                                    Icons.person,
+                                    size: 25,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 10.0,
+                                ),
+                                Text(
+                                  "Full Name",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 15.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-
-                          IconButton(onPressed: () async
-                          {
-                            changeLoadingStatus(true);
-                            await Future.delayed(Duration(seconds: 2));
-                            changeLoadingStatus(false);
-
-                          },
-                          icon: isLoading ? SizedBox(
-                            width: 20.w,
-                            height: 20.h,
-
-                            child: CircularProgressIndicator(
-                              color: Color(0xFF0F766E),
-                            )
-                            ) : 
-                            Icon(Icons.check, size: 22, color: Color(0xFF0F766E),
+                          SizedBox(
+                            width: 30.0,
                           ),
+                          Expanded(
+                            child: Container(
+                              padding: EdgeInsets.only(bottom: 2.0),
+                              // width: 170.w,
+                              // height: 30.h,
+                              // color: Colors.cyan,
+                              child: Directionality(
+                                textDirection: TextDirection.rtl,
+                                child: TextFormField(
+                                  validator: (value) 
+                                  {
+                                    if (value == "" || value == null)
+                                     {
+                                     return "Full Name is required";
+                                    }
+                                      
+                                  },
+                                  controller: fullNameController,
+                                  obscureText: false,
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 15.sp,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                  textAlign: TextAlign.right,
+                                  decoration: InputDecoration(
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                        width: 1.w,
+                                      ),
+                                    ),
+                                    disabledBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                        width: 1.w,
+                                      ),
+                                    ),
+                                    focusedBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                        width: 1.w,
+                                      ),
+                                    ),
+                                    errorBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                        width: 1.w,
+                                      ),
+                                    ),
+                                    focusedErrorBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                        width: 2.w,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
                           ),
                         ],
                       ),
-                    ),
-                    SizedBox(
-                      height: 30.h,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Container(
-                          // alignment: Alignment.center,
-                          // width: 100.w,
-                          // height: 20.h,
-                          // color: Colors.black,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              CircleAvatar(
-                                backgroundColor:
-                                    Color(0xFF5C1196).withOpacity(0.4),
-                                child: Icon(
-                                  Icons.person,
-                                  size: 25,
-                                  color: Colors.white,
+                      SizedBox(
+                        height: 5.h,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Container(
+                            // alignment: Alignment.center,
+                            // width: 100.w,
+                            // height: 20.h,
+                            // color: Colors.black,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                CircleAvatar(
+                                  backgroundColor:
+                                      Color(0xFF5C1196).withOpacity(0.4),
+                                  child: Icon(
+                                    Icons.phone,
+                                    size: 25,
+                                    color: Colors.white,
+                                  ),
                                 ),
-                              ),
-                              SizedBox(
-                                width: 10.0,
-                              ),
-                              Text(
-                                "Full Name",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 15.sp,
-                                  fontWeight: FontWeight.bold,
+                                SizedBox(
+                                  width: 10.0,
                                 ),
-                              ),
-                            ],
+                                Text(
+                                  "Phone Number",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 15.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                        SizedBox(
-                          width: 30.0,
-                        ),
-                        Expanded(
-                          child: Container(
-                            padding: EdgeInsets.only(bottom: 2.0),
-                            // width: 170.w,
-                            // height: 30.h,
-                            // color: Colors.cyan,
-                            child: TextField(
-                              controller: fullNameController,
-                              obscureText: false,
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 15.sp,
-                                fontWeight: FontWeight.w500,
-                              ),
-                              textAlign: TextAlign.right,
-                              decoration: InputDecoration(
-                                enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.w,
+                          SizedBox(
+                            width: 30.0,
+                          ),
+                          Expanded(
+                            child: Container(
+                              padding: EdgeInsets.only(bottom: 2.0),
+                              // width: 170.w,
+                              // height: 30.h,
+                              // color: Colors.cyan,
+                              child: Directionality(
+                                textDirection: TextDirection.rtl,
+                                child: TextFormField(
+                                  validator: (value) {
+                                    if (value == "" || value == null) {
+                                      return "Phone Number is Required";
+                                    }
+                                    if (value.length < 10 && value.length > 10) {
+                                      return "Phone Number Must be of 10 Digit";
+                                    }
+                                  },
+                                  controller: phoneNumberController,
+                                  obscureText: false,
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 15.sp,
+                                    fontWeight: FontWeight.w500,
                                   ),
-                                ),
-                                disabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.w,
-                                  ),
-                                ),
-                                focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.w,
-                                  ),
-                                ),
-                                errorBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.w,
-                                  ),
-                                ),
-                                focusedErrorBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 2.w,
+                                  textAlign: TextAlign.right,
+                                  decoration: InputDecoration(
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                        width: 1.w,
+                                      ),
+                                    ),
+                                    disabledBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                        width: 1.w,
+                                      ),
+                                    ),
+                                    focusedBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                        width: 1.w,
+                                      ),
+                                    ),
+                                    errorBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                        width: 1.w,
+                                      ),
+                                    ),
+                                    focusedErrorBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                        width: 2.w,
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 5.h,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Container(
-                          // alignment: Alignment.center,
-                          // width: 100.w,
-                          // height: 20.h,
-                          // color: Colors.black,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              CircleAvatar(
-                                backgroundColor:
-                                    Color(0xFF5C1196).withOpacity(0.4),
-                                child: Icon(
-                                  Icons.phone,
-                                  size: 25,
-                                  color: Colors.white,
-                                ),
-                              ),
-                              SizedBox(
-                                width: 10.0,
-                              ),
-                              Text(
-                                "Phone Number",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 15.sp,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          width: 30.0,
-                        ),
-                        Expanded(
-                          child: Container(
-                            padding: EdgeInsets.only(bottom: 2.0),
-                            // width: 170.w,
-                            // height: 30.h,
-                            // color: Colors.cyan,
-                            child: TextField(
-                              controller: phoneNumberController,
-                              obscureText: false,
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 15.sp,
-                                fontWeight: FontWeight.w500,
-                              ),
-                              textAlign: TextAlign.right,
-                              decoration: InputDecoration(
-                                enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.w,
-                                  ),
-                                ),
-                                disabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.w,
-                                  ),
-                                ),
-                                focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.w,
-                                  ),
-                                ),
-                                errorBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.w,
-                                  ),
-                                ),
-                                focusedErrorBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 2.w,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    )
-                  ],
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               )
             ],
