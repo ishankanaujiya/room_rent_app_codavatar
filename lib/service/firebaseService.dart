@@ -37,9 +37,9 @@ class FirebaseService
       String docId = documentSnapshot.id;
       
       return await firebaseFirestore.doc(docId).update({
-        "Full Name" : updatedDetail['FullName'],
-        "Phone Number" : updatedDetail['PhoneNumber'],
-        "SecureUrl" : updatedDetail['secureUrl'],
+        "FullName" : updatedDetail['Full Name'],
+        "PhoneNumber" : updatedDetail['Phone Number'],
+        // "SecureUrl" : updatedDetail['secureUrl'],
       });
     }
     catch(e)

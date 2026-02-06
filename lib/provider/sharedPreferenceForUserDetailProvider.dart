@@ -40,6 +40,7 @@ class SharedPreferenceForUserDetailProvider extends ChangeNotifier
     {
       try
       {
+        
         var pref = await SharedPreferences.getInstance();
       
         await pref.setString(KeyForSharedPreference.KEYFORFULLNAME, fullName);

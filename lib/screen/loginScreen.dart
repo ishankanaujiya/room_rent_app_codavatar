@@ -6,6 +6,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 import 'package:room_rent_app/provider/circularLoadingProvider.dart';
 import 'package:room_rent_app/provider/sharedPreferenceForUserDetailProvider.dart';
+import 'package:room_rent_app/screen/editProfileScreen.dart';
 import 'package:room_rent_app/screen/home.dart';
 import 'package:room_rent_app/screen/homeScreen.dart';
 import 'package:room_rent_app/screen/registrationScreen.dart';
@@ -289,7 +290,7 @@ class _LoginInScreenState extends State<LoginInScreen> {
                   );
 
 
-                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()
+                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => EditProfileSreen()
                     ));
                   // await SharedPreferenceForUserDetailProvider().getStoredUserDetail();
 

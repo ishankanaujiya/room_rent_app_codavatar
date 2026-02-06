@@ -1,6 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:provider/provider.dart';
+import 'package:room_rent_app/provider/sharedPreferenceForUserDetailProvider.dart';
+import 'package:room_rent_app/service/firebaseService.dart';
+import 'package:room_rent_app/util/keyForSharedPreference.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class EditProfileSreen extends StatefulWidget {
   const EditProfileSreen({super.key});
@@ -20,20 +26,40 @@ class _EditProfileSreenState extends State<EditProfileSreen> {
 
   GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
 
+   String userFullName = "";
+   String userEmail = "";
+   String userPhoneNumber = "";
+   String userProfileSecureUrl = "";
+
   changeLoadingStatus(bool loadingStatus) {
     setState(() {
       isLoading = loadingStatus;
     });
   }
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    fullNameController.text = fullName;
-    phoneNumberController.text = phoneNumebr;
+  getLoggedInUserDetail() async
+  {
+    var pref = await SharedPreferences.getInstance();
+    userFullName = await pref.getString(KeyForSharedPreference.KEYFORFULLNAME) ?? ""; 
+    userEmail = await pref.getString(KeyForSharedPreference.KEYFOREMAIL) ?? ""; 
+    userPhoneNumber = await pref.getString(KeyForSharedPreference.KEYFORPHONENUMBER) ?? ""; 
+    userProfileSecureUrl = await pref.getString(KeyForSharedPreference.KEYFORPROFILESECUREURL) ?? "";
+    print(userEmail);
 
-    super.initState();
+    fullNameController.text = userFullName;
+    phoneNumberController.text = userPhoneNumber;
+    setState(() {
+      
+    });
   }
+
+@override
+void initState() {
+  getLoggedInUserDetail();
+  super.initState();
+  
+}
+
 
   @override
   Widget build(BuildContext context) {
@@ -105,21 +131,27 @@ class _EditProfileSreenState extends State<EditProfileSreen> {
                   ],
                 ),
               ),
-              Container(
-                margin: EdgeInsets.only(top: 5.0),
-                width: double.infinity.w,
-                // height: 20.h,
-                // color: Colors.black,
-                child: Center(
-                  child: Text(
-                    "Ishan Kanaujiya",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 22.sp,
-                      fontWeight: FontWeight.bold,
+              Consumer<SharedPreferenceForUserDetailProvider>(
+                builder: (context, sharedPreferenceValue, _)
+                {
+                  return Container(
+                  margin: EdgeInsets.only(top: 5.0),
+                  width: double.infinity.w,
+                  // height: 20.h,
+                  // color: Colors.black,
+                  child: Center(
+                    child: Text(
+                      userFullName,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 22.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                ),
+                );
+                },
+                
               ),
               Form(
                 key: _formKey,
@@ -151,8 +183,20 @@ class _EditProfileSreenState extends State<EditProfileSreen> {
                               onPressed: () async {
                                  if (_formKey.currentState!.validate()) 
                                  {
+
                                    changeLoadingStatus(true);
+
+                                   Map<String, dynamic> updatedUserDetail = {
+                                    "Full Name" : fullNameController.text,
+                                    "Phone Number" : phoneNumberController.text,
+                                   };
+                                   
+                                    await FirebaseService().updateUsersDetail(updatedUserDetail, userEmail);
+
+                                    await SharedPreferenceForUserDetailProvider().storeUserDetail(fullNameController.text, userEmail, phoneNumberController.text, userProfileSecureUrl);
+
                                     await Future.delayed(Duration(seconds: 2));
+                                    
                                     changeLoadingStatus(false);
                                  }
                                
