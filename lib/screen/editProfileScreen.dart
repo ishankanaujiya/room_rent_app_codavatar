@@ -207,8 +207,21 @@ void initState() {
                                       await SharedPreferenceForUserDetailProvider().storeUserDetail(fullNameController.text, userEmail, phoneNumberController.text, userProfileSecureUrl);
       
                                       await Future.delayed(Duration(seconds: 2));
-                                      
+
+                                        Fluttertoast.showToast(
+                                        msg: "Details Edited Successfully",
+                                        toastLength: Toast.LENGTH_LONG,
+                                        gravity: ToastGravity.CENTER,
+                                        timeInSecForIosWeb: 1,
+                                        backgroundColor: Color(0xFF5C1196).withOpacity(0.6),
+                                        textColor: Colors.white,
+                                        fontSize: 16.0
+                                        );
+                                                            
                                       changeLoadingStatus(false);
+
+                                       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SettingScreen()
+                    ));
                                    }
                                  
                                 },

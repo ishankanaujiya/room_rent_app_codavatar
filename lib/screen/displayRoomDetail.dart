@@ -477,12 +477,15 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                   SizedBox(
                                     width: 5.w,
                                   ),
-                                  Text(
-                                       value?['Contact Email'] ?? "",
-                                    style: TextStyle(
-                                      color: CustomColor.primaryTextColor,
-                                      fontSize: 13.sp,
-                                      fontWeight: FontWeight.bold,
+                                  Container(
+                                    width: 140.w,
+                                    child: Text(
+                                         value?['Contact Email'] ?? "",
+                                      style: TextStyle(
+                                        color: CustomColor.primaryTextColor,
+                                        fontSize: 13.sp,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
                                   ),
                                 ],

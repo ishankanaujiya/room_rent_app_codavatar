@@ -290,7 +290,7 @@ class _LoginInScreenState extends State<LoginInScreen> {
                   );
 
 
-                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => EditProfileSreen()
+                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()
                     ));
                   // await SharedPreferenceForUserDetailProvider().getStoredUserDetail();
 

@@ -7,6 +7,7 @@ import 'package:room_rent_app/provider/roomDetailProvider.dart';
 import 'package:room_rent_app/provider/sharedPreferenceForUserDetailProvider.dart';
 import 'package:room_rent_app/screen/addRoomDetail.dart';
 import 'package:room_rent_app/screen/displayRoomDetail.dart';
+import 'package:room_rent_app/screen/settingScreen.dart';
 import 'package:room_rent_app/service/firebaseService.dart';
 import 'package:room_rent_app/util/customColor.dart';
 
@@ -93,11 +94,19 @@ class _HomeScreenState extends State<HomeScreen> {
                           ],
                         ),
                       ),
-                      CircleAvatar(
-                        backgroundColor: Color(0xFF5C1196).withOpacity(0.6),
-                        backgroundImage: Provider.of<SharedPreferenceForUserDetailProvider>(context, listen: false).getUserProfileSecureUrl == "" ? null : NetworkImage(Provider.of<SharedPreferenceForUserDetailProvider>(context, listen: false).getUserProfileSecureUrl),
-                        radius: 26.r,
-                        child: Provider.of<SharedPreferenceForUserDetailProvider>(context, listen: false).getUserProfileSecureUrl == "" ? Icon(Icons.person, color: Colors.white,) : null,
+                      InkWell(
+                        splashColor: Colors.transparent,
+                        onTap: ()
+                        {
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SettingScreen()
+                           ));
+                        },
+                        child: CircleAvatar(
+                          backgroundColor: Color(0xFF5C1196).withOpacity(0.6),
+                          backgroundImage: Provider.of<SharedPreferenceForUserDetailProvider>(context, listen: false).getUserProfileSecureUrl == "" ? null : NetworkImage(Provider.of<SharedPreferenceForUserDetailProvider>(context, listen: false).getUserProfileSecureUrl),
+                          radius: 26.r,
+                          child: Provider.of<SharedPreferenceForUserDetailProvider>(context, listen: false).getUserProfileSecureUrl == "" ? Icon(Icons.person, color: Colors.white,) : null,
+                        ),
                       ),
                     ],
                   ),
