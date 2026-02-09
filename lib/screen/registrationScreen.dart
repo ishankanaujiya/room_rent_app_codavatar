@@ -584,17 +584,20 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                 "PhoneNumber": phoneNumberController.text,
                                 "SecureUrl": secureUrl,
                               };
+
+                              print("This is SecureUrl After Selection $secureUrl");
                             }
-                            
-                              userDetail = {
-                                "FullName": fullNameController.text,
-                                "Email": emailController.text,
-                                "PhoneNumber": phoneNumberController.text,
-                                "SecureUrl": "",
-                              };
-                          
-                            
-                           
+
+                            else
+                              {
+                                userDetail = {
+                                  "FullName": fullNameController.text,
+                                  "Email": emailController.text,
+                                  "PhoneNumber": phoneNumberController.text,
+                                  "SecureUrl": "",
+                                };
+                                print("This is SecureUrl");
+                              }
                             await FirebaseService().storeUserDetail(userDetail);
                             print("Details Stored Successfully");
 

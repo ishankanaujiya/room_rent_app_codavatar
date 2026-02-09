@@ -5,6 +5,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 import 'package:room_rent_app/provider/sharedPreferenceForUserDetailProvider.dart';
 import 'package:room_rent_app/screen/settingScreen.dart';
+import 'package:room_rent_app/service/deletePictureFromCloudinary.dart';
 import 'package:room_rent_app/service/firebaseService.dart';
 import 'package:room_rent_app/util/keyForSharedPreference.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -32,6 +33,8 @@ class _EditProfileSreenState extends State<EditProfileSreen> {
    String userPhoneNumber = "";
    String userProfileSecureUrl = "";
 
+   String publicIdForUserProfilePicture = "";
+
   changeLoadingStatus(bool loadingStatus) {
     setState(() {
       isLoading = loadingStatus;
@@ -46,6 +49,10 @@ class _EditProfileSreenState extends State<EditProfileSreen> {
     userPhoneNumber = await pref.getString(KeyForSharedPreference.KEYFORPHONENUMBER) ?? ""; 
     userProfileSecureUrl = await pref.getString(KeyForSharedPreference.KEYFORPROFILESECUREURL) ?? "";
     print(userEmail);
+    // print(userProfileSecureUrl);
+
+    publicIdForUserProfilePicture = await FirebaseService().getPublicIdFromSecureUrl(userProfileSecureUrl);
+    print(publicIdForUserProfilePicture);
 
     fullNameController.text = userFullName;
     phoneNumberController.text = userPhoneNumber;
@@ -53,6 +60,8 @@ class _EditProfileSreenState extends State<EditProfileSreen> {
       
     });
   }
+
+
 
 @override
 void initState() {
@@ -115,7 +124,7 @@ void initState() {
                         ),
                         child: CircleAvatar(
                           backgroundColor: Colors.white,
-                          backgroundImage: AssetImage("assets/person.jpg"),
+                          backgroundImage: NetworkImage(userProfileSecureUrl),
                           radius: 90.r,
                         ),
                       ),
@@ -133,7 +142,10 @@ void initState() {
                             ),
                           ),
                           child: IconButton(
-                            onPressed: () {},
+                            onPressed: ()
+                            {
+                              DeletePictureFromCloudinary().deletePictureFromCloudinary(userProfileSecureUrl);
+                            },
                             icon: Icon(Icons.edit),
                             color: Color(0xFF5C1196).withOpacity(0.6),
                           ),

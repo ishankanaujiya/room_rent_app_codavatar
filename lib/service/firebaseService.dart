@@ -53,4 +53,19 @@ class FirebaseService
     return await firebaseFirestoreForRoomDetail.where("Email", isEqualTo: email).snapshots();
 
   }
+
+
+  String getPublicIdFromSecureUrl(String secureUrl) {
+    print("This is the publicId method");
+    print("This is SecureUrl $secureUrl");
+
+    String fileName = secureUrl.split('/').last;
+
+
+    String publicId = fileName.split('.').first;
+
+    print("Extracted publicId: $publicId");
+    return publicId;
+  }
+
 }
