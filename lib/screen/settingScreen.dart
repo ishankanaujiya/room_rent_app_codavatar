@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:room_rent_app/screen/customerServiceAndSupportScreen.dart';
 import 'package:room_rent_app/screen/editProfileScreen.dart';
 import 'package:room_rent_app/screen/home.dart';
 import 'package:room_rent_app/screen/postDetailScreen.dart';
@@ -170,6 +171,7 @@ class _SettingScreenState extends State<SettingScreen> {
                           SettingContainer(
                             iconData: Icons.support_agent,
                             textLabel: "Customer Service & Support",
+                            navigationWidget: CustomerServiceAndSupportScreen(),
                           ),
                            
                            
