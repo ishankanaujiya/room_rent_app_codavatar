@@ -21,7 +21,13 @@ class _SettingContainerState extends State<SettingContainer> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
+        if(widget.navigationWidget != null)
+        {
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (builder) => widget.navigationWidget!
+          ));
+        }
         print("Pressed");
+        
       },
       child: Container(
         width: double.infinity.w,

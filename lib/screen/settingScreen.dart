@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:room_rent_app/screen/editProfileScreen.dart';
 import 'package:room_rent_app/widget/settingContainer.dart';
 
 class SettingScreen extends StatefulWidget {
@@ -137,6 +138,7 @@ class _SettingScreenState extends State<SettingScreen> {
                         SettingContainer(
                           iconData: Icons.edit,
                           textLabel: "Edit Profile",
+                          navigationWidget: EditProfileSreen(),
                         ),
                        
                          
