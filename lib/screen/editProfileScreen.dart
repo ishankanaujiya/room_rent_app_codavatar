@@ -41,6 +41,10 @@ class _EditProfileSreenState extends State<EditProfileSreen> {
 
    var selectPicture = new ImagePicker();
 
+  File? convertedPicture;
+
+  String? initialUserProfilePicture;
+
   changeLoadingStatus(bool loadingStatus) {
     setState(() {
       isLoading = loadingStatus;
@@ -62,9 +66,11 @@ class _EditProfileSreenState extends State<EditProfileSreen> {
 
     fullNameController.text = userFullName;
     phoneNumberController.text = userPhoneNumber;
+
     setState(() {
-      
+      initialUserProfilePicture = userProfileSecureUrl;
     });
+
   }
 
 
@@ -130,7 +136,7 @@ void initState() {
                         ),
                         child: CircleAvatar(
                           backgroundColor: Colors.white,
-                          backgroundImage: NetworkImage(userProfileSecureUrl),
+                          backgroundImage: initialUserProfilePicture != null ? NetworkImage(initialUserProfilePicture!): AssetImage("assets/profile.png"),
                           radius: 90.r,
                         ),
                       ),
@@ -154,8 +160,7 @@ void initState() {
 
                               if(pickedPicture != null)
                                 {
-                                  File? convertedPicture = File(pickedPicture.path);
-
+                                  convertedPicture = File(pickedPicture.path);
                                   String updatedSecureUrl = await PictureToCloudinary().uploadPictureToCloudinary(convertedPicture);
                                   if(updatedSecureUrl.isNotEmpty)
                                     {
@@ -167,6 +172,13 @@ void initState() {
                                       print("SecureUrl Updated");
 
                                       DeletePictureFromCloudinary().deletePictureFromCloudinary(userProfileSecureUrl);
+
+
+                                      initialUserProfilePicture = updatedSecureUrl;
+                                      setState(() {
+
+                                      });
+
 
                                     }
                                 }
@@ -236,7 +248,7 @@ void initState() {
                                 onPressed: () async {
                                    if (_formKey.currentState!.validate()) 
                                    {
-      
+
                                      changeLoadingStatus(true);
       
                                      Map<String, dynamic> updatedUserDetail = {
