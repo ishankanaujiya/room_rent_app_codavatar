@@ -229,7 +229,7 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
                                                     Container(
                                                       // margin: EdgeInsets.only(bottom: 10.0),
                                                       width: 130.w,
-                                                      height: 150.h,
+                                                      height: 140.h,
                                         
                                                       decoration: BoxDecoration(
                                                         color: Colors.grey
@@ -337,6 +337,8 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
                                                   ],
                                                 ),
                                               ),
+
+
                                               Container(
                                                 padding: EdgeInsets.only(
                                                     top: 10.0, right: 10.0),

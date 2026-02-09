@@ -66,7 +66,7 @@ class _SettingScreenState extends State<SettingScreen> {
                             child: CircleAvatar(
                               backgroundColor: Colors.white,
                               backgroundImage: AssetImage("assets/logInScreenPersonPicture.png"),
-                              radius: 90.r,
+                              radius: 80.r,
                             ),
                             decoration: BoxDecoration(
                               //  color: Colors.cyan,
@@ -90,7 +90,7 @@ class _SettingScreenState extends State<SettingScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               Container(
-                                width: 190.w,
+                                width: 170.w,
                                 // height: 40.h,
                                 // color: Colors.cyan,
                                 child: Text(
