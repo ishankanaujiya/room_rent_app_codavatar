@@ -1,6 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+import 'package:room_rent_app/provider/roomDetailProvider.dart';
+import 'package:room_rent_app/screen/displayRoomDetail.dart';
 import 'package:room_rent_app/service/firebaseService.dart';
 import 'package:room_rent_app/util/keyForSharedPreference.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -141,147 +144,156 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
                                   return Container(
                                     // color: Colors.cyan,
                                     width: double.infinity.w,
-                                    child: Container(
-                                      width: double.infinity.w,
-                                      margin: EdgeInsets.only(bottom: 30.0),
-                                      decoration: BoxDecoration(
-                                        color: Color.fromARGB(115, 240, 240, 240),
-                                        borderRadius:
-                                            BorderRadius.circular(20.r),
-                                      ),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: <Widget>[
-                                          Container(
-                                            // color: Colors.cyan,
-                                            child: Row(
-                                              children: <Widget>[
-                                                Container(
-                                                  // margin: EdgeInsets.only(bottom: 10.0),
-                                                  width: 130.w,
-                                                  height: 150.h,
-
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.grey
-                                                        .withOpacity(0.5),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            20.r),
-                                                  ),
-
-                                                  child: ClipRRect(
-                                                    borderRadius: BorderRadius.circular(15.r),
-                                                    child: Image(image: NetworkImage(documentSnapshot['secureUrl'][0]), fit: BoxFit.cover,
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      onTap: ()
+                                      {
+                                        Provider.of<RoomDetailProvider>(context, listen: false).updateDocumentSnapshot(documentSnapshot);
+                                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => DisplayRoomDetail()
+                                         ));
+                                      },
+                                      child: Container(
+                                        width: double.infinity.w,
+                                        margin: EdgeInsets.only(bottom: 30.0),
+                                        decoration: BoxDecoration(
+                                          color: Color.fromARGB(115, 240, 240, 240),
+                                          borderRadius:
+                                              BorderRadius.circular(20.r),
+                                        ),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: <Widget>[
+                                            Container(
+                                              // color: Colors.cyan,
+                                              child: Row(
+                                                children: <Widget>[
+                                                  Container(
+                                                    // margin: EdgeInsets.only(bottom: 10.0),
+                                                    width: 130.w,
+                                                    height: 150.h,
+                                      
+                                                    decoration: BoxDecoration(
+                                                      color: Colors.grey
+                                                          .withOpacity(0.5),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              20.r),
                                                     ),
-                                                    ),
-                                                ),
-                                                SizedBox(
-                                                  width: 10.w,
-                                                ),
-                                                Container(
-                                                  child: Column(
-                                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                                    children: <Widget>[
-                                                      Container(
-                                                        // color: Colors.cyan,
-                                                        width: 150.w,
-                                                        child: Text(
-                                                          documentSnapshot['Room Title'],
-                                                          style: TextStyle(
-                                                            color: Colors.black,
-                                                            fontSize: 15.sp,
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                          ),
-                                                        ),
+                                      
+                                                    child: ClipRRect(
+                                                      borderRadius: BorderRadius.circular(15.r),
+                                                      child: Image(image: NetworkImage(documentSnapshot['secureUrl'][0]), fit: BoxFit.cover,
                                                       ),
-
-                                                      SizedBox(
-                                                  height: 5.h,
-                                                ),
-
-                                                        Container(
-                                                           width: 150.w,
-                                                          child: Row(
-                                                            children: [
-                                                              Text(
-                                                              "Room Price: ",
-                                                              style: TextStyle(
-                                                                color: Colors.black,
-                                                                fontSize: 9.sp,
-                                                                fontWeight:
-                                                                    FontWeight.w500,
-                                                              ),
-                                                              ),
-
-                                                               SizedBox(
-                                                                width: 5.w,
-                                                              ),
-
-                                                              Text(
-                                                             "Rs. ${documentSnapshot['Room Price']}",
-                                                              style: TextStyle(
-                                                                color: Colors.black,
-                                                                fontSize: 9.sp,
-                                                                fontWeight:
-                                                                    FontWeight.w500,
-                                                              ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-
-                                                         Container(
-                                                           width: 150.w,
-                                                          child: Row(
-                                                            children: [
-                                                              Text(
-                                                              "Location: ",
-                                                              style: TextStyle(
-                                                                color: Colors.black,
-                                                                fontSize: 9.sp,
-                                                                fontWeight:
-                                                                    FontWeight.w500,
-                                                              ),
-                                                              ),
-
-                                                               SizedBox(
-                                                                width: 5.w,
-                                                              ),
-
-                                                              Text(
-                                                              documentSnapshot['Location'],
-                                                              style: TextStyle(
-                                                                color: Colors.black,
-                                                                fontSize: 9.sp,
-                                                                fontWeight:
-                                                                    FontWeight.w500,
-                                                              ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                    ],
+                                                      ),
                                                   ),
-                                                ),
-                                              ],
+                                                  SizedBox(
+                                                    width: 10.w,
+                                                  ),
+                                                  Container(
+                                                    child: Column(
+                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                      children: <Widget>[
+                                                        Container(
+                                                          // color: Colors.cyan,
+                                                          width: 150.w,
+                                                          child: Text(
+                                                            documentSnapshot['Room Title'],
+                                                            style: TextStyle(
+                                                              color: Colors.black,
+                                                              fontSize: 15.sp,
+                                                              fontWeight:
+                                                                  FontWeight.bold,
+                                                            ),
+                                                          ),
+                                                        ),
+                                      
+                                                        SizedBox(
+                                                    height: 5.h,
+                                                  ),
+                                      
+                                                          Container(
+                                                             width: 150.w,
+                                                            child: Row(
+                                                              children: [
+                                                                Text(
+                                                                "Room Price: ",
+                                                                style: TextStyle(
+                                                                  color: Colors.black,
+                                                                  fontSize: 9.sp,
+                                                                  fontWeight:
+                                                                      FontWeight.w500,
+                                                                ),
+                                                                ),
+                                      
+                                                                 SizedBox(
+                                                                  width: 5.w,
+                                                                ),
+                                      
+                                                                Text(
+                                                               "Rs. ${documentSnapshot['Room Price']}",
+                                                                style: TextStyle(
+                                                                  color: Colors.black,
+                                                                  fontSize: 9.sp,
+                                                                  fontWeight:
+                                                                      FontWeight.w500,
+                                                                ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                      
+                                                           Container(
+                                                             width: 150.w,
+                                                            child: Row(
+                                                              children: [
+                                                                Text(
+                                                                "Location: ",
+                                                                style: TextStyle(
+                                                                  color: Colors.black,
+                                                                  fontSize: 9.sp,
+                                                                  fontWeight:
+                                                                      FontWeight.w500,
+                                                                ),
+                                                                ),
+                                      
+                                                                 SizedBox(
+                                                                  width: 5.w,
+                                                                ),
+                                      
+                                                                Text(
+                                                                documentSnapshot['Location'],
+                                                                style: TextStyle(
+                                                                  color: Colors.black,
+                                                                  fontSize: 9.sp,
+                                                                  fontWeight:
+                                                                      FontWeight.w500,
+                                                                ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
-                                          ),
-                                          Container(
-                                            padding: EdgeInsets.only(
-                                                top: 10.0, right: 10.0),
-                                            alignment: Alignment.topCenter,
-                                            height: 140.h,
-                                            // color: Colors.cyan,
-                                            child: Icon(
-                                              Icons.delete,
-                                              size: 22,
-                                              color: Color(0xFF5C1196)
-                                                  .withOpacity(0.5),
+                                            Container(
+                                              padding: EdgeInsets.only(
+                                                  top: 10.0, right: 10.0),
+                                              alignment: Alignment.topCenter,
+                                              height: 140.h,
+                                              // color: Colors.cyan,
+                                              child: Icon(
+                                                Icons.delete,
+                                                size: 22,
+                                                color: Color(0xFF5C1196)
+                                                    .withOpacity(0.5),
+                                              ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   );
