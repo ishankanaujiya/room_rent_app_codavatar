@@ -55,7 +55,7 @@ class FirebaseService
   }
 
 
-  String getPublicIdFromSecureUrl(String secureUrl) {
+  getPublicIdFromSecureUrl(String secureUrl) {
     print("This is the publicId method");
     print("This is SecureUrl $secureUrl");
 
@@ -66,6 +66,19 @@ class FirebaseService
 
     print("Extracted publicId: $publicId");
     return publicId;
+  }
+
+  updateProfilePicture(String email, String updatedSecureUrl) async
+  {
+    QuerySnapshot querySnapshot = await firebaseFirestore.where("Email", isEqualTo: email).get();
+    DocumentSnapshot documentSnapshot = querySnapshot.docs.first;
+
+    String docId = documentSnapshot.id;
+    return await firebaseFirestore.doc(docId).update({
+      "SecureUrl" : updatedSecureUrl,
+    });
+
+
   }
 
 }

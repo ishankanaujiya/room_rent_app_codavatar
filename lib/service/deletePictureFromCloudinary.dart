@@ -5,9 +5,8 @@ import 'package:room_rent_app/service/firebaseService.dart';
 
 class DeletePictureFromCloudinary
 {
-  Future<void> deletePictureFromCloudinary(
-      String secureUrl) async {
-
+  deletePictureFromCloudinary(String secureUrl) async
+  {
     String publicId = FirebaseService().getPublicIdFromSecureUrl(secureUrl);
 
     final url = Uri.parse(

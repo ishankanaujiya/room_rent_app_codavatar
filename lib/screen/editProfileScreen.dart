@@ -1,12 +1,16 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:room_rent_app/provider/sharedPreferenceForUserDetailProvider.dart';
 import 'package:room_rent_app/screen/settingScreen.dart';
 import 'package:room_rent_app/service/deletePictureFromCloudinary.dart';
 import 'package:room_rent_app/service/firebaseService.dart';
+import 'package:room_rent_app/service/pictureToCloudinary.dart';
 import 'package:room_rent_app/util/keyForSharedPreference.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -34,6 +38,8 @@ class _EditProfileSreenState extends State<EditProfileSreen> {
    String userProfileSecureUrl = "";
 
    String publicIdForUserProfilePicture = "";
+
+   var selectPicture = new ImagePicker();
 
   changeLoadingStatus(bool loadingStatus) {
     setState(() {
@@ -142,9 +148,33 @@ void initState() {
                             ),
                           ),
                           child: IconButton(
-                            onPressed: ()
+                            onPressed: () async
                             {
-                              DeletePictureFromCloudinary().deletePictureFromCloudinary(userProfileSecureUrl);
+                              XFile? pickedPicture = await selectPicture.pickImage(source: ImageSource.gallery);
+
+                              if(pickedPicture != null)
+                                {
+                                  File? convertedPicture = File(pickedPicture.path);
+
+                                  String updatedSecureUrl = await PictureToCloudinary().uploadPictureToCloudinary(convertedPicture);
+                                  if(updatedSecureUrl.isNotEmpty)
+                                    {
+                                      await FirebaseService().updateProfilePicture(userEmail, updatedSecureUrl);
+
+                                      var pref = await SharedPreferences.getInstance();
+                                      await pref.setString(KeyForSharedPreference.KEYFORPROFILESECUREURL, updatedSecureUrl);
+
+                                      print("SecureUrl Updated");
+
+                                      DeletePictureFromCloudinary().deletePictureFromCloudinary(userProfileSecureUrl);
+
+                                    }
+                                }
+                              else
+                                {
+                                  print("Profile Picture Not Updated");
+                                }
+
                             },
                             icon: Icon(Icons.edit),
                             color: Color(0xFF5C1196).withOpacity(0.6),
