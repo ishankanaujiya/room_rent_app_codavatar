@@ -11,6 +11,7 @@ import 'package:room_rent_app/screen/displayRoomDetail.dart';
 import 'package:room_rent_app/screen/editProfileScreen.dart';
 import 'package:room_rent_app/screen/home.dart';
 import 'package:room_rent_app/screen/loginScreen.dart';
+import 'package:room_rent_app/screen/postDetailScreen.dart';
 import 'package:room_rent_app/screen/registrationScreen.dart';
 import 'package:room_rent_app/screen/selectMultiplePicture.dart';
 import 'package:room_rent_app/screen/settingScreen.dart';
@@ -47,7 +48,7 @@ class MyApp extends StatelessWidget {
         
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
-        home: const EditProfileSreen(),
+        home: const PostDetailScreen(),
       ),
     );
   }

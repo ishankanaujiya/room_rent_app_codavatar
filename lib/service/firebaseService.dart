@@ -47,4 +47,10 @@ class FirebaseService
       print(e.toString());
     }
   }
+
+  Future<Stream<QuerySnapshot>>getloggedInUserPostedRoom(String email) async
+  {
+    return await firebaseFirestoreForRoomDetail.where("Email", isEqualTo: email).snapshots();
+
+  }
 }
