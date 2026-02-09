@@ -110,7 +110,7 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top: 20.0, left: 15.0),
+                margin: EdgeInsets.only(top: 25.0, left: 15.0),
                 width: double.infinity.w,
                 // height: 100.h,
                 // color: Colors.cyan,
@@ -125,7 +125,7 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
               ),
               Expanded(
                 child: Container(
-                  margin: EdgeInsets.only(top: 20.0),
+                  margin: EdgeInsets.only(top: 10.0),
                   padding: EdgeInsets.only(left: 20.0, top: 20.0, right: 20.0),
                   width: double.infinity.w,
                   // color: Colors.cyan,
@@ -142,6 +142,7 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
                                     // color: Colors.cyan,
                                     width: double.infinity.w,
                                     child: Container(
+                                      width: double.infinity.w,
                                       margin: EdgeInsets.only(bottom: 30.0),
                                       decoration: BoxDecoration(
                                         color: Color.fromARGB(115, 240, 240, 240),
