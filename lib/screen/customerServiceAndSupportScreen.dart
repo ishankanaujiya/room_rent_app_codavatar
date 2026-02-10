@@ -28,7 +28,7 @@ class _CustomerServiceAndSupportScreenState extends State<CustomerServiceAndSupp
       child: Scaffold(
         backgroundColor: Colors.white,
         body: Container(
-          color: Colors.cyan,
+          // color: Colors.cyan,
           child: Column(
             children: <Widget>[
               Container(
