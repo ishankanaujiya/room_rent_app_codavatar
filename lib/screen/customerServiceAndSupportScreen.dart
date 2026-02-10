@@ -71,8 +71,8 @@ class _CustomerServiceAndSupportScreenState extends State<CustomerServiceAndSupp
               
                       Container(
                          width: double.infinity.w,
-                         height: 250,
-                        //  color: Colors.cyan,
+                         height: 270.h,
+                         // color: Colors.cyan,
                         child: Stack(
                           children: [
                             Center(
@@ -259,7 +259,7 @@ class _CustomerServiceAndSupportScreenState extends State<CustomerServiceAndSupp
                            padding: EdgeInsets.symmetric(horizontal: 15.0),
                                          
                           width: double.infinity.w,
-                          height: 72.h,
+                          height: 60.h,
                             decoration: BoxDecoration(
                               color: Color(0xFFAC8AE9).withOpacity(0.1),  
                               borderRadius: BorderRadius.circular(15.r),
@@ -270,7 +270,7 @@ class _CustomerServiceAndSupportScreenState extends State<CustomerServiceAndSupp
                               Container(
                                 child: Row(
                                   children: <Widget>[
-                                    Icon(Icons.email, color: Color(0xFFAC8AE9).withOpacity(0.5), size: 35,),
+                                    Icon(Icons.email, color: Color(0xFFAC8AE9).withOpacity(0.5), size: 30,),
                         
                                     SizedBox(
                                       width: 10.w,
@@ -283,7 +283,7 @@ class _CustomerServiceAndSupportScreenState extends State<CustomerServiceAndSupp
                                         Text("Email Us",
                                       style: TextStyle(
                                         color: Colors.black,
-                                        fontSize: 11.sp,
+                                        fontSize: 10.sp,
                                         fontWeight: FontWeight.bold,
                                       ),),
                         
@@ -296,14 +296,14 @@ class _CustomerServiceAndSupportScreenState extends State<CustomerServiceAndSupp
                                       isEmailEnabled ? Text("ishankanaujiya96@gmail.com",
                                       style: TextStyle(
                                         color: Colors.grey.withOpacity(0.5),
-                                        fontSize: 11.sp,
+                                        fontSize: 10.sp,
                                         fontWeight: FontWeight.w500,
                                       ),)
                                       :
                                       Text("Send us email for any query.",
                                       style: TextStyle(
                                         color: Colors.grey.withOpacity(0.5),
-                                        fontSize: 11.sp,
+                                        fontSize: 10.sp,
                                         fontWeight: FontWeight.w500,
                                       ),),
                                      
@@ -333,7 +333,7 @@ class _CustomerServiceAndSupportScreenState extends State<CustomerServiceAndSupp
                     Positioned(
                        left: 0,
                       right: 0,
-                      top: 110,
+                      top: 115,
                       child: InkWell(
                         splashColor: Colors.transparent,
                         highlightColor: Colors.transparent,
@@ -349,7 +349,7 @@ class _CustomerServiceAndSupportScreenState extends State<CustomerServiceAndSupp
                            padding: EdgeInsets.symmetric(horizontal: 15.0),
                                          
                           width: double.infinity.w,
-                          height: 72.h,
+                          height: 60.h,
                             decoration: BoxDecoration(
                               color: Color(0xFFAC8AE9).withOpacity(0.1),  
                               borderRadius: BorderRadius.circular(15.r),
@@ -360,7 +360,7 @@ class _CustomerServiceAndSupportScreenState extends State<CustomerServiceAndSupp
                               Container(
                                 child: Row(
                                   children: <Widget>[
-                                    Icon(Icons.phone, color: Color(0xFFAC8AE9).withOpacity(0.5), size: 35,),
+                                    Icon(Icons.phone, color: Color(0xFFAC8AE9).withOpacity(0.5), size: 30,),
                         
                                     SizedBox(
                                       width: 10.w,
@@ -373,7 +373,7 @@ class _CustomerServiceAndSupportScreenState extends State<CustomerServiceAndSupp
                                         Text("Call Us",
                                       style: TextStyle(
                                         color: Colors.black,
-                                        fontSize: 11.sp,
+                                        fontSize: 10.sp,
                                         fontWeight: FontWeight.bold,
                                       ),),
                         
@@ -385,14 +385,14 @@ class _CustomerServiceAndSupportScreenState extends State<CustomerServiceAndSupp
                                       isPhoneEnabled ? Text("+977-9861351391",
                                       style: TextStyle(
                                         color: Colors.grey.withOpacity(0.5),
-                                        fontSize: 11.sp,
+                                        fontSize: 10.sp,
                                         fontWeight: FontWeight.w500,
                                       ),)
                                       :
                                       Text("Call us for any query.",
                                       style: TextStyle(
                                         color: Colors.grey.withOpacity(0.5),
-                                        fontSize: 11.sp,
+                                        fontSize: 10.sp,
                                         fontWeight: FontWeight.w500,
                                       ),),
                                      
