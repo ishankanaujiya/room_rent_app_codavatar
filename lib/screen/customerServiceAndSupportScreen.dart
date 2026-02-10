@@ -9,6 +9,9 @@ class CustomerServiceAndSupportScreen extends StatefulWidget {
 }
 
 class _CustomerServiceAndSupportScreenState extends State<CustomerServiceAndSupportScreen> {
+
+  bool isEmailEnabled = false;
+  bool isPhoneEnabled = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +39,7 @@ class _CustomerServiceAndSupportScreenState extends State<CustomerServiceAndSupp
                           Text("Customer Service",
                           style: TextStyle(
                             color: Colors.black,
-                            fontSize: 19.sp,
+                            fontSize: 16.sp,
                             fontWeight: FontWeight.bold,
                           ),),
                       
@@ -47,7 +50,7 @@ class _CustomerServiceAndSupportScreenState extends State<CustomerServiceAndSupp
                           Text("& Support",
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize:19.sp,
+                            fontSize:16.sp,
                             fontWeight: FontWeight.bold,
                           ),),
                         ],
@@ -63,7 +66,7 @@ class _CustomerServiceAndSupportScreenState extends State<CustomerServiceAndSupp
                           Center(
                             child: Container(
                               margin: EdgeInsets.only(top: 35.0),
-                              width: 250.w,
+                              width: 220.w,
                               height: 300.h,
                               // color: Colors.cyan,
                               child: Image(
@@ -158,16 +161,16 @@ class _CustomerServiceAndSupportScreenState extends State<CustomerServiceAndSupp
             ),
 
             Container(
-              margin: EdgeInsets.only(top: 20.0),
+              margin: EdgeInsets.only(top: 20.0, bottom: 20.0),
               width: double.infinity.w,
-              height: 150.h,
+              // height: 100.h,
               // color: Colors.cyan,
               child: Column(
                 children: <Widget>[
                    Text("How can we help you?",
                     style: TextStyle(
                       color: Colors.black,
-                      fontSize: 19.sp,
+                      fontSize: 17.sp,
                       fontWeight: FontWeight.bold,
                     ),),
 
@@ -181,7 +184,7 @@ class _CustomerServiceAndSupportScreenState extends State<CustomerServiceAndSupp
                       child: Text("Our Team is here to assist you with any questions or concern you may have",
                       style: TextStyle(
                         color: Colors.grey.withOpacity(0.5),
-                        fontSize: 11.sp,
+                        fontSize: 10.sp,
                         fontWeight: FontWeight.w500,
                       ),
                       textAlign: TextAlign.center,
@@ -189,7 +192,222 @@ class _CustomerServiceAndSupportScreenState extends State<CustomerServiceAndSupp
                     ),
                 ],
               ),
-            )
+            ),
+
+          Expanded(
+            child: Container(
+              width: double.infinity.w,
+              // color: Colors.cyan,
+              child: Stack(
+                children: [
+                  Positioned(
+                    left: -100,
+                    bottom: -70,
+                    child: Container(
+                      width: 200.w,
+                      height:200.h,
+                       decoration: BoxDecoration(
+                         color: Color(0xFFAC8AE9).withOpacity(0.5),  
+                         shape: BoxShape.circle,
+                       ),
+                    ),
+                  ),
+
+                  Positioned(
+                    right: -170,
+                    top: 0,
+                    child: Container(
+                      width: 200.w,
+                      height:200.h,
+                       decoration: BoxDecoration(
+                         color: Color(0xFFAC8AE9).withOpacity(0.5),  
+                         shape: BoxShape.circle,
+                       ),
+                    ),
+                  ),
+
+                  
+
+                  Positioned(
+                     left: 0,
+                    right: 0,
+                    top: 30,
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: ()
+                      {
+                        isEmailEnabled = !isEmailEnabled;
+                              setState(() {
+                                
+                              });
+                      },
+                      child: Container(
+                         margin: EdgeInsets.symmetric(horizontal: 15.0),
+                         padding: EdgeInsets.symmetric(horizontal: 15.0),
+                                       
+                        width: double.infinity.w,
+                        height: 72.h,
+                          decoration: BoxDecoration(
+                            color: Color(0xFFAC8AE9).withOpacity(0.1),  
+                            borderRadius: BorderRadius.circular(15.r),
+                          ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Container(
+                              child: Row(
+                                children: <Widget>[
+                                  Icon(Icons.email, color: Color(0xFFAC8AE9).withOpacity(0.5), size: 35,),
+                      
+                                  SizedBox(
+                                    width: 10.w,
+                      
+                                  ),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      Text("Email Us",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 11.sp,
+                                      fontWeight: FontWeight.bold,
+                                    ),),
+                      
+                                        SizedBox(
+                        height: 2.h,
+                      ),
+                      
+                      
+                      
+                                    isEmailEnabled ? Text("ishankanaujiya96@gmail.com",
+                                    style: TextStyle(
+                                      color: Colors.grey.withOpacity(0.5),
+                                      fontSize: 11.sp,
+                                      fontWeight: FontWeight.w500,
+                                    ),)
+                                    :
+                                    Text("Send us email for any query",
+                                    style: TextStyle(
+                                      color: Colors.grey.withOpacity(0.5),
+                                      fontSize: 11.sp,
+                                      fontWeight: FontWeight.w500,
+                                    ),),
+                                   
+                                    ],
+                                  ),
+                      
+                                
+                                ],
+                              ),
+                            ),
+                      
+                            IconButton(
+                              splashColor: Colors.transparent,
+                              onPressed: ()
+                            {
+                              isEmailEnabled = !isEmailEnabled;
+                              setState(() {
+                                
+                              });
+                            }, icon: Icon(Icons.chevron_right_rounded)),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  Positioned(
+                     left: 0,
+                    right: 0,
+                    top: 110,
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: ()
+                      {
+                        isPhoneEnabled = !isPhoneEnabled;
+                              setState(() {
+                                
+                              });
+                      },
+                      child: Container(
+                         margin: EdgeInsets.symmetric(horizontal: 15.0),
+                         padding: EdgeInsets.symmetric(horizontal: 15.0),
+                                       
+                        width: double.infinity.w,
+                        height: 72.h,
+                          decoration: BoxDecoration(
+                            color: Color(0xFFAC8AE9).withOpacity(0.1),  
+                            borderRadius: BorderRadius.circular(15.r),
+                          ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Container(
+                              child: Row(
+                                children: <Widget>[
+                                  Icon(Icons.phone, color: Color(0xFFAC8AE9).withOpacity(0.5), size: 35,),
+                      
+                                  SizedBox(
+                                    width: 10.w,
+                      
+                                  ),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      Text("Call Us",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 11.sp,
+                                      fontWeight: FontWeight.bold,
+                                    ),),
+                      
+                                        SizedBox(
+                                        height: 2.h,
+                                      ),
+                      
+                    
+                                    isPhoneEnabled ? Text("+977-9861351391",
+                                    style: TextStyle(
+                                      color: Colors.grey.withOpacity(0.5),
+                                      fontSize: 11.sp,
+                                      fontWeight: FontWeight.w500,
+                                    ),)
+                                    :
+                                    Text("Call us for any query",
+                                    style: TextStyle(
+                                      color: Colors.grey.withOpacity(0.5),
+                                      fontSize: 11.sp,
+                                      fontWeight: FontWeight.w500,
+                                    ),),
+                                   
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                      
+                            IconButton(
+                              splashColor: Colors.transparent,
+                              onPressed: ()
+                            {
+                              isPhoneEnabled = !isPhoneEnabled;
+                              setState(() {
+                                
+                              });
+                            }, icon: Icon(Icons.chevron_right_rounded)),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
           ],
         ),
       ),
