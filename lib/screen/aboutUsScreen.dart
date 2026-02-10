@@ -95,6 +95,223 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                         ),
                       ),
                     ),
+
+                    // Positioned(
+                    //   right: -50,
+                    //   top: -40,
+                    //   child: Container(
+                    //     width: 100.w,
+                    //     height: 100.h,
+                    //
+                    //     decoration: BoxDecoration(
+                    //       color: Color(0xFFFF8A39).withOpacity(0.4),
+                    //       shape: BoxShape.circle,
+                    //
+                    //     ),
+                    //   ),
+                    // ),
+
+                    Positioned(
+                      right: 50,
+                      bottom: 50,
+                      child: Container(
+                        width: 30.w,
+                        height: 30.h,
+
+                        decoration: BoxDecoration(
+                          color: Color(0xFFAC8AE9).withOpacity(0.1),
+                          shape: BoxShape.circle,
+
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      right: 25,
+                      bottom: 30,
+                      child: Container(
+                        width: 25.w,
+                        height: 25.h,
+
+                        decoration: BoxDecoration(
+                          color: Color(0xFFAC8AE9).withOpacity(0.1),
+                          shape: BoxShape.circle,
+
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      right: 10,
+                      bottom: 15,
+                      child: Container(
+                        width: 15.w,
+                        height: 15.h,
+
+                        decoration: BoxDecoration(
+                          color: Color(0xFFFF8A39).withOpacity(0.1),
+                          shape: BoxShape.circle,
+
+                        ),
+                      ),
+                    ),
+
+                    Positioned(
+                      right: 100,
+                      bottom: 50,
+                      child: Container(
+                        width: 30.w,
+                        height: 30.h,
+
+                        decoration: BoxDecoration(
+                          color: Color(0xFFAC8AE9).withOpacity(0.1),
+                          shape: BoxShape.circle,
+
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      right: 130,
+                      bottom: 30,
+                      child: Container(
+                        width: 25.w,
+                        height: 25.h,
+
+                        decoration: BoxDecoration(
+                          color: Color(0xFFAC8AE9).withOpacity(0.1),
+                          shape: BoxShape.circle,
+
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      right: 156,
+                      bottom: 15,
+                      child: Container(
+                        width: 15.w,
+                        height: 15.h,
+
+                        decoration: BoxDecoration(
+                          color: Color(0xFFFF8A39).withOpacity(0.1),
+                          shape: BoxShape.circle,
+
+                        ),
+                      ),
+                    ),
+
+                    Positioned(
+                      right: 72,
+                      bottom: 80,
+                      child: Container(
+                        width: 35.w,
+                        height: 35.h,
+
+                        decoration: BoxDecoration(
+                          color: Color(0xFFFF8A39).withOpacity(0.1),
+                          shape: BoxShape.circle,
+
+                        ),
+                      ),
+                    ),
+
+                    Positioned(
+                      right: 50,
+                      top: 50,
+                      child: Container(
+                        width: 30.w,
+                        height: 30.h,
+
+                        decoration: BoxDecoration(
+                          color: Color(0xFFAC8AE9).withOpacity(0.1),
+                          shape: BoxShape.circle,
+
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      right: 25,
+                      top: 30,
+                      child: Container(
+                        width: 25.w,
+                        height: 25.h,
+
+                        decoration: BoxDecoration(
+                          color: Color(0xFFAC8AE9).withOpacity(0.1),
+                          shape: BoxShape.circle,
+
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      right: 10,
+                      top: 15,
+                      child: Container(
+                        width: 15.w,
+                        height: 15.h,
+
+                        decoration: BoxDecoration(
+                          color: Color(0xFFFF8A39).withOpacity(0.1),
+                          shape: BoxShape.circle,
+
+                        ),
+                      ),
+                    ),
+
+                    Positioned(
+                      right: 100,
+                      top: 50,
+                      child: Container(
+                        width: 30.w,
+                        height: 30.h,
+
+                        decoration: BoxDecoration(
+                          color: Color(0xFFAC8AE9).withOpacity(0.1),
+                          shape: BoxShape.circle,
+
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      right: 130,
+                      top: 30,
+                      child: Container(
+                        width: 25.w,
+                        height: 25.h,
+
+                        decoration: BoxDecoration(
+                          color: Color(0xFFAC8AE9).withOpacity(0.1),
+                          shape: BoxShape.circle,
+
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      right: 156,
+                      top: 15,
+                      child: Container(
+                        width: 15.w,
+                        height: 15.h,
+
+                        decoration: BoxDecoration(
+                          color: Color(0xFFFF8A39).withOpacity(0.1),
+                          shape: BoxShape.circle,
+
+                        ),
+                      ),
+                    ),
+
+                    Positioned(
+                      right: 72,
+                      top: 80,
+                      child: Container(
+                        width: 35.w,
+                        height: 35.h,
+
+                        decoration: BoxDecoration(
+                          color: Color(0xFFFF8A39).withOpacity(0.1),
+                          shape: BoxShape.circle,
+
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
