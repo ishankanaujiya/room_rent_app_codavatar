@@ -96,7 +96,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                       ),
                     ),
 
-                   
+
 
                     Positioned(
                       right: 50,
