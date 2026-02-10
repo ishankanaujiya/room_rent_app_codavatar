@@ -96,20 +96,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                       ),
                     ),
 
-                    // Positioned(
-                    //   right: -50,
-                    //   top: -40,
-                    //   child: Container(
-                    //     width: 100.w,
-                    //     height: 100.h,
-                    //
-                    //     decoration: BoxDecoration(
-                    //       color: Color(0xFFFF8A39).withOpacity(0.4),
-                    //       shape: BoxShape.circle,
-                    //
-                    //     ),
-                    //   ),
-                    // ),
+                   
 
                     Positioned(
                       right: 50,
