@@ -60,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 {
                   return Container(
                   width: double.infinity.w,
-                  height: 100.h,
+                  // height: 100.h,
                   // color: Colors.cyan,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -80,14 +80,18 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                        
-                            Text(
-                            Provider.of<SharedPreferenceForUserDetailProvider>(context, listen: false).getUserFullName,
-                            style: TextStyle(
-                              color: Color(0xFF5C1196).withOpacity(0.6),
-                              fontSize: 22.sp,
-                              fontWeight: FontWeight.bold,
+                            Container(
+                              width: 200.w,
+                              // color: Colors.grey,
+                              child: Text(
+                              Provider.of<SharedPreferenceForUserDetailProvider>(context, listen: false).getUserFullName,
+                              style: TextStyle(
+                                color: Color(0xFF5C1196).withOpacity(0.6),
+                                fontSize: 22.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                                                        ),
                             ),
-                          ),
                              
                               
                           
