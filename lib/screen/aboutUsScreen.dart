@@ -18,7 +18,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
           children: <Widget>[
             Container(
               width: double.infinity.w,
-              height: 500.h,
+              height: 400.h,
               // color: Colors.black,
               child: Stack(
                 children: [
@@ -85,8 +85,24 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                         ],
                       ),
                     ),
-                  )
+                  ),
                 ],
+              ),
+            ),
+
+            Expanded(
+              child: SingleChildScrollView(
+                child: Container(
+                  width: double.infinity.w,
+                  // height: 100.h,
+                  color: Colors.cyan,
+                  child: Column(
+                    children: <Widget>[
+                      Text("Value"),
+                      
+                    ],
+                  ),
+                ),
               ),
             )
           ],
