@@ -191,6 +191,8 @@ class _SettingScreenState extends State<SettingScreen> {
                     
                         
                         InkWell(
+                           splashColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
                           onTap: ()
                           {
                             print("Pressed");
@@ -252,6 +254,8 @@ class _SettingScreenState extends State<SettingScreen> {
                         ),
                     
                         InkWell(
+                           splashColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
                           onTap: ()
                           {
                             print("Pressed");

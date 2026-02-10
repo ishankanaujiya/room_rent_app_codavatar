@@ -20,6 +20,8 @@ class _SettingContainerState extends State<SettingContainer> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+       splashColor: Colors.transparent,
+       highlightColor: Colors.transparent,
       onTap: () {
         if(widget.navigationWidget != null)
         {
