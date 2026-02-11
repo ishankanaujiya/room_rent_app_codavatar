@@ -43,7 +43,7 @@ class _EditProfileSreenState extends State<EditProfileSreen> {
 
   File? convertedPicture;
 
-  String? initialUserProfilePicture;
+  String initialUserProfilePicture = "";
 
   changeLoadingStatus(bool loadingStatus) {
     setState(() {
@@ -136,8 +136,9 @@ void initState() {
                         ),
                         child: CircleAvatar(
                           backgroundColor: Colors.white,
-                          backgroundImage: initialUserProfilePicture != null ? NetworkImage(initialUserProfilePicture!): AssetImage("assets/profile.png"),
+                          backgroundImage: initialUserProfilePicture != "" ? NetworkImage(initialUserProfilePicture!): null,
                           radius: 90.r,
+                          child: initialUserProfilePicture == "" ? Icon(Icons.person, size: 30,) : null,
                         ),
                       ),
                       Positioned(
@@ -259,7 +260,7 @@ void initState() {
                                      
                                       await FirebaseService().updateUsersDetail(updatedUserDetail, userEmail);
       
-                                      await SharedPreferenceForUserDetailProvider().storeUserDetail(fullNameController.text, userEmail, phoneNumberController.text, userProfileSecureUrl);
+                                      await SharedPreferenceForUserDetailProvider().storeUserDetail(fullNameController.text, userEmail, phoneNumberController.text, initialUserProfilePicture);
       
                                       await Future.delayed(Duration(seconds: 2));
 

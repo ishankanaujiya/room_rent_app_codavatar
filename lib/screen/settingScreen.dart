@@ -4,6 +4,7 @@ import 'package:room_rent_app/screen/aboutUsScreen.dart';
 import 'package:room_rent_app/screen/customerServiceAndSupportScreen.dart';
 import 'package:room_rent_app/screen/editProfileScreen.dart';
 import 'package:room_rent_app/screen/home.dart';
+import 'package:room_rent_app/screen/loginScreen.dart';
 import 'package:room_rent_app/screen/postDetailScreen.dart';
 import 'package:room_rent_app/util/keyForSharedPreference.dart';
 import 'package:room_rent_app/widget/settingContainer.dart';
@@ -107,9 +108,10 @@ class _SettingScreenState extends State<SettingScreen> {
                           Container(
                             child: CircleAvatar(
                               backgroundColor: Colors.white,
-                              backgroundImage:
-                                  NetworkImage(userProfileSecureUrl),
+                              backgroundImage: userProfileSecureUrl != "" ?
+                                  NetworkImage( userProfileSecureUrl) : null,
                               radius: 80.r,
+                              child: userProfileSecureUrl == "" ? Icon(Icons.person, size: 30,) : null,
                             ),
                             decoration: BoxDecoration(
                               //  color: Colors.cyan,
@@ -318,11 +320,27 @@ class _SettingScreenState extends State<SettingScreen> {
                           SizedBox(
                             height: 10.h,
                           ),
+
+
                           InkWell(
                             splashColor: Colors.transparent,
                             highlightColor: Colors.transparent,
-                            onTap: () {
-                              print("Pressed");
+                            onTap: () async
+                            {
+                              var pref = await SharedPreferences.getInstance();
+
+                              await pref.setString(KeyForSharedPreference.KEYFORFULLNAME, "");
+
+                              await pref.setString(KeyForSharedPreference.KEYFOREMAIL, "");
+
+                              await pref.setString(KeyForSharedPreference.KEYFORPHONENUMBER, "");
+
+                              await pref.setString(KeyForSharedPreference.KEYFORPROFILESECUREURL, "");
+
+                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginInScreen()),
+                              );
+
+                              print("Logout Button Pressed");
                             },
                             child: Container(
                               padding: EdgeInsets.only(right: 15.0),
