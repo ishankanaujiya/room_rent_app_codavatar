@@ -36,17 +36,59 @@ class FirebaseService
       DocumentSnapshot documentSnapshot = userDetail.docs.first;
       String docId = documentSnapshot.id;
       
-      return await firebaseFirestore.doc(docId).update({
+       await firebaseFirestore.doc(docId).update({
         "FullName" : updatedDetail['Full Name'],
         "PhoneNumber" : updatedDetail['Phone Number'],
         // "SecureUrl" : updatedDetail['secureUrl'],
       });
-    }
+
+
+      QuerySnapshot userDetailForRoom = await firebaseFirestoreForRoomDetail.where("Email", isEqualTo: registeredEmail).get();
+      print("The total number of post are: ${userDetailForRoom.docs.length}");
+
+      for(int i = 0; i<userDetailForRoom.docs.length; i++)
+      {
+         DocumentSnapshot documentSnapshotForRoom = userDetailForRoom.docs[i];
+         String docIdForRoom = documentSnapshotForRoom.id;
+         print(documentSnapshotForRoom['Description']);
+
+        await firebaseFirestoreForRoomDetail.doc(docIdForRoom).update({
+        "Full Name" : updatedDetail['Full Name'],
+        "Phone Number" : updatedDetail['Phone Number'],
+       
+      });
+      }
+   }
     catch(e)
     {
       print(e.toString());
     }
   }
+
+  // updateUsersDetailFromRoomDetail(String registeredEmail) async
+  // {
+  //   try
+  //   {
+  //     QuerySnapshot userDetailForRoom = await firebaseFirestoreForRoomDetail.where("Email", isEqualTo: registeredEmail).get();
+  //     print("The total number of post are: ${userDetailForRoom.docs.length}");
+
+  //     for(int i = 0; i<userDetailForRoom.docs.length; i++)
+  //     {
+  //        DocumentSnapshot documentSnapshotForRoom = userDetailForRoom.docs[i];
+  //        String docIdForRoom = documentSnapshotForRoom.id;
+  //        print(documentSnapshotForRoom['Description']);
+  //       await firebaseFirestoreForRoomDetail.doc(docIdForRoom).update({
+  //       "FullName" : updatedDetail['Full Name'],
+  //       "PhoneNumber" : updatedDetail['Phone Number'],
+  //       // "SecureUrl" : updatedDetail['secureUrl'],
+  //     });
+  //     }
+  //   }
+  //   catch(e)
+  //   {
+  //     print(e.toString());
+  //   }
+  // }
 
   deleteUserSpecificPost(String docId) async
   {
