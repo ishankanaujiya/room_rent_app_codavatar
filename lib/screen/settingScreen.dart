@@ -37,16 +37,31 @@ class _SettingScreenState extends State<SettingScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Container(
-                      padding: EdgeInsets.only(left: 10.0, top: 10.0),
+                      padding: EdgeInsets.only(left: 15.0, top: 0.0),
                       // color: Colors.cyan,
-                      child: Text(
-                        "Setting",
-                        style: TextStyle(
-                          color: Color(0xFF5C1196).withOpacity(0.6),
-                          fontSize: 24.sp,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      child:  RichText(
+                                textAlign: TextAlign.justify,
+                                text: TextSpan(
+                                  text: 'Room ',
+                                  style: TextStyle(
+                                    // color: Colors.black,
+                                    color: Color(0xFF6B3ACD),
+                                    fontSize: 22.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  children: <TextSpan>[
+                                    TextSpan(text: 'Khoj', style: TextStyle(
+                                        color: Color(0xFFFF8A39),
+                                        // fontWeight: FontWeight.bold,
+                                    ),
+                                    ),
+
+                                  
+
+                                  ],
+                                ),
+                              )
+
                     ),
                     SizedBox(
                       height: 35.h,
@@ -56,7 +71,7 @@ class _SettingScreenState extends State<SettingScreen> {
                       // height: 200.h,
                       // color: Colors.cyan,
                       decoration: BoxDecoration(
-                        color: Color(0xFF5C1196).withOpacity(0.6),
+                        color: Color(0xFFAC8AE9).withOpacity(0.3),
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(100.r),
                             bottomLeft: Radius.circular(100.r)),
@@ -97,7 +112,7 @@ class _SettingScreenState extends State<SettingScreen> {
                                 child: Text(
                                   "Ishan Kanaujiya",
                                   style: TextStyle(
-                                    color: Colors.white,
+                                     color: Color(0xFF6B3ACD),
                                     fontSize: 22.sp,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -109,7 +124,7 @@ class _SettingScreenState extends State<SettingScreen> {
                                   Text(
                                     "+977-9861351391",
                                     style: TextStyle(
-                                      color: Colors.white,
+                                      color: Color(0xFFFF8A39).withOpacity(0.7),
                                       fontSize: 7.sp,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -123,7 +138,7 @@ class _SettingScreenState extends State<SettingScreen> {
                                     child: Text(
                                       "ishankanaujiya96@gmail.com",
                                       style: TextStyle(
-                                        color: Colors.white,
+                                      color: Color(0xFFFF8A39).withOpacity(0.7),
                                         fontSize: 7.sp,
                                         fontWeight: FontWeight.bold,
                                       ),
