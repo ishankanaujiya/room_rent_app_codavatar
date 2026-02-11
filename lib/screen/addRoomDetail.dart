@@ -110,15 +110,15 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                     width: double.infinity.w,
                     height: double.infinity.h,
                     decoration: BoxDecoration(
-                        color: Color(0xFFAC8AE9),
+                        color: Color(0xFFAC8AE9).withOpacity(0.6),
                         borderRadius: BorderRadius.only(
                             // topRight: Radius.circular(50.r),
                             bottomRight: Radius.circular(100.r)),
                         boxShadow: [
                           BoxShadow(
-                            color: Color(0xFFAC8AE9).withOpacity(0.6),
-                            blurRadius: 10,
-                            spreadRadius: 2,
+                            color: Color(0xFFAC8AE9).withOpacity(0.3),
+                            blurRadius: 6,
+                            spreadRadius: 3,
                             offset: Offset(4, 2),
                           )
                         ]),
@@ -1151,7 +1151,7 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                         width: 325.w,
                         height: 50.h,
                         decoration: BoxDecoration(
-                          color: Color(0xFF5C1196).withOpacity(0.6),
+                          color: Color(0xFFAC8AE9),
                           borderRadius: BorderRadius.circular(15.r),
                         ),
                         child: Center(
