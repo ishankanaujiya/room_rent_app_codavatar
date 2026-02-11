@@ -59,7 +59,7 @@ class _LoginInScreenState extends State<LoginInScreen> {
                   width: double.infinity.w,
                   height: 300.h,
                   // color: Colors.cyan,
-                  child: Image.asset("assets/logInScreenPersonPicture.png"),
+                  child: Image.asset("assets/loginScreenPicture.png"),
                 ),
               ),
           
