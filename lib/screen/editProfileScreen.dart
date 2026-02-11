@@ -164,6 +164,7 @@ void initState() {
                                   String updatedSecureUrl = await PictureToCloudinary().uploadPictureToCloudinary(convertedPicture);
                                   if(updatedSecureUrl.isNotEmpty)
                                     {
+                                      String storedProfilePicture = userProfileSecureUrl;
                                       await FirebaseService().updateProfilePicture(userEmail, updatedSecureUrl);
 
                                       var pref = await SharedPreferences.getInstance();
@@ -171,7 +172,7 @@ void initState() {
 
                                       print("SecureUrl Updated");
 
-                                      DeletePictureFromCloudinary().deletePictureFromCloudinary(userProfileSecureUrl);
+                                      DeletePictureFromCloudinary().deletePictureFromCloudinary(storedProfilePicture);
 
 
                                       initialUserProfilePicture = updatedSecureUrl;

@@ -5,7 +5,9 @@ import 'package:room_rent_app/screen/customerServiceAndSupportScreen.dart';
 import 'package:room_rent_app/screen/editProfileScreen.dart';
 import 'package:room_rent_app/screen/home.dart';
 import 'package:room_rent_app/screen/postDetailScreen.dart';
+import 'package:room_rent_app/util/keyForSharedPreference.dart';
 import 'package:room_rent_app/widget/settingContainer.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
@@ -15,19 +17,46 @@ class SettingScreen extends StatefulWidget {
 }
 
 class _SettingScreenState extends State<SettingScreen> {
+  String userFullName = "";
+  String userEmail = "";
+  String userPhoneNumber = "";
+  String userProfileSecureUrl = "";
+
+  getLoggedInUserDetail() async {
+    var pref = await SharedPreferences.getInstance();
+    userFullName =
+        await pref.getString(KeyForSharedPreference.KEYFORFULLNAME) ?? "";
+    userEmail = await pref.getString(KeyForSharedPreference.KEYFOREMAIL) ?? "";
+    userPhoneNumber =
+        await pref.getString(KeyForSharedPreference.KEYFORPHONENUMBER) ?? "";
+    userProfileSecureUrl =
+        await pref.getString(KeyForSharedPreference.KEYFORPROFILESECUREURL) ??
+            "";
+    print(userEmail);
+    // print(userProfileSecureUrl);
+
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    getLoggedInUserDetail();
+    super.initState();
+  }
+
   IconData iconData = Icons.location_city;
   @override
   Widget build(BuildContext context) {
     return PopScope(
-       canPop: false, // block default back
-        onPopInvoked: (didPop) {
-          if (didPop) return;
+      canPop: false, // block default back
+      onPopInvoked: (didPop) {
+        if (didPop) return;
 
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (_) => HomeScreen()),
-          );
-        },
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (_) => HomeScreen()),
+        );
+      },
       child: Scaffold(
           backgroundColor: Colors.white,
           body: SingleChildScrollView(
@@ -37,32 +66,29 @@ class _SettingScreenState extends State<SettingScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Container(
-                      padding: EdgeInsets.only(left: 15.0, top: 0.0),
-                      // color: Colors.cyan,
-                      child:  RichText(
-                                textAlign: TextAlign.justify,
-                                text: TextSpan(
-                                  text: 'Room ',
-                                  style: TextStyle(
-                                    // color: Colors.black,
-                                    color: Color(0xFF6B3ACD),
-                                    fontSize: 22.sp,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                  children: <TextSpan>[
-                                    TextSpan(text: 'Khoj', style: TextStyle(
-                                        color: Color(0xFFFF8A39),
-                                        // fontWeight: FontWeight.bold,
-                                    ),
-                                    ),
-
-                                  
-
-                                  ],
+                        padding: EdgeInsets.only(left: 15.0, top: 0.0),
+                        // color: Colors.cyan,
+                        child: RichText(
+                          textAlign: TextAlign.justify,
+                          text: TextSpan(
+                            text: 'Room ',
+                            style: TextStyle(
+                              // color: Colors.black,
+                              color: Color(0xFF6B3ACD),
+                              fontSize: 22.sp,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            children: <TextSpan>[
+                              TextSpan(
+                                text: 'Khoj',
+                                style: TextStyle(
+                                  color: Color(0xFFFF8A39),
+                                  // fontWeight: FontWeight.bold,
                                 ),
-                              )
-
-                    ),
+                              ),
+                            ],
+                          ),
+                        )),
                     SizedBox(
                       height: 35.h,
                     ),
@@ -81,7 +107,8 @@ class _SettingScreenState extends State<SettingScreen> {
                           Container(
                             child: CircleAvatar(
                               backgroundColor: Colors.white,
-                              backgroundImage: AssetImage("assets/logInScreenPersonPicture.png"),
+                              backgroundImage:
+                                  NetworkImage(userProfileSecureUrl),
                               radius: 80.r,
                             ),
                             decoration: BoxDecoration(
@@ -90,7 +117,8 @@ class _SettingScreenState extends State<SettingScreen> {
                               boxShadow: [
                                 BoxShadow(
                                   // color: Colors.black.withOpacity(0.1),
-                                  color: Color.fromARGB(255, 135, 85, 173).withOpacity(0.2),
+                                  color: Color.fromARGB(255, 135, 85, 173)
+                                      .withOpacity(0.2),
                                   //  color: Colors.black.withOpacity(0.1),
                                   blurRadius: 10,
                                   spreadRadius: 3,
@@ -106,58 +134,95 @@ class _SettingScreenState extends State<SettingScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               Container(
-                                width: 170.w,
+                                width: 180.w,
                                 // height: 40.h,
                                 // color: Colors.cyan,
                                 child: Text(
-                                  "Ishan Kanaujiya",
+                                  userFullName,
                                   style: TextStyle(
-                                     color: Color(0xFF6B3ACD),
+                                    color: Color(0xFF6B3ACD),
                                     fontSize: 22.sp,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
                               ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: <Widget>[
-                                  Text(
-                                    "+977-9861351391",
-                                    style: TextStyle(
-                                      color: Color(0xFFFF8A39).withOpacity(0.7),
-                                      fontSize: 7.sp,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 10.w,
-                                  ),
-                                  Container(
-                                    width: 115.w,
-                                    // color: Colors.cyan,
-                                    child: Text(
-                                      "ishankanaujiya96@gmail.com",
-                                      style: TextStyle(
-                                      color: Color(0xFFFF8A39).withOpacity(0.7),
-                                        fontSize: 7.sp,
-                                        fontWeight: FontWeight.bold,
+                              Container(
+                                margin: EdgeInsets.only(top: 5.0),
+                                width: 180.w,
+                                // color: Colors.cyan,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  // mainAxisAlignment: MainAxisAlignment.start,
+                                  children: <Widget>[
+                                    // Text(
+                                    //   "Phone Number: $userPhoneNumber" ,
+                                    //   style: TextStyle(
+                                    //     color: Color(0xFFFF8A39).withOpacity(0.7),
+                                    //     fontSize: 7.sp,
+                                    //     fontWeight: FontWeight.bold,
+                                    //   ),
+                                    // ),
+
+                                    RichText(
+                                      textAlign: TextAlign.justify,
+                                      text: TextSpan(
+                                        text: "Phone Number: ",
+                                        style: TextStyle(
+                                          color: Color(0xFF6B3ACD),
+                                          // color: Color(0xFF6B3ACD),
+                                          fontSize: 7.sp,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                        children: <TextSpan>[
+                                          TextSpan(
+                                            text: userPhoneNumber,
+                                            style: TextStyle(
+                                              color: Color(0xFFFF8A39),
+                                              // fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
-                                  ),
-                                ],
+
+                                    SizedBox(
+                                      height: 2.h,
+                                    ),
+                                    RichText(
+                                      textAlign: TextAlign.justify,
+                                      text: TextSpan(
+                                        text: "Email: ",
+                                        style: TextStyle(
+                                          color: Color(0xFF6B3ACD),
+                                          // color: Color(0xFF6B3ACD),
+                                          fontSize: 7.sp,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                        children: <TextSpan>[
+                                          TextSpan(
+                                            text: userEmail,
+                                            style: TextStyle(
+                                              color: Color(0xFFFF8A39),
+                                              // fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ],
                           ),
                         ],
                       ),
                     ),
-            
                     SizedBox(
-                    height: 10.h,
-                  ),
-                        
+                      height: 10.h,
+                    ),
                     Container(
-                      margin: EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
+                      margin:
+                          EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
                       padding: EdgeInsets.only(top: 20.0),
                       width: double.infinity.w,
                       // height: 200.h,
@@ -169,62 +234,49 @@ class _SettingScreenState extends State<SettingScreen> {
                             textLabel: "Edit Profile",
                             navigationWidget: EditProfileSreen(),
                           ),
-                         
-                           
-                            SizedBox(
-                          height: 10.h,
-                        ),
+                          SizedBox(
+                            height: 10.h,
+                          ),
                           SettingContainer(
                             iconData: Icons.post_add,
                             textLabel: "Posts",
                             navigationWidget: PostDetailScreen(),
                           ),
-                           
-                           
-                            SizedBox(
-                          height: 10.h,
-                        ),
+                          SizedBox(
+                            height: 10.h,
+                          ),
                           SettingContainer(
                             iconData: Icons.support_agent,
                             textLabel: "Customer Service & Support",
                             navigationWidget: CustomerServiceAndSupportScreen(),
                           ),
-                           
-                           
-                            SizedBox(
-                          height: 10.h,
-                        ),
-                    
-                         SettingContainer(
+                          SizedBox(
+                            height: 10.h,
+                          ),
+                          SettingContainer(
                             iconData: Icons.info_outline,
                             textLabel: "About Us",
                             navigationWidget: AboutUsScreen(),
                           ),
-                           
-                           
-                            SizedBox(
-                          height: 10.h,
-                        ),
-                    
-                        
-                        InkWell(
-                           splashColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                          onTap: ()
-                          {
-                            print("Pressed");
-                          },
-                          
-                          child: Container(
+                          SizedBox(
+                            height: 10.h,
+                          ),
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () {
+                              print("Pressed");
+                            },
+                            child: Container(
                               padding: EdgeInsets.only(right: 15.0),
                               width: double.infinity.w,
                               height: 60.h,
-                            //  color: Colors.cyan,
+                              //  color: Colors.cyan,
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   Container(
-                                   
                                     // width: 200.h,
                                     height: double.infinity.h,
                                     // color: Colors.black,
@@ -233,7 +285,8 @@ class _SettingScreenState extends State<SettingScreen> {
                                       children: <Widget>[
                                         Icon(
                                           Icons.verified_user_outlined,
-                                          color: Color(0xFF5C1196).withOpacity(0.6),
+                                          color: Color(0xFF5C1196)
+                                              .withOpacity(0.6),
                                           size: 25,
                                         ),
                                         SizedBox(
@@ -251,42 +304,36 @@ class _SettingScreenState extends State<SettingScreen> {
                                     ),
                                   ),
                                   Text(
-                                      "1.0.0.0",
-                                      style: TextStyle(
-                                        color: Colors.grey.withOpacity(0.5),
-                                        fontSize: 10.sp,
-                                        fontWeight: FontWeight.bold,
-                                      ),
+                                    "1.0.0.0",
+                                    style: TextStyle(
+                                      color: Colors.grey.withOpacity(0.5),
+                                      fontSize: 10.sp,
+                                      fontWeight: FontWeight.bold,
                                     ),
-                          
-                                
+                                  ),
                                 ],
                               ),
                             ),
-                        ),
-                    
-                           
-                            SizedBox(
-                          height: 10.h,
-                        ),
-                    
-                        InkWell(
-                           splashColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                          onTap: ()
-                          {
-                            print("Pressed");
-                          },
-                          child: Container(
+                          ),
+                          SizedBox(
+                            height: 10.h,
+                          ),
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () {
+                              print("Pressed");
+                            },
+                            child: Container(
                               padding: EdgeInsets.only(right: 15.0),
                               width: double.infinity.w,
                               height: 60.h,
-                            //  color: Colors.cyan,
+                              //  color: Colors.cyan,
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   Container(
-                                   
                                     // width: 200.h,
                                     height: double.infinity.h,
                                     // color: Colors.black,
@@ -315,12 +362,10 @@ class _SettingScreenState extends State<SettingScreen> {
                                 ],
                               ),
                             ),
-                        ),
+                          ),
                         ],
                       ),
                     ),
-            
-            
                   ],
                 ),
               ),
