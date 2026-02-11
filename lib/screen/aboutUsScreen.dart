@@ -52,17 +52,17 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                       ),
                     ),
                     Positioned(
-                      top: 95,
+                      top: 100,
                       left: -30,
                       child: Container(
-                        width: 240.w,
+                        width: 210.w,
                         // color: Colors.white,
                         child: Image(image: AssetImage("assets/roomKhoj.png")),
                       ),
                     ),
                     Positioned(
                       right: 30,
-                      top: 160,
+                      top: 155,
                       child: Container(
                         // color: Colors.cyan,
                         child: Row(
