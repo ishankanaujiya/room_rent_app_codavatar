@@ -139,9 +139,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               print("The Value are: ");
                               print(documentSnapshot.data());
                               print(documentSnapshot['TimeStamp']);
-                              
-
-                              
+                            
                                 return InkWell(
                                   onTap: ()
                                   {

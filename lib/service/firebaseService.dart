@@ -48,6 +48,12 @@ class FirebaseService
     }
   }
 
+  deleteUserSpecificPost(String docId) async
+  {
+    return await firebaseFirestoreForRoomDetail.doc(docId).delete();
+
+  }
+
   Future<Stream<QuerySnapshot>>getloggedInUserPostedRoom(String email) async
   {
     return await firebaseFirestoreForRoomDetail.where("Email", isEqualTo: email).snapshots();

@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:room_rent_app/provider/roomDetailProvider.dart';
 import 'package:room_rent_app/screen/displayRoomDetail.dart';
 import 'package:room_rent_app/screen/settingScreen.dart';
+import 'package:room_rent_app/service/deletePictureFromCloudinary.dart';
 import 'package:room_rent_app/service/firebaseService.dart';
 import 'package:room_rent_app/util/keyForSharedPreference.dart';
 import 'package:room_rent_app/widget/circularLoading.dart';
@@ -197,8 +198,10 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
                           return ListView.builder(
                                   itemCount: snapshot.data.docs.length,
                                   itemBuilder: (context, index) {
-                                    DocumentSnapshot documentSnapshot =
-                                        snapshot.data.docs[index];
+                                    DocumentSnapshot documentSnapshot = snapshot.data.docs[index];
+                                    print("The Value are: ");
+                                    print(documentSnapshot['Email']);
+                                    print(documentSnapshot.id);
                                     return Container(
                                       // color: Colors.cyan,
                                       width: double.infinity.w,
@@ -345,11 +348,26 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
                                                 alignment: Alignment.topCenter,
                                                 height: 140.h,
                                                 // color: Colors.cyan,
-                                                child: Icon(
-                                                  Icons.delete,
-                                                  size: 22,
-                                                  color: Color(0xFF5C1196)
-                                                      .withOpacity(0.5),
+                                                child: InkWell(
+                                                  splashColor: Colors.transparent,
+                                                  highlightColor: Colors.transparent,
+                                                  onTap: () async
+                                                  {
+                                                    await FirebaseService().deleteUserSpecificPost(documentSnapshot.id);
+                                                    print("Post Detail Deleted From FirebaseFirestore");
+                                                    // print(documentSnapshot['secureUrl'].length);
+                                                    for(int i = 0; i<documentSnapshot['secureUrl'].length; i++)
+                                                    {
+                                                      DeletePictureFromCloudinary().deletePictureFromCloudinary(documentSnapshot['secureUrl'][i]);
+                                                      print("Value Deleted From Cloudinary");
+                                                    }
+                                                  },
+                                                  child: Icon(
+                                                    Icons.delete,
+                                                    size: 22,
+                                                    color: Color(0xFF5C1196)
+                                                        .withOpacity(0.5),
+                                                  ),
                                                 ),
                                               ),
                                             ],
