@@ -43,464 +43,462 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
       
       
               return Container(
-              child: SafeArea(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Container(
-                      width: double.infinity.w,
-                      height: 450.h,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFAC8AE9).withOpacity(0.1),
-                        borderRadius:
-                            BorderRadius.only(bottomLeft: Radius.circular(450.r)),
-                      ),
-                      child: Stack(
-                        children: [
-                          Positioned(
-                            left: 10,
-                            top: 10,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    width: double.infinity.w,
+                    height: 420.h,
+                    decoration: BoxDecoration(
+                       color: Color.fromARGB(255, 203, 179, 252).withOpacity(0.1),
+                      borderRadius:
+                          BorderRadius.only(bottomLeft: Radius.circular(450.r)),
+                    ),
+                    child: Stack(
+                      children: [
+                        Positioned(
+                          left: 15,
+                          top: 17,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                "Hi,",
+                                style: TextStyle(
+                                 color: Color(0xFFFF8A39),
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                "From ${value?['Full Name']}" ?? "",
+                                style: TextStyle(
+                                 color: Color(0xFF6B3ACD),
+                                  fontSize: 20.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                    
+                         Positioned(
+                          left: 0,
+                          right: 0,
+                          top: 105,
+                          child: Container(
+                            padding: EdgeInsets.only(left: 20.0),
+                            // margin: EdgeInsets.only(left: 20.0, right: 0.0),
+                            // width: double.infinity.w,
+                            height: 150.h,
+                            // color: Colors.cyan,
+                            child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              itemCount: value['secureUrl'].length,
+                              itemBuilder: (context, index)
+                            {
+                              return  Container(
+                              margin: EdgeInsets.only(right: 10.0),
+                              width: 190.w,
+                              height: 150.h,
+                              decoration: BoxDecoration(
+                                color: CustomColor.primaryTextColor
+                                    .withOpacity(0.1),
+                                borderRadius: BorderRadius.circular(25.r),
+                              ),
+                              
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(25.r),
+                                child: Image.network(value['secureUrl'][index], fit: BoxFit.cover,),
+                                ),
+                            );
+                        
+                    
+                            })
+                          ),
+                        ),
+                        
+                       
+                        Positioned(
+                          left: 0,
+                          right: 0,
+                          top: 245,
+                          child: Container(
+                            padding: EdgeInsets.symmetric(horizontal: 20.0),
+                            width: double.infinity.w,
+                            height: 100.h,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
                                 Text(
-                                  "Hi,",
+                                   value?['Room Title'] ?? "",
                                   style: TextStyle(
-                                    // color: Color.fromARGB(255, 233, 212, 51),
-                                    fontSize: 18.sp,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                Text(
-                                  "From ${value?['Full Name']}" ?? "",
-                                  style: TextStyle(
-                                    color: Color(0xFF5C1196).withOpacity(0.6),
+                                    color: Color(0xFF6B3ACD),
                                     fontSize: 22.sp,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                              ],
-                            ),
-                          ),
-      
-                           Positioned(
-                            left: 0,
-                            right: 0,
-                            top: 105,
-                            child: Container(
-                              padding: EdgeInsets.only(left: 20.0),
-                              // margin: EdgeInsets.only(left: 20.0, right: 0.0),
-                              // width: double.infinity.w,
-                              height: 150.h,
-                              // color: Colors.cyan,
-                              child: ListView.builder(
-                                scrollDirection: Axis.horizontal,
-                                itemCount: value['secureUrl'].length,
-                                itemBuilder: (context, index)
-                              {
-                                return  Container(
-                                margin: EdgeInsets.only(right: 10.0),
-                                width: 190.w,
-                                height: 150.h,
-                                decoration: BoxDecoration(
-                                  color: CustomColor.primaryTextColor
-                                      .withOpacity(0.1),
-                                  borderRadius: BorderRadius.circular(25.r),
-                                ),
-                                
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(25.r),
-                                  child: Image.network(value['secureUrl'][index], fit: BoxFit.cover,),
-                                  ),
-                              );
-                          
-      
-                              })
-                            ),
-                          ),
-                          
-                         
-                          Positioned(
-                            left: 0,
-                            right: 0,
-                            top: 245,
-                            child: Container(
-                              padding: EdgeInsets.symmetric(horizontal: 20.0),
-                              width: double.infinity.w,
-                              height: 100.h,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: <Widget>[
-                                  Text(
-                                     value?['Room Title'] ?? "",
-                                    style: TextStyle(
-                                     color: Color(0xFF5C1196),
-                                      fontSize: 24.sp,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: SingleChildScrollView(
-                                      child: Container(
-                                          margin: EdgeInsets.only(
-                                                  left: 20.0,
-                                                ),
-                                        alignment: Alignment.centerRight,
-                                        // color: Colors.cyan,
-                                        child: Text(
-                                           "Rs. ${value?['Room Price']}" ?? "",
-                                          style: TextStyle(
-                                            color: Color(0xFF0F766E),
-                                            fontSize: 19.sp,
-                                            fontWeight: FontWeight.bold,
-                                          ),
+                                Expanded(
+                                  child: SingleChildScrollView(
+                                    child: Container(
+                                        margin: EdgeInsets.only(
+                                                left: 20.0,
+                                              ),
+                                      alignment: Alignment.centerRight,
+                                      // color: Colors.cyan,
+                                      child: Text(
+                                         "Rs. ${value?['Room Price']}" ?? "",
+                                        style: TextStyle(
+                                          color: Color(0xFF0F766E),
+                                          fontSize: 19.sp,
+                                          fontWeight: FontWeight.bold,
                                         ),
                                       ),
                                     ),
                                   ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            left: 0,
-                            right: 0,
-                            top: 275,
-                            child: Container(
-                              padding: EdgeInsets.symmetric(horizontal: 20.0),
-                              width: double.infinity.w,
-                              height: 100.h,
-                              // color: Colors.cyan,
-                              child: Row(
-                                children: <Widget>[
-                                  Icon(
-                                    Icons.location_pin,
-                                    size: 15,
-                                    color: CustomColor.primaryTextColor
-                                        .withOpacity(0.4),
-                                  ),
-                                  Text(
-                                    "Location: ",
-                                    style: TextStyle(
-                                      color: CustomColor.primaryTextColor
-                                          .withOpacity(0.4),
-                                      fontSize: 11.sp,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  Text(
-                                    value?['Location'] ?? "",
-                                    style: TextStyle(
-                                      color: CustomColor.primaryTextColor
-                                          .withOpacity(0.4),
-                                      fontSize: 11.sp,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 20.0),
-                      width: double.infinity.w,
-                      // height: 100.h,
-                      // color: Colors.cyan,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            "Description",
-                            style: TextStyle(
-                              color: Color(0xFF5C1196).withOpacity(0.6),
-                              fontSize: 18.sp,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 20.h,
-                          ),
-                          Text(
-                               value?['Description'] ?? "",
-                            style: TextStyle(
-                              color: CustomColor.primaryTextColor,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            textAlign: TextAlign.justify,
-                          ),
-                          SizedBox(
-                            height: 10.h,
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 30.h,
-                    ),
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 20.0),
-                      width: double.infinity.w,
-                      // height: 100.h,
-                      // color: Colors.cyan,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            "Room Detail",
-                            style: TextStyle(
-                              color: Color(0xFF5C1196).withOpacity(0.6),
-                              fontSize: 18.sp,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 20.h,
-                          ),
-                          Container(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 25.0, vertical: 20.0),
-                            width: double.infinity.w,
-                            // height: 200.h,
-                            decoration: BoxDecoration(
-                              color: Color(0xFFAC8AE9).withOpacity(0.1),
-                              borderRadius: BorderRadius.circular(25.r),
-                            ),
-            
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: <Widget>[
-                                    Text(
-                                      "Room Price (Per Month)",
-                                      style: TextStyle(
-                                       //color: Colors.white,
-                                        fontSize: 13.sp,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    Text(
-                                        "Rs. ${value?['Room Price']}" ?? "",
-                                      style: TextStyle(
-                                        color: Color.fromARGB(255, 233, 212, 51),
-                                        fontSize: 13.sp,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 10.h,
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: <Widget>[
-                                    Text(
-                                      "Number of Rooms",
-                                      style: TextStyle(
-                                       //color: Colors.white,
-                                        fontSize: 13.sp,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    Text(
-                                         value?['Number Of Room'] ?? "",
-                                      style: TextStyle(
-                                        color: Color.fromARGB(255, 233, 212, 51),
-                                        fontSize: 13.sp,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 10.h,
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: <Widget>[
-                                    Text(
-                                      "Number of Bathrooms",
-                                      style: TextStyle(
-                                       //color: Colors.white,
-                                        fontSize: 13.sp,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    Text(
-                                         value?['Number Of Bathroom'] ?? "",
-                                      style: TextStyle(
-                                        color: Color.fromARGB(255, 233, 212, 51),
-                                        fontSize: 13.sp,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 10.h,
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: <Widget>[
-                                    Text(
-                                      "Square Feet",
-                                      style: TextStyle(
-                                       //color: Colors.white,
-                                        fontSize: 13.sp,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    Text(
-                                        value?['Square Feet'] ?? "",
-                                      style: TextStyle(
-                                        color: Color.fromARGB(255, 233, 212, 51),
-                                        fontSize: 13.sp,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 10.h,
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: <Widget>[
-                                    Text(
-                                      "Electricity Price (Per)",
-                                      style: TextStyle(
-                                       //color: Colors.white,
-                                        fontSize: 13.sp,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    Text(
-                                        value?['Electricity Price'] ?? "",
-                                      style: TextStyle(
-                                        color: Color.fromARGB(255, 233, 212, 51),
-                                        fontSize: 13.sp,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 10.h,
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: <Widget>[
-                                    Text(
-                                      "Water Price",
-                                      style: TextStyle(
-                                       //color: Colors.white,
-                                        fontSize: 13.sp,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    Text(
-                                         value?['Water Price'] ?? "",
-                                      style: TextStyle(
-                                        color: Color.fromARGB(255, 233, 212, 51),
-                                        fontSize: 13.sp,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 10.h,
                                 ),
                               ],
                             ),
                           ),
-                          SizedBox(
-                            height: 20.h,
+                        ),
+                        Positioned(
+                          left: 0,
+                          right: 0,
+                          top: 272,
+                          child: Container(
+                            padding: EdgeInsets.symmetric(horizontal: 20.0),
+                            width: double.infinity.w,
+                            height: 100.h,
+                            // color: Colors.cyan,
+                            child: Row(
+                              children: <Widget>[
+                                Icon(
+                                  Icons.location_pin,
+                                  size: 15,
+                                  color: CustomColor.primaryTextColor
+                                      .withOpacity(0.2),
+                                ),
+                                Text(
+                                  "Location: ",
+                                  style: TextStyle(
+                                    color: CustomColor.primaryTextColor
+                                        .withOpacity(0.2),
+                                    fontSize: 11.sp,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                Text(
+                                  value?['Location'] ?? "",
+                                  style: TextStyle(
+                                    color: CustomColor.primaryTextColor
+                                        .withOpacity(0.2),
+                                    fontSize: 11.sp,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ],
-                      ),
+                        )
+                      ],
                     ),
-                    
-                    Container(
-                        padding: EdgeInsets.symmetric(
-                                horizontal: 20.0, vertical: 20.0),
-                      width: double.infinity.w,
-                      // height: 100.h,
-                      // color: Colors.cyan,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                      "Contact Information",
-                      style: TextStyle(
-                        color: Color(0xFF5C1196).withOpacity(0.6),
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.bold,
-                      ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 20.0),
+                    width: double.infinity.w,
+                    // height: 100.h,
+                    // color: Colors.cyan,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          "Description",
+                          style: TextStyle(
+                            color: Color(0xFF6B3ACD),
+                            fontSize: 18.sp,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20.h,
+                        ),
+                        Text(
+                             value?['Description'] ?? "",
+                          style: TextStyle(
+                            color: CustomColor.primaryTextColor,
+                            fontWeight: FontWeight.w500,
+                          ),
+                          textAlign: TextAlign.justify,
+                        ),
+                        SizedBox(
+                          height: 10.h,
+                        ),
+                      ],
                     ),
-                    SizedBox(
-                      height: 20.h,
-                    ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  ),
+                  SizedBox(
+                    height: 30.h,
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 20.0),
+                    width: double.infinity.w,
+                    // height: 100.h,
+                    // color: Colors.cyan,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          "Room Detail",
+                          style: TextStyle(
+                            color: Color(0xFF6B3ACD),
+                            fontSize: 18.sp,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20.h,
+                        ),
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 25.0, vertical: 20.0),
+                          width: double.infinity.w,
+                          // height: 200.h,
+                          decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 203, 179, 252).withOpacity(0.1),
+                            borderRadius: BorderRadius.circular(25.r),
+                          ),
+                          
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
-                                  Icon(
-                                    Icons.phone,
-                                    color: Color(0xFF0F766E),
-                                  ),
-                                  SizedBox(
-                                    width: 5.w,
+                                  Text(
+                                    "Room Price (Per Month)",
+                                    style: TextStyle(
+                                     //color: Colors.white,
+                                      fontSize: 13.sp,
+                                     fontWeight: FontWeight.w500,
+                                    ),
                                   ),
                                   Text(
-                                     value?['Contact Number'] ?? "",
+                                      "Rs. ${value?['Room Price']}" ?? "",
+                                    style: TextStyle(
+                                      color: Color(0xFFFF8A39),
+                                      fontSize: 13.sp,
+                                     fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 10.h,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Text(
+                                    "Number of Rooms",
+                                    style: TextStyle(
+                                     //color: Colors.white,
+                                      fontSize: 13.sp,
+                                     fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                  Text(
+                                       value?['Number Of Room'] ?? "",
+                                    style: TextStyle(
+                                      color: Color(0xFFFF8A39),
+                                      fontSize: 13.sp,
+                                     fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 10.h,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Text(
+                                    "Number of Bathrooms",
+                                    style: TextStyle(
+                                     //color: Colors.white,
+                                      fontSize: 13.sp,
+                                     fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                  Text(
+                                       value?['Number Of Bathroom'] ?? "",
+                                    style: TextStyle(
+                                      color: Color(0xFFFF8A39),
+                                      fontSize: 13.sp,
+                                     fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 10.h,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Text(
+                                    "Square Feet",
+                                    style: TextStyle(
+                                     //color: Colors.white,
+                                      fontSize: 13.sp,
+                                     fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                  Text(
+                                      value?['Square Feet'] ?? "",
+                                    style: TextStyle(
+                                      color: Color(0xFFFF8A39),
+                                      fontSize: 13.sp,
+                                     fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 10.h,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Text(
+                                    "Electricity Price (Per)",
+                                    style: TextStyle(
+                                     //color: Colors.white,
+                                      fontSize: 13.sp,
+                                     fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                  Text(
+                                      value?['Electricity Price'] ?? "",
+                                    style: TextStyle(
+                                      color: Color(0xFFFF8A39),
+                                      fontSize: 13.sp,
+                                     fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 10.h,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Text(
+                                    "Water Price",
+                                    style: TextStyle(
+                                     //color: Colors.white,
+                                      fontSize: 13.sp,
+                                     fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                  Text(
+                                       value?['Water Price'] ?? "",
+                                    style: TextStyle(
+                                      color: Color(0xFFFF8A39),
+                                      fontSize: 13.sp,
+                                     fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 10.h,
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20.h,
+                        ),
+                      ],
+                    ),
+                  ),
+                  
+                  Container(
+                      padding: EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 20.0),
+                    width: double.infinity.w,
+                    // height: 100.h,
+                    // color: Colors.cyan,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                    "Contact Information",
+                    style: TextStyle(
+                      color: Color(0xFF6B3ACD),
+                      fontSize: 18.sp,
+                     fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Row(
+                              children: <Widget>[
+                                Icon(
+                                  Icons.phone,
+                                  color: Color(0xFF0F766E),
+                                ),
+                                SizedBox(
+                                  width: 5.w,
+                                ),
+                                Text(
+                                   value?['Contact Number'] ?? "",
+                                  style: TextStyle(
+                                    color: CustomColor.primaryTextColor,
+                                    fontSize: 13.sp,
+                                   fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: <Widget>[
+                                Icon(
+                                  Icons.email,
+                                  color: Color(0xFFFF8A39),
+                                ),
+                                SizedBox(
+                                  width: 5.w,
+                                ),
+                                Container(
+                                  width: 140.w,
+                                  child: Text(
+                                       value?['Contact Email'] ?? "",
                                     style: TextStyle(
                                       color: CustomColor.primaryTextColor,
                                       fontSize: 13.sp,
-                                      fontWeight: FontWeight.bold,
+                                     fontWeight: FontWeight.w500,
                                     ),
                                   ),
-                                ],
-                              ),
-                              Row(
-                                children: <Widget>[
-                                  Icon(
-                                    Icons.email,
-                                    color: Colors.orangeAccent.withOpacity(0.7),
-                                  ),
-                                  SizedBox(
-                                    width: 5.w,
-                                  ),
-                                  Container(
-                                    width: 140.w,
-                                    child: Text(
-                                         value?['Contact Email'] ?? "",
-                                      style: TextStyle(
-                                        color: CustomColor.primaryTextColor,
-                                        fontSize: 13.sp,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              
-                            ],
-                          ),
-                            SizedBox(
-                      height: 20.h,
+                                ),
+                              ],
+                            ),
+                            
+                          ],
+                        ),
+                          SizedBox(
+                    height: 20.h,
+                  ),
+                      ],
                     ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             );
             },
