@@ -21,7 +21,7 @@ class _RoomKhojLoadingScreenState extends State<RoomKhojLoadingScreen> {
 
   @override
   void initState() {
-    createDelayForScreenChange();
+    // createDelayForScreenChange();
     super.initState();
   }
   @override
@@ -71,7 +71,7 @@ class _RoomKhojLoadingScreenState extends State<RoomKhojLoadingScreen> {
                     Positioned(
                       left: 0,
                       right: 0,
-                      top: 230,
+                      top: 210,
                       child: TweenAnimationBuilder<double>(
                         tween: Tween(
                           begin: isUp ? -15 : 0,
@@ -105,7 +105,7 @@ class _RoomKhojLoadingScreenState extends State<RoomKhojLoadingScreen> {
                     Center(
                       child: Container(
                         width: 40.w,
-                        height: 40.h,
+                        height: 50.h,
                         decoration: BoxDecoration(
                           // color: Colors.cyan,
                           // shape: BoxShape.circle,
