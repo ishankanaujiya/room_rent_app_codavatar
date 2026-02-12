@@ -51,7 +51,7 @@ class _RoomKhojLoadingScreenState extends State<RoomKhojLoadingScreen> {
 
   @override
   void initState() {
-    createDelayForScreenChange();
+    // createDelayForScreenChange();
     super.initState();
   }
   @override
@@ -123,7 +123,7 @@ class _RoomKhojLoadingScreenState extends State<RoomKhojLoadingScreen> {
                         },
                         child: Container(
                           width: double.infinity.w,
-                          height: 200.h,
+                          height: 230.h,
                           child: Image(
                             image: AssetImage("assets/roomKhoj.png"),
                             fit: BoxFit.cover,
