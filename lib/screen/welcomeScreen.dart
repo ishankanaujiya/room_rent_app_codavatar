@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:room_rent_app/screen/home.dart';
+import 'package:room_rent_app/screen/loginScreen.dart';
+import 'package:room_rent_app/screen/supportScreen.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
@@ -139,7 +142,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   InkWell(
                     splashColor: Colors.transparent,
                     highlightColor: Colors.transparent,
-                    onTap: (){}, 
+                    onTap: ()
+                    {
+                       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginInScreen()),
+                      );
+                    }, 
                     child: Text("Skip",
                   style: TextStyle(
                     color: Colors.grey.withOpacity(0.5),
@@ -148,11 +155,16 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   ),),
                   ),
 
-                  
+
                   InkWell(
                     splashColor: Colors.transparent,
                     highlightColor: Colors.transparent,
-                    onTap: (){}, child: Text("Next",
+                    onTap: ()
+                    {
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SupportScreen()),
+                      );
+                    },
+                     child: Text("Next",
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 11.sp,

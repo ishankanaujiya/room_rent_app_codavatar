@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:room_rent_app/screen/loginScreen.dart';
+import 'package:room_rent_app/screen/welcomeScreen.dart';
 
 class RoomKhojLoadingScreen extends StatefulWidget {
   const RoomKhojLoadingScreen({super.key});
@@ -15,7 +16,7 @@ class _RoomKhojLoadingScreenState extends State<RoomKhojLoadingScreen> {
   createDelayForScreenChange() async
   {
     await Future.delayed(Duration(seconds: 4));
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginInScreen()),
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => WelcomeScreen()),
     );
   }
 
