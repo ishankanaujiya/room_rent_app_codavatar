@@ -206,7 +206,11 @@ void initState() {
                                 }
 
                             },
-                            icon: isProfileUpdatedLoading ? CircularProgressIndicator() : Icon(Icons.edit),
+                            icon: isProfileUpdatedLoading ? SizedBox(
+                              width: 25.w,
+                              height: 30.h,
+                              child: CircularProgressIndicator(),
+                              ) : Icon(Icons.edit),
                             color: Color(0xFF5C1196).withOpacity(0.6),
                           ),
                         ),
@@ -313,6 +317,8 @@ void initState() {
                     //           ),
 
                                InkWell(
+                                splashColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
                                 onTap: () async {
                                    if (_formKey.currentState!.validate()) 
                                    {
@@ -350,7 +356,7 @@ void initState() {
                                 child: isLoading
                                     ? SizedBox(
                                         width: 20.w,
-                                        height: 20.h,
+                                        height: 25.h,
                                         child: CircularProgressIndicator(
                                           color: Color(0xFF0F766E),
                                         ))
