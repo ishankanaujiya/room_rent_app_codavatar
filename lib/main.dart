@@ -17,6 +17,7 @@ import 'package:room_rent_app/screen/registrationScreen.dart';
 import 'package:room_rent_app/screen/roomKhojLoadingScreen.dart';
 import 'package:room_rent_app/screen/selectMultiplePicture.dart';
 import 'package:room_rent_app/screen/settingScreen.dart';
+import 'package:room_rent_app/screen/welcomeScreen.dart';
 
 void main() async 
 {
@@ -50,7 +51,7 @@ class MyApp extends StatelessWidget {
         
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
-        home: const RoomKhojLoadingScreen(),
+        home: const WelcomeScreen(),
       ),
     );
   }
