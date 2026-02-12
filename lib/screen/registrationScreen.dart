@@ -701,6 +701,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       width: 10.0.w,
                     ),
                     InkWell(
+                       splashColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
                       onTap: () {
                         Navigator.pushReplacement(
                             context,

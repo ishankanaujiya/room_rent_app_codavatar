@@ -51,7 +51,7 @@ class _RoomKhojLoadingScreenState extends State<RoomKhojLoadingScreen> {
 
   @override
   void initState() {
-    // createDelayForScreenChange();
+    createDelayForScreenChange();
     super.initState();
   }
   @override

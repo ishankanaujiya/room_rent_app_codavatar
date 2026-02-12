@@ -382,6 +382,8 @@ class _LoginInScreenState extends State<LoginInScreen> {
                   
           
                   InkWell(
+                     splashColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
                     onTap: ()
                     {
                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => RegistrationScreen()
