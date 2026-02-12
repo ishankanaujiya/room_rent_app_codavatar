@@ -29,6 +29,7 @@ class _EditProfileSreenState extends State<EditProfileSreen> {
   var phoneNumberController = new TextEditingController();
 
   bool isLoading = false;
+  bool isProfileUpdatedLoading = false;
 
   GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
 
@@ -161,6 +162,10 @@ void initState() {
 
                               if(pickedPicture != null)
                                 {
+                                  isProfileUpdatedLoading = true;
+                                  setState(() {
+                                    
+                                  });
                                   convertedPicture = File(pickedPicture.path);
                                   String updatedSecureUrl = await PictureToCloudinary().uploadPictureToCloudinary(convertedPicture);
                                   if(updatedSecureUrl.isNotEmpty)
@@ -175,8 +180,19 @@ void initState() {
 
                                       DeletePictureFromCloudinary().deletePictureFromCloudinary(storedProfilePicture);
 
+                                       Fluttertoast.showToast(
+                                        msg: "Profile Updated Successfully",
+                                        toastLength: Toast.LENGTH_LONG,
+                                        gravity: ToastGravity.CENTER,
+                                        timeInSecForIosWeb: 1,
+                                        backgroundColor: Color(0xFF5C1196).withOpacity(0.6),
+                                        textColor: Colors.white,
+                                        fontSize: 16.0
+                                        );
+
 
                                       initialUserProfilePicture = updatedSecureUrl;
+                                      isProfileUpdatedLoading = false;
                                       setState(() {
 
                                       });
@@ -190,7 +206,7 @@ void initState() {
                                 }
 
                             },
-                            icon: Icon(Icons.edit),
+                            icon: isProfileUpdatedLoading ? CircularProgressIndicator() : Icon(Icons.edit),
                             color: Color(0xFF5C1196).withOpacity(0.6),
                           ),
                         ),
