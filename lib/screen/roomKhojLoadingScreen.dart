@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:room_rent_app/screen/home.dart';
 import 'package:room_rent_app/screen/loginScreen.dart';
 import 'package:room_rent_app/screen/welcomeScreen.dart';
+import 'package:room_rent_app/util/keyForSharedPreference.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class RoomKhojLoadingScreen extends StatefulWidget {
   const RoomKhojLoadingScreen({super.key});
@@ -13,11 +16,37 @@ class RoomKhojLoadingScreen extends StatefulWidget {
 class _RoomKhojLoadingScreenState extends State<RoomKhojLoadingScreen> {
   bool isUp = true;
 
+   String userFullName = "";
+  String userEmail = "";
+  String userPhoneNumber = "";
+  String userProfileSecureUrl = "";
+
+
   createDelayForScreenChange() async
   {
-    await Future.delayed(Duration(seconds: 4));
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => WelcomeScreen()),
-    );
+    await Future.delayed(Duration(seconds: 6));
+
+     var pref = await SharedPreferences.getInstance();
+    userFullName =
+        await pref.getString(KeyForSharedPreference.KEYFORFULLNAME) ?? "";
+    userEmail = await pref.getString(KeyForSharedPreference.KEYFOREMAIL) ?? "";
+    userPhoneNumber =
+        await pref.getString(KeyForSharedPreference.KEYFORPHONENUMBER) ?? "";
+    userProfileSecureUrl =
+        await pref.getString(KeyForSharedPreference.KEYFORPROFILESECUREURL) ??
+            "";
+
+            if(userFullName == "")
+            {
+               Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => WelcomeScreen()),
+              );
+
+            }
+            else
+            {
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()
+              ));
+            }
   }
 
   @override
