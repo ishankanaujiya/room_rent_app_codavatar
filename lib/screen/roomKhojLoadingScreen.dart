@@ -135,7 +135,7 @@ class _RoomKhojLoadingScreenState extends State<RoomKhojLoadingScreen> {
                     Center(
                       child: Container(
                         width: 40.w,
-                        height: 50.h,
+                        height: 40.h,
                         decoration: BoxDecoration(
                           // color: Colors.cyan,
                           // shape: BoxShape.circle,
