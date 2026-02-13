@@ -267,54 +267,6 @@ void initState() {
                                 ),
                               ),  
 
-                    //           IconButton(
-                    //             onPressed: () async {
-                    //                if (_formKey.currentState!.validate()) 
-                    //                {
-
-                    //                  changeLoadingStatus(true);
-      
-                    //                  Map<String, dynamic> updatedUserDetail = {
-                    //                   "Full Name" : fullNameController.text,
-                    //                   "Phone Number" : phoneNumberController.text,
-                    //                  };
-                                     
-                    //                   await FirebaseService().updateUsersDetail(updatedUserDetail, userEmail);
-      
-                    //                   await SharedPreferenceForUserDetailProvider().storeUserDetail(fullNameController.text, userEmail, phoneNumberController.text, initialUserProfilePicture);
-      
-                    //                   await Future.delayed(Duration(seconds: 2));
-
-                    //                     Fluttertoast.showToast(
-                    //                     msg: "Details Edited Successfully",
-                    //                     toastLength: Toast.LENGTH_LONG,
-                    //                     gravity: ToastGravity.CENTER,
-                    //                     timeInSecForIosWeb: 1,
-                    //                     backgroundColor: Color(0xFF5C1196).withOpacity(0.6),
-                    //                     textColor: Colors.white,
-                    //                     fontSize: 16.0
-                    //                     );
-                                                            
-                    //                   changeLoadingStatus(false);
-
-                    //                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SettingScreen()
-                    // ));
-                    //                }
-                                 
-                    //             },
-                    //             icon: isLoading
-                    //                 ? SizedBox(
-                    //                     width: 20.w,
-                    //                     height: 20.h,
-                    //                     child: CircularProgressIndicator(
-                    //                       color: Color(0xFF0F766E),
-                    //                     ))
-                    //                 : Icon(
-                    //                     Icons.check,
-                    //                     size: 22,
-                    //                     color: Color(0xFF0F766E),
-                    //                   ),
-                    //           ),
 
                                InkWell(
                                 splashColor: Colors.transparent,
