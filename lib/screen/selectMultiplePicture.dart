@@ -90,7 +90,6 @@ class _SelectMultiplePictureState extends State<SelectMultiplePicture> {
                         // child: Image.file(File(displayProvider.selectedPicture[index].path), fit: BoxFit.contain,),
                          child: Image.file(File(Provider.of<MultiplePictureDisplayProvider>(context,listen: false).selectedPicture[index].path), fit: BoxFit.contain,),
                       );
-                    
                     }
                     );
             },

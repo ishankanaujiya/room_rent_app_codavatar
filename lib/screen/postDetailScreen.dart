@@ -337,7 +337,6 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
                                                 ),
                                               ),
 
-
                                               Container(
                                                 padding: EdgeInsets.only(
                                                     top: 10.0, right: 10.0),
