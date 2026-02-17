@@ -268,15 +268,6 @@ class _LoginInScreenState extends State<LoginInScreen> {
                   QuerySnapshot signedInUserDetail = await FirebaseService().getSignedInUserDetail(emailController.text);
                   DocumentSnapshot documentSnapshot = signedInUserDetail.docs.first;
                   
-                  print("The Value are");
-
-                  print(documentSnapshot['PhoneNumber']);
-                  print(documentSnapshot['Email']);
-                  print(documentSnapshot['FullName']);
-
-                  print("Shared Preferences To Store Value");
-              
-
                   await SharedPreferenceForUserDetailProvider().storeUserDetail(documentSnapshot['FullName'], documentSnapshot['Email'], documentSnapshot['PhoneNumber'], documentSnapshot['SecureUrl']);
 
                   Fluttertoast.showToast(

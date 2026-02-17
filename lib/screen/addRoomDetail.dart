@@ -1113,12 +1113,8 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                             print("Room Details Stored In FirebaseFirestore");
                   
                             
-                  
-                            
                           }
-                          print("Value are");
-                          print(secureUrlFromCloudinary);
-                  
+                         
                           
                         }
                         else

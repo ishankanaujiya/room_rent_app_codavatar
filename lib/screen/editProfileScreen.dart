@@ -59,11 +59,9 @@ class _EditProfileSreenState extends State<EditProfileSreen> {
     userEmail = await pref.getString(KeyForSharedPreference.KEYFOREMAIL) ?? ""; 
     userPhoneNumber = await pref.getString(KeyForSharedPreference.KEYFORPHONENUMBER) ?? ""; 
     userProfileSecureUrl = await pref.getString(KeyForSharedPreference.KEYFORPROFILESECUREURL) ?? "";
-    print(userEmail);
     // print(userProfileSecureUrl);
 
     publicIdForUserProfilePicture = await FirebaseService().getPublicIdFromSecureUrl(userProfileSecureUrl);
-    print(publicIdForUserProfilePicture);
 
     fullNameController.text = userFullName;
     phoneNumberController.text = userPhoneNumber;
@@ -176,7 +174,6 @@ void initState() {
                                       var pref = await SharedPreferences.getInstance();
                                       await pref.setString(KeyForSharedPreference.KEYFORPROFILESECUREURL, updatedSecureUrl);
 
-                                      print("SecureUrl Updated");
 
                                       DeletePictureFromCloudinary().deletePictureFromCloudinary(storedProfilePicture);
 

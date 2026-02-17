@@ -144,8 +144,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               DateTime date = timeStamp.toDate();
 
                               String formattedDate = DateFormat('yyyy-MM-dd').format(date);
-                              print("The Value are: ");
-                              print(documentSnapshot.data());
+                            
                               print(documentSnapshot['TimeStamp']);
                             
                                 return InkWell(

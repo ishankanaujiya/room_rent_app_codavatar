@@ -340,7 +340,6 @@ class _SettingScreenState extends State<SettingScreen> {
                               Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginInScreen()),
                               );
 
-                              print("Logout Button Pressed");
                             },
                             child: Container(
                               padding: EdgeInsets.only(right: 15.0),

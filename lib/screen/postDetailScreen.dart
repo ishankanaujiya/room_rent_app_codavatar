@@ -48,8 +48,6 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
     userProfileSecureUrl =
         await pref.getString(KeyForSharedPreference.KEYFORPROFILESECUREURL) ??
             "";
-
-    print(userEmail);
     selectedRoomDetail =
         await FirebaseService().getloggedInUserPostedRoom(userEmail);
 
@@ -199,9 +197,7 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
                                   itemCount: snapshot.data.docs.length,
                                   itemBuilder: (context, index) {
                                     DocumentSnapshot documentSnapshot = snapshot.data.docs[index];
-                                    print("The Value are: ");
-                                    print(documentSnapshot['Email']);
-                                    print(documentSnapshot.id);
+                                  
                                     return Container(
                                       // color: Colors.cyan,
                                       width: double.infinity.w,

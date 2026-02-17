@@ -557,9 +557,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       Provider.of<CircularLoadingProvider>(context, listen: false)
                           .changeLoadingStatus(true);
                       if (_formKey.currentState!.validate()) {
-                        print("Value Stored");
-                        print(passwordController.text);
-                        print(confirmPasswordController.text);
+                      
                         if (passwordController.text ==
                             confirmPasswordController.text) {
                           //   Fluttertoast.showToast(
@@ -576,7 +574,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           //     print("Details Stored Successfully");
       
                           try {
-                            print("Database Method");
                             UserCredential user = await FirebaseAuthentication()
                                 .registerUser(emailController.text,
                                     passwordController.text);
@@ -595,7 +592,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                   "SecureUrl": secureUrl,
                                 };
       
-                                print("This is SecureUrl After Selection $secureUrl");
                               }
       
                               else
@@ -606,7 +602,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                     "PhoneNumber": phoneNumberController.text,
                                     "SecureUrl": "",
                                   };
-                                  print("This is SecureUrl");
+                             
                                 }
                               await FirebaseService().storeUserDetail(userDetail);
                               print("Details Stored Successfully");

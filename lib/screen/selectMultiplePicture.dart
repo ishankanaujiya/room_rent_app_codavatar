@@ -112,8 +112,7 @@ class _SelectMultiplePictureState extends State<SelectMultiplePicture> {
                    secureUrlFromCloudinary.add(secureUrl);
                   
                   }
-                  print("Value are");
-                  print(secureUrlFromCloudinary);
+                  
                 }, child: Text("Send Photo"),
                 );
                 },
