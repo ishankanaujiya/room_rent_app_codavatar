@@ -105,11 +105,19 @@ class _HomeScreenState extends State<HomeScreen> {
                           Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SettingScreen()
                            ));
                         },
-                        child: CircleAvatar(
-                          backgroundColor: Color(0xFF5C1196).withOpacity(0.6),
-                          backgroundImage: Provider.of<SharedPreferenceForUserDetailProvider>(context, listen: false).getUserProfileSecureUrl == "" ? null : NetworkImage(Provider.of<SharedPreferenceForUserDetailProvider>(context, listen: false).getUserProfileSecureUrl),
-                          radius: 26.r,
-                          child: Provider.of<SharedPreferenceForUserDetailProvider>(context, listen: false).getUserProfileSecureUrl == "" ? Icon(Icons.person, color: Colors.white,) : null,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              color: Color(0xFF5C1196).withOpacity(0.6),
+                            )
+                          ),
+                          child: CircleAvatar(
+                            backgroundColor: Colors.transparent,
+                            backgroundImage: Provider.of<SharedPreferenceForUserDetailProvider>(context, listen: false).getUserProfileSecureUrl == "" ? null : NetworkImage(Provider.of<SharedPreferenceForUserDetailProvider>(context, listen: false).getUserProfileSecureUrl),
+                            radius: 26.r,
+                            child: Provider.of<SharedPreferenceForUserDetailProvider>(context, listen: false).getUserProfileSecureUrl == "" ? Icon(Icons.person, color: Colors.white,) : null,
+                          ),
                         ),
                       ),
                     ],
