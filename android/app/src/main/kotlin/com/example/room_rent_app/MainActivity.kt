@@ -1,4 +1,4 @@
-package com.example.room_rent_app
+package com.nepasolve.roomkhoj
 
 import io.flutter.embedding.android.FlutterActivity
 

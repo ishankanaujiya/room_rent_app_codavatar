@@ -3,8 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class FirebaseService
 {
-  var firebaseFirestore = FirebaseFirestore.instance.collection("userDetail");
-  var firebaseFirestoreForRoomDetail = FirebaseFirestore.instance.collection("roomDetail");
+  var firebaseFirestore = FirebaseFirestore.instance.collection("registeredUserDetail");
+  var firebaseFirestoreForRoomDetail = FirebaseFirestore.instance.collection("publishedRoomDetail");
 
   storeUserDetail(Map<String, dynamic> userDetail) async
   {

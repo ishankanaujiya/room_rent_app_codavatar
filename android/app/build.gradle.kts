@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.room_rent_app"
+    namespace = "com.nepasolve.roomkhoj"
     compileSdk = 36
     ndkVersion = "27.0.12077973"
 
@@ -22,7 +22,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.example.room_rent_app"
+        applicationId = "com.nepasolve.roomkhoj"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = 23
@@ -41,7 +41,7 @@ android {
 }
 dependencies {
   // Import the Firebase BoM
-  implementation(platform("com.google.firebase:firebase-bom:34.8.0"))
+    implementation(platform("com.google.firebase:firebase-bom:34.9.0"))
 
 
   // TODO: Add the dependencies for Firebase products you want to use
