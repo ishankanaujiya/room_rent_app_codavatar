@@ -137,7 +137,6 @@ class _SettingScreenState extends State<SettingScreen> {
                             children: <Widget>[
                               Container(
                                 width: 180.w,
-                                // height: 40.h,
                                 // color: Colors.cyan,
                                 child: Text(
                                   userFullName,
@@ -156,15 +155,7 @@ class _SettingScreenState extends State<SettingScreen> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   // mainAxisAlignment: MainAxisAlignment.start,
                                   children: <Widget>[
-                                    // Text(
-                                    //   "Phone Number: $userPhoneNumber" ,
-                                    //   style: TextStyle(
-                                    //     color: Color(0xFFFF8A39).withOpacity(0.7),
-                                    //     fontSize: 7.sp,
-                                    //     fontWeight: FontWeight.bold,
-                                    //   ),
-                                    // ),
-
+                              
                                     RichText(
                                       textAlign: TextAlign.justify,
                                       text: TextSpan(
