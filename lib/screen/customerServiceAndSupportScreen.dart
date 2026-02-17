@@ -14,6 +14,10 @@ class _CustomerServiceAndSupportScreenState
     extends State<CustomerServiceAndSupportScreen> {
   bool isEmailEnabled = false;
   bool isPhoneEnabled = false;
+
+  bool isPhoneTextEnabled = false;
+  bool isEmailTextEnabled = false;
+
   @override
   Widget build(BuildContext context) {
     return PopScope(
@@ -242,6 +246,7 @@ class _CustomerServiceAndSupportScreenState
                           highlightColor: Colors.transparent,
                           onTap: () {
                             isEmailEnabled = !isEmailEnabled;
+                            isEmailTextEnabled = !isEmailTextEnabled;
                             setState(() {});
                           },
                           child: Container(
@@ -274,7 +279,16 @@ class _CustomerServiceAndSupportScreenState
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: <Widget>[
-                                          Text(
+                                          isEmailTextEnabled ? Text(
+                                            "Email Us",
+                                            style: TextStyle(
+                                              color: Colors.grey.withOpacity(0.5),
+                                              fontSize: 10.sp,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          )
+                                          :
+                                           Text(
                                             "Email Us",
                                             style: TextStyle(
                                               color: Colors.black,
@@ -289,10 +303,9 @@ class _CustomerServiceAndSupportScreenState
                                               ? Text(
                                                   "ishankanaujiya96@gmail.com",
                                                   style: TextStyle(
-                                                    color: Colors.grey
-                                                        .withOpacity(0.5),
+                                                    color: Colors.black,
                                                     fontSize: 10.sp,
-                                                    fontWeight: FontWeight.w500,
+                                                    fontWeight: FontWeight.bold,
                                                   ),
                                                 )
                                               : Text(
@@ -330,6 +343,7 @@ class _CustomerServiceAndSupportScreenState
                           highlightColor: Colors.transparent,
                           onTap: () {
                             isPhoneEnabled = !isPhoneEnabled;
+                            isPhoneTextEnabled = !isPhoneTextEnabled;
                             setState(() {});
                           },
                           child: Container(
@@ -362,7 +376,16 @@ class _CustomerServiceAndSupportScreenState
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: <Widget>[
-                                          Text(
+                                          isPhoneTextEnabled ? Text(
+                                            "Call Us",
+                                            style: TextStyle(
+                                              color: Colors.grey.withOpacity(0.5),
+                                              fontSize: 10.sp,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          )
+                                          :
+                                           Text(
                                             "Call Us",
                                             style: TextStyle(
                                               color: Colors.black,
@@ -377,10 +400,9 @@ class _CustomerServiceAndSupportScreenState
                                               ? Text(
                                                   "+977-9861351391",
                                                   style: TextStyle(
-                                                    color: Colors.grey
-                                                        .withOpacity(0.5),
+                                                    color: Colors.black,
                                                     fontSize: 10.sp,
-                                                    fontWeight: FontWeight.w500,
+                                                    fontWeight: FontWeight.bold,
                                                   ),
                                                 )
                                               : Text(
