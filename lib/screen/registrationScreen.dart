@@ -63,7 +63,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         width: double.infinity.w,
                         height: 145.h,
                         decoration: BoxDecoration(
-                            color: Color(0xFF5C1196).withOpacity(0.6),
+                             color: Color(0xFF6B3ACD).withOpacity(0.4),
                             borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(70),
                               // bottomRight: Radius.circular(15),
@@ -120,8 +120,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                   ? Icon(
                                       Icons.person,
                                       color: CustomColor.primaryTextColor
-                                          .withOpacity(0.2),
-                                      size: 60,
+                                          .withOpacity(0.1),
+                                      size: 35,
                                     )
                                   : null,
                             ),
@@ -660,12 +660,17 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           print("Password Not Matched");
                         }
                       }
+
+                      else
+                      {
+                        Provider.of<CircularLoadingProvider>(context,listen: false).changeLoadingStatus(false);
+                      }
                     },
                     child: Container(
                       width: 273.w,
                       height: 55.h,
                       decoration: BoxDecoration(
-                        color: Color(0xFF5C1196).withOpacity(0.6),
+                        color: Color(0xFF6B3ACD).withOpacity(0.6),
                         borderRadius: BorderRadius.circular(10.r),
                       ),
                       child: Center(
@@ -720,6 +725,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     ),
                   ],
                 ),
+
+                 SizedBox(height: 25.h),
+
+
               ],
             ),
           ),
