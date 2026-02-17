@@ -326,6 +326,7 @@ class _CustomerServiceAndSupportScreenState
                                     splashColor: Colors.transparent,
                                     onPressed: () {
                                       isEmailEnabled = !isEmailEnabled;
+                                      isEmailTextEnabled = !isEmailTextEnabled;
                                       setState(() {});
                                     },
                                     icon: Icon(Icons.chevron_right_rounded)),
@@ -423,6 +424,7 @@ class _CustomerServiceAndSupportScreenState
                                     splashColor: Colors.transparent,
                                     onPressed: () {
                                       isPhoneEnabled = !isPhoneEnabled;
+                                      isPhoneTextEnabled = !isPhoneTextEnabled;
                                       setState(() {});
                                     },
                                     icon: Icon(Icons.chevron_right_rounded)),
