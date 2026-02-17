@@ -23,7 +23,7 @@ class _SupportScreenState extends State<SupportScreen> {
           context,
           MaterialPageRoute(builder: (_) => WelcomeScreen()),
         );
-      },
+      },  
       child: Scaffold(
         backgroundColor: Colors.white,
         body: Container(
