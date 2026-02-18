@@ -53,51 +53,51 @@
 
 ---
 
----
+
 
 ## 📁 Project Structure
 
 ```
 ROOM_RENT_APP_CODAVATAR/
 │
-├── android/                     # Android native configuration
-├── ios/                         # iOS native configuration
+├── android/                                            # Android native configuration
+├── ios/                                                # iOS native configuration
 ├── linux/
 ├── macos/
 ├── web/
 ├── windows/
 │
-├── assets/                      # Static assets (images, icons, etc.)
+├── assets/                                             # Static assets (images, icons, etc.)
 │
 ├── lib/
-│   ├── provider/                # State management (Provider)
+│   ├── provider/                                       # State management (Provider)
 │   │   ├── circularLoadingProvider.dart
 │   │   ├── multiplePictureDisplayProvider.dart
 │   │   ├── roomDetailProvider.dart
 │   │   └── sharedPreferenceForUserDetailProvider.dart
 │   │
-│   ├── screen/                  # UI Screens
+│   ├── screen/                                         # UI Screens
 │   │   └── (All app screens)
 │   │
-│   ├── service/                 # API & External Services
+│   ├── service/                                        # API & External Services
 │   │   ├── deletePictureFromCloudinary.dart
 │   │   ├── firebaseAuth.dart
 │   │   ├── firebaseService.dart
 │   │   └── pictureToCloudinary.dart
 │   │
-│   ├── util/                    # Utility classes & helpers
+│   ├── util/                                           # Utility classes & helpers
 │   │   ├── customColor.dart
 │   │   ├── forKeyForTextField.dart
 │   │   └── keyForSharedPreference.dart
 │   │
-│   ├── widget/                  # Reusable UI components
+│   ├── widget/                                         # Reusable UI components
 │   │   ├── buttonWidget.dart
 │   │   ├── circularLoading.dart
 │   │   └── settingContainer.dart
 │   │
-│   └── main.dart                # App entry point
+│   └── main.dart                                       # App entry point
 │
-├── pubspec.yaml                 # Dependencies & app version
+├── pubspec.yaml                                        # Dependencies & app version
 ├── pubspec.lock
 ├── analysis_options.yaml
 ├── devtools_options.yaml
@@ -116,7 +116,7 @@ The project follows a **clean and modular structure**:
 - **Widget Layer** → Reusable UI components.
 - **Util Layer** → Constants, keys, and helper utilities.
 
-⚠️ This separation ensures scalability, maintainability, and clean code architecture.
+**⚠️ This separation ensures scalability, maintainability, and clean code architecture.**
 
 ---
 
@@ -212,7 +212,7 @@ git push -u origin feature/your-feature-name
 
 ```bash
 - Go to the original repository.
-- Click on **New Pull Request**.
+- Click on New Pull Request.
 - Provide a clear description of your changes.
 - Submit for review.
 
@@ -258,3 +258,24 @@ When submitting a feature request:
 - **Email:** ishankanaujiya96mail.com  
 
 ---
+
+
+## 🙏 Thank You for Visiting
+
+Thank you for taking the time to explore **RoomKhoj**.
+
+We truly appreciate your interest in this project.  
+If you found it helpful or inspiring:
+
+- ⭐ Consider giving the repository a star  
+- 🍴 Fork the project to contribute  
+- 📢 Share it with others  
+
+Your support motivates us to continuously improve and build better solutions.
+
+---
+
+### 🚀 Happy Coding!
+
+**Made with ❤️ using Flutter.**
+
