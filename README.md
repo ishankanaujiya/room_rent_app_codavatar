@@ -17,41 +17,29 @@
 
 ## 🎯 Key Features
 
-### **1. User Authentication**
+### **1. User Authentication 🔒**
 - Secure **login and signup** system using Firebase Authentication.  
 - Ensures that each user’s room listings and profile data are private and secure.  
 
-### **2. Room Posting & Management**
+### **2. Room Posting & Management 🏢**
 - Users can **publish room listings** with detailed descriptions, multiple images, pricing, and amenities.  
 - Only the user who posted a room can **view and manage their own listings**.  
 - Supports **CRUD operations**: create, read, update, and delete rooms.  
 - Each room includes **contact information** so other users can directly reach out for inquiries.  
 
-### **3. Personal Profile Management**
+### **3. Personal Profile Management 👤✏️**
 - Users can **update their profile information**, including:  
   - Name  
   - Phone number  
   - Profile picture  
 - Ensures user information is always up-to-date and personalized.  
 
-### **4. Room Browsing**
+### **4. Room Browsing 🔍**
 - Users can view **all rooms posted by themselves** for easy management.  
 - Detailed room view displays all images and relevant information.  
 
 ---
 
-## 🎯 Key Features
-
-| Feature | Description | Icon |
-|---------|------------|------|
-| **User Authentication** | Secure login/signup with Firebase Authentication | 🔒 |
-| **Room Posting & Management** | Post rooms with multiple images and details; manage your own listings | 🏢 |
-| **CRUD Operations** | Create, Read, Update, Delete rooms | ✏️🗑️ |
-| **Contact Info** | Include contact details for direct communication | 📞 |
-| **Profile Management** | Update name, phone, and profile picture | 👤 |
-| **Room Browsing** | View all rooms you’ve posted with detailed information | 🔍 |
-
----
 
 ## ⚙️ Tech Stack
 
@@ -64,6 +52,74 @@
 
 
 ---
+
+---
+
+## 📁 Project Structure
+
+```
+ROOM_RENT_APP_CODAVATAR/
+│
+├── android/                     # Android native configuration
+├── ios/                         # iOS native configuration
+├── linux/
+├── macos/
+├── web/
+├── windows/
+│
+├── assets/                      # Static assets (images, icons, etc.)
+│
+├── lib/
+│   ├── provider/                # State management (Provider)
+│   │   ├── circularLoadingProvider.dart
+│   │   ├── multiplePictureDisplayProvider.dart
+│   │   ├── roomDetailProvider.dart
+│   │   └── sharedPreferenceForUserDetailProvider.dart
+│   │
+│   ├── screen/                  # UI Screens
+│   │   └── (All app screens)
+│   │
+│   ├── service/                 # API & External Services
+│   │   ├── deletePictureFromCloudinary.dart
+│   │   ├── firebaseAuth.dart
+│   │   ├── firebaseService.dart
+│   │   └── pictureToCloudinary.dart
+│   │
+│   ├── util/                    # Utility classes & helpers
+│   │   ├── customColor.dart
+│   │   ├── forKeyForTextField.dart
+│   │   └── keyForSharedPreference.dart
+│   │
+│   ├── widget/                  # Reusable UI components
+│   │   ├── buttonWidget.dart
+│   │   ├── circularLoading.dart
+│   │   └── settingContainer.dart
+│   │
+│   └── main.dart                # App entry point
+│
+├── pubspec.yaml                 # Dependencies & app version
+├── pubspec.lock
+├── analysis_options.yaml
+├── devtools_options.yaml
+└── .gitignore
+```
+
+---
+
+## 🏗️ Architecture Overview
+
+The project follows a **clean and modular structure**:
+
+- **Provider Layer** → Manages application state.
+- **Service Layer** → Handles Firebase, Cloudinary, and API operations.
+- **Screen Layer** → Contains UI screens.
+- **Widget Layer** → Reusable UI components.
+- **Util Layer** → Constants, keys, and helper utilities.
+
+⚠️ This separation ensures scalability, maintainability, and clean code architecture.
+
+---
+
 
 ## 🛠️ Installation & Setup
 
@@ -113,7 +169,10 @@ We welcome contributions to improve **RoomKhoj**.
 
 **1. Fork the repository**
 
-   Click the `Fork` button at the top-right corner of the repository page.
+```bash
+ Click the `Fork` button at the top-right corner of the repository page.
+
+```
 
 **2. Clone your fork**
 
@@ -151,10 +210,13 @@ git push -u origin feature/your-feature-name
 
 **8. Open a Pull Request**
 
+```bash
 - Go to the original repository.
 - Click on **New Pull Request**.
 - Provide a clear description of your changes.
 - Submit for review.
+
+```
 
 ---
 
@@ -172,7 +234,7 @@ git push -u origin feature/your-feature-name
    - Screenshots (if applicable)
    - Device details (Android version, device model, etc.)
 
-Providing detailed information helps us resolve issues faster.
+Providing detailed information helps me resolve issues faster.
 
 ---
 
@@ -194,6 +256,5 @@ When submitting a feature request:
 
 - **Developer:** Ishan Kanaujiya  
 - **Email:** ishankanaujiya96mail.com  
-- **GitHub:** https://github.com/ishankanaujiya
 
 ---
