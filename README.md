@@ -1,9 +1,6 @@
 # 🏠 RoomKhoj
 
-[![Flutter](https://img.shields.io/badge/Flutter-3.27.4-blue?logo=flutter&logoColor=white)](https://flutter.dev/)  
-[![Platform](https://img.shields.io/badge/Platform-Android-green)](https://play.google.com/store)  
-[![License](https://img.shields.io/badge/License-MIT-orange)](LICENSE)  
-![Version](https://img.shields.io/badge/Version-1.0.0-blue)
+[![Flutter](https://img.shields.io/badge/Flutter-3.27.4-blue?logo=flutter&logoColor=white)](https://flutter.dev/)  [![Platform](https://img.shields.io/badge/Platform-Android-green)](https://play.google.com/store)  [![License](https://img.shields.io/badge/License-MIT-orange)](LICENSE)  ![Version](https://img.shields.io/badge/Version-1.0.0-blue)
 
 ---
 
@@ -271,11 +268,11 @@ If you found it helpful or inspiring:
 - 🍴 Fork the project to contribute  
 - 📢 Share it with others  
 
-Your support motivates us to continuously improve and build better solutions.
+Your support motivates me to continuously improve and build better solutions.
 
 ---
 
 ### 🚀 Happy Coding!
 
-**Made with ❤️ using Flutter.**
+Made with ❤️ using Flutter.
 
