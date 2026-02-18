@@ -71,7 +71,7 @@
 
 **1. Clone the repository**
 ```bash
-git clone https://github.com/ishankanaujiya/room_rent_app_codavatar.git
+git clone https://github.com/ishankanaujiya/room_rent_app_codavatar
 ```
 
 **2. Navigate to the project directory**
@@ -93,7 +93,8 @@ flutter run
 ## 🤝 Contributing
 
 We welcome contributions to improve **RoomKhoj**.  
-To maintain code quality and consistency, **⚠️ Please follow the guidelines below**.
+
+**⚠️To maintain code quality and consistency, Please follow the guidelines below**.
 
 ---
 
@@ -104,43 +105,51 @@ To maintain code quality and consistency, **⚠️ Please follow the guidelines 
 - Test your changes thoroughly before submitting.
 - Keep pull requests focused on a single feature or bug fix.
 - Use clear and meaningful commit messages.
-- ⚠️ Do not commit sensitive information (API keys, Secrets, Credentials).
-- ⚠️ Ensure your changes do not break existing functionality.
+- Do not commit sensitive information (API keys, Secrets, Credentials)⚠️.
+- Ensure your changes do not break existing functionality⚠️.
 ---
 
 ### 🚀 Steps to Contribute
 
-1. **Fork the repository**
+**1. Fork the repository**
 
    Click the `Fork` button at the top-right corner of the repository page.
 
-2. **Clone your fork**
+**2. Clone your fork**
 
 ```bash
-git clone https://github.com/your-username/roomkhoj.git
-cd roomkhoj
+git clone https://github.com/ishankanaujiya/room_rent_app_codavatar
+```
+**3. Navigate to the project directory**
+```bash
+cd room_rent_app_codavatar
 ```
 
-3. **Create a new branch**
+**4. Create a new branch**
 
 ```bash
 git checkout -b feature/your-feature-name
 ```
 
-4. **Make your changes and commit**
+**5. Track Changes**
 
 ```bash
 git add .
+```
+
+**6. Make your changes and commit**
+
+```bash
 git commit -m "Add: short description of your feature"
 ```
 
-5. **Push your branch**
+**7. Push your branch**
 
 ```bash
-git push origin feature/your-feature-name
+git push -u origin feature/your-feature-name
 ```
 
-6. **Open a Pull Request**
+**8. Open a Pull Request**
 
 - Go to the original repository.
 - Click on **New Pull Request**.
@@ -151,7 +160,7 @@ git push origin feature/your-feature-name
 
 ## 🐛 Reporting Issues
 
-If you encounter any bugs or unexpected behavior, please report them by following these steps:
+**If you encounter any bugs or unexpected behavior, please report them by following these steps:**
 
 1. Navigate to the **Issues** tab of the repository.
 2. Click on **New Issue**.
@@ -181,10 +190,10 @@ When submitting a feature request:
 
 ## 📞 Contact
 
-For any inquiries, feedback, or support:
+**For any inquiries, feedback, or support:**
 
 - **Developer:** Ishan Kanaujiya  
-- **Email:** ishankanaujiya962gmail.com  
+- **Email:** ishankanaujiya96mail.com  
 - **GitHub:** https://github.com/ishankanaujiya
 
 ---
