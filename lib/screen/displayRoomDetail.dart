@@ -282,12 +282,16 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                      fontWeight: FontWeight.w500,
                                     ),
                                   ),
-                                  Text(
-                                      "Rs. ${value?['Room Price']}" ?? "",
-                                    style: TextStyle(
-                                      color: Color(0xFFFF8A39),
-                                      fontSize: 13.sp,
-                                     fontWeight: FontWeight.w500,
+                                  Container(
+                                    width: 100.w,
+                                    child: Text(
+                                        "Rs. ${value?['Room Price']}" ?? "",
+                                      style: TextStyle(
+                                        color: Color(0xFFFF8A39),
+                                        fontSize: 13.sp,
+                                       fontWeight: FontWeight.w500,
+                                      ),
+                                      textAlign: TextAlign.right,
                                     ),
                                   ),
                                 ],
@@ -306,12 +310,17 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                      fontWeight: FontWeight.w500,
                                     ),
                                   ),
-                                  Text(
-                                       value?['Number Of Room'] ?? "",
-                                    style: TextStyle(
-                                      color: Color(0xFFFF8A39),
-                                      fontSize: 13.sp,
-                                     fontWeight: FontWeight.w500,
+                                  Container(
+                                    width: 100.w,
+                                    // color: Colors.cyan,
+                                    child: Text(
+                                         "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa${value?['Number Of Room']}" ?? "",
+                                      style: TextStyle(
+                                        color: Color(0xFFFF8A39),
+                                        fontSize: 13.sp,
+                                       fontWeight: FontWeight.w500,
+                                      ),
+                                     
                                     ),
                                   ),
                                 ],
@@ -330,12 +339,16 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                      fontWeight: FontWeight.w500,
                                     ),
                                   ),
-                                  Text(
-                                       value?['Number Of Bathroom'] ?? "",
-                                    style: TextStyle(
-                                      color: Color(0xFFFF8A39),
-                                      fontSize: 13.sp,
-                                     fontWeight: FontWeight.w500,
+                                  Container(
+                                    width: 100.w,
+                                    child: Text(
+                                         value?['Number Of Bathroom'] ?? "",
+                                      style: TextStyle(
+                                        color: Color(0xFFFF8A39),
+                                        fontSize: 13.sp,
+                                       fontWeight: FontWeight.w500,
+                                      ),
+                                       textAlign: TextAlign.right,
                                     ),
                                   ),
                                 ],
@@ -354,12 +367,16 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                      fontWeight: FontWeight.w500,
                                     ),
                                   ),
-                                  Text(
-                                      value?['Square Feet'] ?? "",
-                                    style: TextStyle(
-                                      color: Color(0xFFFF8A39),
-                                      fontSize: 13.sp,
-                                     fontWeight: FontWeight.w500,
+                                  Container(
+                                  width: 100.w,
+                                    child: Text(
+                                        value?['Square Feet'] ?? "",
+                                      style: TextStyle(
+                                        color: Color(0xFFFF8A39),
+                                        fontSize: 13.sp,
+                                       fontWeight: FontWeight.w500,
+                                      ),
+                                       textAlign: TextAlign.right,
                                     ),
                                   ),
                                 ],
@@ -378,12 +395,16 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                      fontWeight: FontWeight.w500,
                                     ),
                                   ),
-                                  Text(
-                                      value?['Electricity Price'] ?? "",
-                                    style: TextStyle(
-                                      color: Color(0xFFFF8A39),
-                                      fontSize: 13.sp,
-                                     fontWeight: FontWeight.w500,
+                                  Container(
+                                    width: 100.w,
+                                    child: Text(
+                                        value?['Electricity Price'] ?? "",
+                                      style: TextStyle(
+                                        color: Color(0xFFFF8A39),
+                                        fontSize: 13.sp,
+                                       fontWeight: FontWeight.w500,
+                                      ),
+                                       textAlign: TextAlign.right,
                                     ),
                                   ),
                                 ],
@@ -402,12 +423,16 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                      fontWeight: FontWeight.w500,
                                     ),
                                   ),
-                                  Text(
-                                       value?['Water Price'] ?? "",
-                                    style: TextStyle(
-                                      color: Color(0xFFFF8A39),
-                                      fontSize: 13.sp,
-                                     fontWeight: FontWeight.w500,
+                                  Container(
+                                    width: 100.w,
+                                    child: Text(
+                                         value?['Water Price'] ?? "",
+                                      style: TextStyle(
+                                        color: Color(0xFFFF8A39),
+                                        fontSize: 13.sp,
+                                       fontWeight: FontWeight.w500,
+                                      ),
+                                       textAlign: TextAlign.right,
                                     ),
                                   ),
                                 ],

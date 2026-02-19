@@ -474,14 +474,19 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                         controller: phoneNumberController,
                             validator: (value)
                             {
-                              if(value == null || value == "")
+                              if (value == null || value.trim().isEmpty) 
                               {
-                                return "Phone Number is required";
+                                return "Phone Number is Required";
                               }
-                              if(value.length <10 || value.length >10)
+                              if (!RegExp(r'^[0-9]+$').hasMatch(value)) 
                               {
-                                return "Phone Number must be of 10 digit";
+                                return "Phone Number must contain only digits";
                               }
+                              if (value.length != 10) 
+                              {
+                                return "Phone Number must be exactly 10 digits";
+                              }
+                              return null;
                             },
                             keyboardType: TextInputType.number,
                         decoration: InputDecoration(
@@ -643,6 +648,10 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                                   {
                                     return "Room Price is required";
                                   }
+                                  if (!RegExp(r'^[0-9]+$').hasMatch(value)) 
+                                  {
+                                    return "Must contain only digits";
+                                  }
                                 },
                                 keyboardType: TextInputType.number,
                                 decoration: InputDecoration(
@@ -707,6 +716,10 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                                   if(value == null || value == "")
                                   {
                                     return "Enter Number of Rooms";
+                                  }
+                                  if (!RegExp(r'^[0-9]+$').hasMatch(value)) 
+                                  {
+                                    return "Must contain only digits";
                                   }
                                 },
                                 keyboardType: TextInputType.number,
@@ -781,6 +794,10 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                                   {
                                     return "Enter Number of Bathroom";
                                   }
+                                    if (!RegExp(r'^[0-9]+$').hasMatch(value)) 
+                                  {
+                                    return "Must contain only digits";
+                                  }
                                 },
                                 keyboardType: TextInputType.number,
                                 decoration: InputDecoration(
@@ -845,6 +862,10 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                                   if(value == null || value == "")
                                   {
                                     return "Square Feet is required";
+                                  }
+                                    if (!RegExp(r'^[0-9]+$').hasMatch(value)) 
+                                  {
+                                    return "Must contain only digits";
                                   }
                                 },
                                 keyboardType: TextInputType.number,
@@ -919,6 +940,10 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                                   {
                                     return "Electricity Price is required";
                                   }
+                                    if (!RegExp(r'^[0-9]+$').hasMatch(value)) 
+                                  {
+                                    return "Must contain only digits";
+                                  }
                                 },
                                 keyboardType: TextInputType.number,
                                 decoration: InputDecoration(
@@ -983,6 +1008,10 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                                   if(value == null || value == "")
                                   {
                                     return "Water Price is required";
+                                  }
+                                    if (!RegExp(r'^[0-9]+$').hasMatch(value)) 
+                                  {
+                                    return "Must contain only digits";
                                   }
                                 },
                                 keyboardType: TextInputType.number,
