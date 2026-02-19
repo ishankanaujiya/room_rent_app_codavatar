@@ -568,6 +568,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       
                         if (passwordController.text ==
                             confirmPasswordController.text) {
+                              String lowerCaseEmail = emailController.text.toLowerCase();
                           //   Fluttertoast.showToast(
                           //   msg: "Password Does't Match",
                           //   toastLength: Toast.LENGTH_LONG,
@@ -595,7 +596,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       
                                 userDetail = {
                                   "FullName": fullNameController.text,
-                                  "Email": emailController.text,
+                                  "Email": lowerCaseEmail,
                                   "PhoneNumber": phoneNumberController.text,
                                   "SecureUrl": secureUrl,
                                 };
@@ -606,7 +607,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                 {
                                   userDetail = {
                                     "FullName": fullNameController.text,
-                                    "Email": emailController.text,
+                                    "Email": lowerCaseEmail,
                                     "PhoneNumber": phoneNumberController.text,
                                     "SecureUrl": "",
                                   };

@@ -1103,6 +1103,7 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                   
                           if(secureUrlFromCloudinary.isNotEmpty)
                           {
+                            String lowerCaseEmail = emailController.text.toLowerCase();
                             Map<String, dynamic> roomDetail = {
                               "Full Name" : userFullName,
                               "Email" : userEmail,
@@ -1112,7 +1113,7 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                               "Description" : descriptionController.text,
                               "Location" : addressController.text,
                               "Contact Number" : phoneNumberController.text,
-                              "Contact Email" : emailController.text,
+                              "Contact Email" : lowerCaseEmail,
                               "Room Price" : roomPriceController.text,
                               "Number Of Room" : numberOfRoomController.text,
                               "Number Of Bathroom" : numberofBathroomController.text,
