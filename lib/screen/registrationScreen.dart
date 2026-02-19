@@ -350,13 +350,21 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       
                           TextFormField(
                             controller: phoneNumberController,
-                            validator: (value) {
-                              if (value == "" || value == null) {
+                            validator: (value) 
+                            {
+                              if (value == null || value.trim().isEmpty) 
+                              {
                                 return "Phone Number is Required";
                               }
-                              if (value.length < 10 && value.length > 10) {
-                                return "Phone Number Must be of 10 Digit";
+                              if (!RegExp(r'^[0-9]+$').hasMatch(value)) 
+                              {
+                                return "Phone Number must contain only digits";
                               }
+                              if (value.length != 10) 
+                              {
+                                return "Phone Number must be exactly 10 digits";
+                              }
+                              return null;
                             },
                             obscureText: false,
                             keyboardType: TextInputType.number,

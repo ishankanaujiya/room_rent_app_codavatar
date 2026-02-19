@@ -475,14 +475,22 @@ void initState() {
                                   textDirection: TextDirection.rtl,
                                   child: TextFormField(
                                     validator: (value) {
-                                      if (value == "" || value == null) {
-                                        return "Phone Number is Required";
-                                      }
-                                      if (value.length < 10 && value.length > 10) {
-                                        return "Phone Number Must be of 10 Digit";
-                                      }
+                                    if (value == null || value.trim().isEmpty) 
+                                    {
+                                      return "Phone Number is Required";
+                                    }
+                                    if (!RegExp(r'^[0-9]+$').hasMatch(value)) 
+                                    {
+                                      return "Only digits are accepted";
+                                    }
+                                    if (value.length != 10) 
+                                    {
+                                      return "Phone Number must be exactly 10 digits";
+                                    }
+                                    return null;
                                     },
                                     controller: phoneNumberController,
+                                    keyboardType: TextInputType.number,
                                     obscureText: false,
                                     style: TextStyle(
                                       color: Colors.black,
