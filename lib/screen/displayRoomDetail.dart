@@ -48,7 +48,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                 children: <Widget>[
                   Container(
                     width: double.infinity.w,
-                    height: 420.h,
+                    height: 400.h,
                     decoration: BoxDecoration(
                        color: Color.fromARGB(255, 203, 179, 252).withOpacity(0.1),
                       borderRadius:
@@ -58,27 +58,29 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                       children: [
                         Positioned(
                           left: 15,
-                          top: 17,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                "Hi,",
-                                style: TextStyle(
-                                 color: Color(0xFFFF8A39),
-                                  fontSize: 16.sp,
-                                  fontWeight: FontWeight.bold,
+                          top: 0,
+                          child: SafeArea(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Hi,",
+                                  style: TextStyle(
+                                   color: Color(0xFFFF8A39),
+                                    fontSize: 16.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                "From ${value?['Full Name']}" ?? "",
-                                style: TextStyle(
-                                 color: Color(0xFF6B3ACD),
-                                  fontSize: 20.sp,
-                                  fontWeight: FontWeight.bold,
+                                Text(
+                                  "From ${value?['Full Name']}" ?? "",
+                                  style: TextStyle(
+                                   color: Color(0xFF6B3ACD),
+                                    fontSize: 20.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                     
@@ -170,7 +172,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                           // right: 0,
                           top: 310,
                           child: Container(
-                            padding: EdgeInsets.symmetric(horizontal: 20.0),
+                            padding: EdgeInsets.only(left: 20.0),
                             width: 200.w,
                             height: 60.h,
                             // color: Colors.cyan,
@@ -194,7 +196,8 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                
                                 SingleChildScrollView(
                                   child: Container(
-                                    width: 100.w,
+                                    // color: Colors.black,
+                                    width: 115.w,
                                     child: Text(
                                       value?['Location'] ?? "",
                                       style: TextStyle(
@@ -212,6 +215,9 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                         )
                       ],
                     ),
+                  ),
+                   SizedBox(
+                    height: 15.h,
                   ),
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 20.0),

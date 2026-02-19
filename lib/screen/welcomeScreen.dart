@@ -131,50 +131,52 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               ),
             ),
 
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 20.0),
-              width: double.infinity.w,
-              height: 80.h,
-              // color: Colors.cyan,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  InkWell(
-                    splashColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: ()
-                    {
-                       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginInScreen()),
-                      );
-                    }, 
-                    child: Text("Skip",
-                  style: TextStyle(
-                    color: Colors.grey.withOpacity(0.5),
-                    fontSize: 11.sp,
-                    fontWeight: FontWeight.bold,
-                  ),),
-                  ),
-
-
-                  InkWell(
-                    splashColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: ()
-                    {
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SupportScreen()),
-                      );
-                    },
-                     child: Text("Next",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 11.sp,
-                    fontWeight: FontWeight.bold,
-                  ),),
-                  
-                  ),
-                ],
+              SafeArea(
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20.0),
+                width: double.infinity.w,
+                height: 80.h,
+                // color: Colors.cyan,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    InkWell(
+                      splashColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: ()
+                      {
+                         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginInScreen()),
+                        );
+                      }, 
+                      child: Text("Skip",
+                    style: TextStyle(
+                      color: Colors.grey.withOpacity(0.5),
+                      fontSize: 11.sp,
+                      fontWeight: FontWeight.bold,
+                    ),),
+                    ),
+                
+                
+                    InkWell(
+                      splashColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: ()
+                      {
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SupportScreen()),
+                        );
+                      },
+                       child: Text("Next",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 11.sp,
+                      fontWeight: FontWeight.bold,
+                    ),),
+                    
+                    ),
+                  ],
+                ),
+                            ),
               ),
-            ),
           ],
         ),
       ),

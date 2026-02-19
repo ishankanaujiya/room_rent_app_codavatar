@@ -126,29 +126,31 @@ class _SupportScreenState extends State<SupportScreen> {
                                  ),
               ),
       
-                Container(
-                  alignment: Alignment.centerRight,
-                  padding: EdgeInsets.symmetric(horizontal: 20.0),
-                width: double.infinity.w,
-                height: 80.h,
-                // color: Colors.cyan,
-                child: InkWell(
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onTap: ()
-                  {
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginInScreen()),
-                        );
-                  },
-                   child: Text("Get Started",
-                style: TextStyle(
-                   color: Color(0xFF6B3ACD),
-                  fontSize: 11.sp,
-                  fontWeight: FontWeight.bold,
-                ),),
-                
+                SafeArea(
+                  child: Container(
+                    alignment: Alignment.centerRight,
+                    padding: EdgeInsets.symmetric(horizontal: 20.0),
+                  width: double.infinity.w,
+                  height: 80.h,
+                  // color: Colors.cyan,
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: ()
+                    {
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginInScreen()),
+                          );
+                    },
+                     child: Text("Get Started",
+                  style: TextStyle(
+                     color: Color(0xFF6B3ACD),
+                    fontSize: 11.sp,
+                    fontWeight: FontWeight.bold,
+                  ),),
+                  
+                  ),
+                                ),
                 ),
-              ),
             ],
           ),
         ),
