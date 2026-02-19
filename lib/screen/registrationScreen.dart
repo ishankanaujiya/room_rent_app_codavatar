@@ -475,7 +475,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       
                           TextFormField(
                             controller: confirmPasswordController,
-                            validator: (value) {
+                            validator: (value) 
+                            {
                               if (value == "" || value == null) {
                                 return "Password Field is Required";
                               }
