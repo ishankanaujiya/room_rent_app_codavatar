@@ -102,14 +102,14 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                               width: 190.w,
                               height: 150.h,
                               decoration: BoxDecoration(
-                                color: CustomColor.primaryTextColor
+                                color: const Color.fromARGB(255, 190, 190, 190)
                                     .withOpacity(0.1),
                                 borderRadius: BorderRadius.circular(25.r),
                               ),
                               
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(25.r),
-                                child: Image.network(value['secureUrl'][index], fit: BoxFit.cover,),
+                                child: Image.network(value['secureUrl'][index], fit: BoxFit.contain,),
                                 ),
                             );
                         
@@ -130,12 +130,16 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
-                                Text(
-                                   value?['Room Title'] ?? "",
-                                  style: TextStyle(
-                                    color: Color(0xFF6B3ACD),
-                                    fontSize: 22.sp,
-                                    fontWeight: FontWeight.bold,
+                                Container(
+                                  width: 180.w,
+                                  // color: Colors.cyan,
+                                  child: Text(
+                                     value?['Room Title'] ?? "",
+                                    style: TextStyle(
+                                      color: Color(0xFF6B3ACD),
+                                      fontSize: 22.sp,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
                                 Expanded(
@@ -162,13 +166,13 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                           ),
                         ),
                         Positioned(
-                          left: 0,
-                          right: 0,
-                          top: 272,
+                          // left: 0,
+                          // right: 0,
+                          top: 310,
                           child: Container(
                             padding: EdgeInsets.symmetric(horizontal: 20.0),
-                            width: double.infinity.w,
-                            height: 100.h,
+                            width: 200.w,
+                            height: 60.h,
                             // color: Colors.cyan,
                             child: Row(
                               children: <Widget>[
@@ -187,13 +191,19 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
-                                Text(
-                                  value?['Location'] ?? "",
-                                  style: TextStyle(
-                                    color: CustomColor.primaryTextColor
-                                        .withOpacity(0.2),
-                                    fontSize: 11.sp,
-                                    fontWeight: FontWeight.w500,
+                               
+                                SingleChildScrollView(
+                                  child: Container(
+                                    width: 100.w,
+                                    child: Text(
+                                      value?['Location'] ?? "",
+                                      style: TextStyle(
+                                        color: CustomColor.primaryTextColor
+                                            .withOpacity(0.2),
+                                        fontSize: 11.sp,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ],
