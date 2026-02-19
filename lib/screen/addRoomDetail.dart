@@ -1180,7 +1180,9 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                           borderRadius: BorderRadius.circular(15.r),
                         ),
                         child: Center(
-                            child: Provider.of<CircularLoadingProvider>(context).isLoading ? CircularProgressIndicator() 
+                            child: Provider.of<CircularLoadingProvider>(context).isLoading ? CircularProgressIndicator(
+                              color: Colors.white,
+                            ) 
                             :
                              Text(
                           "Publish Room",

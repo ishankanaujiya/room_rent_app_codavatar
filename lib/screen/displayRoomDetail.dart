@@ -315,6 +315,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                               SizedBox(
                                 height: 10.h,
                               ),
+                              
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
@@ -330,13 +331,13 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                     width: 100.w,
                                     // color: Colors.cyan,
                                     child: Text(
-                                         "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa${value?['Number Of Room']}" ?? "",
+                                         "${value?['Number Of Room']}" ?? "",
                                       style: TextStyle(
                                         color: Color(0xFFFF8A39),
                                         fontSize: 13.sp,
                                        fontWeight: FontWeight.w500,
                                       ),
-                                     
+                                      textAlign: TextAlign.right,
                                     ),
                                   ),
                                 ],
@@ -397,10 +398,11 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                   ),
                                 ],
                               ),
+                              
                               SizedBox(
                                 height: 10.h,
                               ),
-                              Row(
+                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   Text(
@@ -414,7 +416,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                   Container(
                                     width: 100.w,
                                     child: Text(
-                                        value?['Electricity Price'] ?? "",
+                                        "Rs. ${value?['Electricity Price']}" ?? "",
                                       style: TextStyle(
                                         color: Color(0xFFFF8A39),
                                         fontSize: 13.sp,
@@ -432,7 +434,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   Text(
-                                    "Water Price",
+                                    "Water Price (Per)",
                                     style: TextStyle(
                                      //color: Colors.white,
                                       fontSize: 13.sp,
@@ -442,7 +444,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                   Container(
                                     width: 100.w,
                                     child: Text(
-                                         value?['Water Price'] ?? "",
+                                         "Rs. ${value?['Water Price']}" ?? "",
                                       style: TextStyle(
                                         color: Color(0xFFFF8A39),
                                         fontSize: 13.sp,
@@ -453,7 +455,7 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                   ),
                                 ],
                               ),
-                              SizedBox(
+                                SizedBox(
                                 height: 10.h,
                               ),
                             ],
