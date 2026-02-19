@@ -280,6 +280,7 @@ class _LoginInScreenState extends State<LoginInScreen> {
                   fontSize: 16.0
                   );
 
+                   Provider.of<CircularLoadingProvider>(context, listen: false).changeLoadingStatus(false);
 
                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()
                     ));
@@ -312,13 +313,14 @@ class _LoginInScreenState extends State<LoginInScreen> {
                   fontSize: 16.0
                   );
                   
+                  Provider.of<CircularLoadingProvider>(context, listen: false).changeLoadingStatus(false);
                   print("This is Catch Error: ${e.toString()}");
                 }
-                finally
-                {
-                  Provider.of<CircularLoadingProvider>(context, listen: false).changeLoadingStatus(false);
-                  print("This is the finally block which is called before the navigator");
-                }
+                // finally
+                // {
+                //   Provider.of<CircularLoadingProvider>(context, listen: false).changeLoadingStatus(false);
+                //   print("This is the finally block which is called before the navigator");
+                // }
                
 
               }

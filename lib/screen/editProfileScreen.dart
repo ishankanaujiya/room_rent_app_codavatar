@@ -375,7 +375,7 @@ void initState() {
                                     {
                                       if (value == "" || value == null)
                                        {
-                                       return "Full Name is required";
+                                       return "Required";
                                       }
                                         
                                     },
@@ -477,7 +477,7 @@ void initState() {
                                     validator: (value) {
                                     if (value == null || value.trim().isEmpty) 
                                     {
-                                      return "Phone Number is Required";
+                                      return "Required";
                                     }
                                     if (!RegExp(r'^[0-9]+$').hasMatch(value)) 
                                     {
@@ -485,7 +485,7 @@ void initState() {
                                     }
                                     if (value.length != 10) 
                                     {
-                                      return "Phone Number must be exactly 10 digits";
+                                      return "Must be exactly 10 digits";
                                     }
                                     return null;
                                     },
