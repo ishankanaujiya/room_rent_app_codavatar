@@ -520,6 +520,8 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                     width: 5.w,
                                   ),
                                   InkWell(
+                                    splashColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
                                     onTap: ()
                                     {
                                       openDialPad(value?['Contact Number']);
