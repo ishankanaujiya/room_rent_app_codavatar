@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:room_rent_app/provider/roomDetailProvider.dart';
 import 'package:room_rent_app/screen/home.dart';
 import 'package:room_rent_app/util/customColor.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DisplayRoomDetail extends StatefulWidget {
   const DisplayRoomDetail({super.key});
@@ -14,6 +15,23 @@ class DisplayRoomDetail extends StatefulWidget {
 
 class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
 
+  openDialPad(String phoneNumber) async
+  { 
+    final Uri phoneUri = Uri(
+      scheme: "tel",
+      path: phoneNumber,
+    );
+
+    if(await canLaunchUrl(phoneUri))
+    {
+      await launchUrl(phoneUri);
+    }
+    else
+    {
+      print("Cannot navigate to dailpad so you need to manually call to the owner");
+    }
+
+  }
  
   @override
   Widget build(BuildContext context) {
@@ -501,12 +519,18 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                   SizedBox(
                                     width: 5.w,
                                   ),
-                                  Text(
-                                     value?['Contact Number'] ?? "",
-                                    style: TextStyle(
-                                      color: CustomColor.primaryTextColor,
-                                      fontSize: 13.sp,
-                                     fontWeight: FontWeight.w500,
+                                  InkWell(
+                                    onTap: ()
+                                    {
+                                      openDialPad(value?['Contact Number']);
+                                    },
+                                    child: Text(
+                                       value?['Contact Number'] ?? "",
+                                      style: TextStyle(
+                                        color: CustomColor.primaryTextColor,
+                                        fontSize: 13.sp,
+                                       fontWeight: FontWeight.w500,
+                                      ),
                                     ),
                                   ),
                                 ],
