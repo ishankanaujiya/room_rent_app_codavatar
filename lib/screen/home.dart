@@ -10,6 +10,7 @@ import 'package:room_rent_app/screen/displayRoomDetail.dart';
 import 'package:room_rent_app/screen/settingScreen.dart';
 import 'package:room_rent_app/service/firebaseService.dart';
 import 'package:room_rent_app/util/customColor.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -29,6 +30,42 @@ class _HomeScreenState extends State<HomeScreen> {
   getLoggedInUserDetail(BuildContext context) async
   {
     Provider.of<SharedPreferenceForUserDetailProvider>(context, listen: false).getStoredUserDetail();
+  }
+
+  openDialPad(String phoneNumber) async
+  { 
+    final Uri phoneUri = Uri(
+      scheme: "tel",
+      path: phoneNumber,
+    );
+
+    if(await canLaunchUrl(phoneUri))
+    {
+      await launchUrl(phoneUri);
+    }
+    else
+    {
+      print("Cannot navigate to dailpad so you need to manually call to the owner");
+    }
+
+  }
+
+  openMailBox(String contactEmail) async
+  { 
+    final Uri phoneUri = Uri(
+      scheme: "mailto",
+      path: contactEmail,
+    );
+
+    if(await canLaunchUrl(phoneUri))
+    {
+      await launchUrl(phoneUri);
+    }
+    else
+    {
+      print("Cannot navigate to mail app so you need to manually mail to the owner");
+    }
+
   }
 
   getDetail() async
@@ -291,15 +328,23 @@ class _HomeScreenState extends State<HomeScreen> {
                                                         SizedBox(
                                                           width: 10.w,
                                                         ),
-                                                        Text(
-                                                          documentSnapshot['Contact Number'],
-                                                          style: TextStyle(
-                                                            color: CustomColor
-                                                                .primaryTextColor
-                                                                .withOpacity(0.7),
-                                                            fontSize: 13.sp,
-                                                            fontWeight:
-                                                                FontWeight.w500,
+                                                        InkWell(
+                                                        splashColor: Colors.transparent,
+                                                        highlightColor: Colors.transparent,
+                                                          onTap: ()
+                                                          {
+                                                            openDialPad(documentSnapshot['Contact Number']);
+                                                          },
+                                                          child: Text(
+                                                            documentSnapshot['Contact Number'],
+                                                            style: TextStyle(
+                                                              color: CustomColor
+                                                                  .primaryTextColor
+                                                                  .withOpacity(0.7),
+                                                              fontSize: 13.sp,
+                                                              fontWeight:
+                                                                  FontWeight.w500,
+                                                            ),
                                                           ),
                                                         ),
                                                       ],
@@ -320,15 +365,23 @@ class _HomeScreenState extends State<HomeScreen> {
                                                         SizedBox(
                                                           width: 8.w,
                                                         ),
-                                                        Text(
-                                                          documentSnapshot['Contact Email'],
-                                                          style: TextStyle(
-                                                            color: CustomColor
-                                                                .primaryTextColor
-                                                                .withOpacity(0.7),
-                                                            fontSize: 13.sp,
-                                                            fontWeight:
-                                                                FontWeight.w500,
+                                                        InkWell(
+                                                          splashColor: Colors.transparent,
+                                                          highlightColor: Colors.transparent,
+                                                          onTap: ()
+                                                          {
+                                                            openMailBox(documentSnapshot['Contact Email']);
+                                                          },
+                                                          child: Text(
+                                                            documentSnapshot['Contact Email'],
+                                                            style: TextStyle(
+                                                              color: CustomColor
+                                                                  .primaryTextColor
+                                                                  .withOpacity(0.7),
+                                                              fontSize: 13.sp,
+                                                              fontWeight:
+                                                                  FontWeight.w500,
+                                                            ),
                                                           ),
                                                         ),
                                                       ],
