@@ -468,77 +468,79 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                     ),
                   ),
                   
-                  Container(
-                      padding: EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 20.0),
-                    width: double.infinity.w,
-                    // height: 100.h,
-                    // color: Colors.cyan,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                    "Contact Information",
-                    style: TextStyle(
-                      color: Color(0xFF6B3ACD),
-                      fontSize: 18.sp,
-                     fontWeight: FontWeight.bold,
+                  SafeArea(
+                    child: Container(
+                        padding: EdgeInsets.symmetric(
+                                horizontal: 20.0, vertical: 20.0),
+                      width: double.infinity.w,
+                      // height: 100.h,
+                      // color: Colors.cyan,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                      "Contact Information",
+                      style: TextStyle(
+                        color: Color(0xFF6B3ACD),
+                        fontSize: 18.sp,
+                       fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 20.h,
-                  ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Row(
-                              children: <Widget>[
-                                Icon(
-                                  Icons.phone,
-                                  color: Color(0xFF0F766E),
-                                ),
-                                SizedBox(
-                                  width: 5.w,
-                                ),
-                                Text(
-                                   value?['Contact Number'] ?? "",
-                                  style: TextStyle(
-                                    color: CustomColor.primaryTextColor,
-                                    fontSize: 13.sp,
-                                   fontWeight: FontWeight.w500,
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Row(
+                                children: <Widget>[
+                                  Icon(
+                                    Icons.phone,
+                                    color: Color(0xFF0F766E),
                                   ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: <Widget>[
-                                Icon(
-                                  Icons.email,
-                                  color: Color(0xFFFF8A39),
-                                ),
-                                SizedBox(
-                                  width: 5.w,
-                                ),
-                                Container(
-                                  width: 140.w,
-                                  child: Text(
-                                       value?['Contact Email'] ?? "",
+                                  SizedBox(
+                                    width: 5.w,
+                                  ),
+                                  Text(
+                                     value?['Contact Number'] ?? "",
                                     style: TextStyle(
                                       color: CustomColor.primaryTextColor,
                                       fontSize: 13.sp,
                                      fontWeight: FontWeight.w500,
                                     ),
                                   ),
-                                ),
-                              ],
-                            ),
-                            
-                          ],
-                        ),
-                          SizedBox(
-                    height: 20.h,
-                  ),
-                      ],
+                                ],
+                              ),
+                              Row(
+                                children: <Widget>[
+                                  Icon(
+                                    Icons.email,
+                                    color: Color(0xFFFF8A39),
+                                  ),
+                                  SizedBox(
+                                    width: 5.w,
+                                  ),
+                                  Container(
+                                    width: 140.w,
+                                    child: Text(
+                                         value?['Contact Email'] ?? "",
+                                      style: TextStyle(
+                                        color: CustomColor.primaryTextColor,
+                                        fontSize: 13.sp,
+                                       fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              
+                            ],
+                          ),
+                            SizedBox(
+                      height: 20.h,
+                    ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
