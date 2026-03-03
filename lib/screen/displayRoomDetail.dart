@@ -32,6 +32,24 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
     }
 
   }
+
+  openMailBox(String contactEmail) async
+  { 
+    final Uri phoneUri = Uri(
+      scheme: "mailto",
+      path: contactEmail,
+    );
+
+    if(await canLaunchUrl(phoneUri))
+    {
+      await launchUrl(phoneUri);
+    }
+    else
+    {
+      print("Cannot navigate to mail app so you need to manually mail to the owner");
+    }
+
+  }
  
   @override
   Widget build(BuildContext context) {
@@ -546,14 +564,21 @@ class _DisplayRoomDetailState extends State<DisplayRoomDetail> {
                                   SizedBox(
                                     width: 5.w,
                                   ),
-                                  Container(
-                                    width: 140.w,
-                                    child: Text(
-                                         value?['Contact Email'] ?? "",
-                                      style: TextStyle(
-                                        color: CustomColor.primaryTextColor,
-                                        fontSize: 13.sp,
-                                       fontWeight: FontWeight.w500,
+                                  InkWell(
+                                    onTap: ()
+                                    {
+                                      openMailBox(value?['Contact Email']);
+                                    },
+                                    child: Container(
+                                      // color: Colors.cyan,
+                                      width: 140.w,
+                                      child: Text(
+                                           value?['Contact Email'] ?? "",
+                                        style: TextStyle(
+                                          color: CustomColor.primaryTextColor,
+                                          fontSize: 13.sp,
+                                         fontWeight: FontWeight.w500,
+                                        ),
                                       ),
                                     ),
                                   ),
