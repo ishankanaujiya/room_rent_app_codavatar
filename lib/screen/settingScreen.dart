@@ -157,13 +157,13 @@ class _SettingScreenState extends State<SettingScreen> {
                                   children: <Widget>[
                               
                                     RichText(
-                                      textAlign: TextAlign.justify,
+                                      // textAlign: TextAlign.justify,
                                       text: TextSpan(
                                         text: "Phone Number: ",
                                         style: TextStyle(
                                           color: Color(0xFF6B3ACD),
                                           // color: Color(0xFF6B3ACD),
-                                          fontSize: 7.sp,
+                                          fontSize: 9.sp,
                                           fontWeight: FontWeight.bold,
                                         ),
                                         children: <TextSpan>[
@@ -182,13 +182,13 @@ class _SettingScreenState extends State<SettingScreen> {
                                       height: 2.h,
                                     ),
                                     RichText(
-                                      textAlign: TextAlign.justify,
+                                      // textAlign: TextAlign.justify,
                                       text: TextSpan(
                                         text: "Email: ",
                                         style: TextStyle(
                                           color: Color(0xFF6B3ACD),
                                           // color: Color(0xFF6B3ACD),
-                                          fontSize: 7.sp,
+                                          fontSize: 9.sp,
                                           fontWeight: FontWeight.bold,
                                         ),
                                         children: <TextSpan>[
