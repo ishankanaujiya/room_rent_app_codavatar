@@ -416,11 +416,41 @@ class _HomeScreenState extends State<HomeScreen> {
                                                         ),
                                                       ],
                                                     ),
+
+
+                                                    SizedBox(
+                                                      height: 20.h,
+                                                    ),
+                                                    Row(
+                                                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                      children: <Widget>[
+                                                        Icon(
+                                                          Icons.location_city_sharp,
+                                                          color: Color(0xFFFF8A39),
+                                                          size: 22,
+                                                        ),
+                                                        SizedBox(
+                                                          width: 8.w,
+                                                        ),
+                                                        Text(
+                                                          documentSnapshot['District'],
+                                                          style: TextStyle(
+                                                            color: CustomColor
+                                                                .primaryTextColor
+                                                                .withOpacity(0.7),
+                                                            fontSize: 13.sp,
+                                                            fontWeight:
+                                                            FontWeight.w500,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
                                                     
                                                   ],
                                                 ),
                                               ),
-                                  
+
+
                                               Container(
                                                  padding: EdgeInsets.symmetric(
                                                   horizontal: 10.0,
