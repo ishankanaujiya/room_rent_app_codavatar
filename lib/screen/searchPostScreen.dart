@@ -255,13 +255,17 @@ class _SearchPostScreenState extends State<SearchPostScreen> {
                                                               width: 5.w,
                                                             ),
 
-                                                            Text(
-                                                              documentSnapshot['Location'],
-                                                              style: TextStyle(
-                                                                color: Colors.black,
-                                                                fontSize: 9.sp,
-                                                                fontWeight:
-                                                                FontWeight.w600,
+                                                            Container(
+                                                              // color: Colors.cyan,
+                                                              width: 100.w,
+                                                              child: Text(
+                                                                documentSnapshot['Location'],
+                                                                style: TextStyle(
+                                                                  color: Colors.black,
+                                                                  fontSize: 9.sp,
+                                                                  fontWeight:
+                                                                  FontWeight.w600,
+                                                                ),
                                                               ),
                                                             ),
                                                           ],
