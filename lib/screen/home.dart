@@ -138,6 +138,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       InkWell(
                         splashColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
                         onTap: ()
                         {
                           Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SettingScreen()
@@ -504,6 +505,8 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: <Widget>[
           InkWell(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
            onTap: ()
            {
              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => FilterPostDetailScreen()
@@ -530,6 +533,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
 
             InkWell(
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
               onTap: ()
               {
                 Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => AddRoomDetail()
