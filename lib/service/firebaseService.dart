@@ -28,6 +28,11 @@ class FirebaseService
     return await firebaseFirestoreForRoomDetail.snapshots();
   }
 
+  Future<Stream<QuerySnapshot>> getSelectedLocationRoomDetail(String selectedLocation) async
+  {
+    return await firebaseFirestoreForRoomDetail.where('District', isEqualTo: selectedLocation).snapshots();
+  }
+
   updateUsersDetail(Map<String, dynamic> updatedDetail, String registeredEmail) async
   {
     try

@@ -44,6 +44,88 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
   String? userEmail;
   String? userPhoneNumber;
 
+  String selectedDistrict = "Kathmandu";
+
+  List<String> nepalDistricts = [
+    "Achham",
+    "Arghakhanchi",
+    "Baglung",
+    "Baitadi",
+    "Bajhang",
+    "Bajura",
+    "Banke",
+    "Bara",
+    "Bardiya",
+    "Bhaktapur",
+    "Bhojpur",
+    "Chitwan",
+    "Dadeldhura",
+    "Dailekh",
+    "Dang",
+    "Darchula",
+    "Dhading",
+    "Dhankuta",
+    "Dhanusa",
+    "Dolakha",
+    "Dolpa",
+    "Doti",
+    "Gorkha",
+    "Gulmi",
+    "Humla",
+    "Ilam",
+    "Jajarkot",
+    "Jhapa",
+    "Jumla",
+    "Kailali",
+    "Kalikot",
+    "Kanchanpur",
+    "Kapilvastu",
+    "Kaski",
+    "Kathmandu",
+    "Kavrepalanchok",
+    "Khotang",
+    "Lalitpur",
+    "Lamjung",
+    "Mahottari",
+    "Makwanpur",
+    "Manang",
+    "Morang",
+    "Mugu",
+    "Mustang",
+    "Myagdi",
+    "Nawalpur",
+    "Nuwakot",
+    "Okhaldhunga",
+    "Palpa",
+    "Panchthar",
+    "Parasi",
+    "Parbat",
+    "Parsa",
+    "Pyuthan",
+    "Ramechhap",
+    "Rasuwa",
+    "Rautahat",
+    "Rolpa",
+    "Rukum East",
+    "Rukum West",
+    "Rupandehi",
+    "Salyan",
+    "Sankhuwasabha",
+    "Saptari",
+    "Sarlahi",
+    "Sindhuli",
+    "Sindhupalchok",
+    "Siraha",
+    "Solukhumbu",
+    "Sunsari",
+    "Surkhet",
+    "Syangja",
+    "Tanahun",
+    "Taplejung",
+    "Terhathum",
+    "Udayapur"
+  ];
+
   getStoredValue() async
   {
     var pref = await SharedPreferences.getInstance();
@@ -451,6 +533,59 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                       ),
                     ),
                   ),
+
+
+                  SizedBox(
+                    height: 20.h,
+                  ),
+
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 20.0),
+                    padding: EdgeInsets.only(
+                        left: 15.0, right: 15.0, top: 5.0, bottom: 10.0),
+                    width: double.infinity.w,
+                    // height: 90.h,
+                    decoration: BoxDecoration(
+                      // color: Colors.cyan,
+                      border: Border.all(
+                        color: CustomColor.primaryTextColor.withOpacity(0.2),
+                      ),
+                      borderRadius: BorderRadius.circular(15.r),
+                    ),
+                    child: DropdownButtonHideUnderline(
+
+                      child: DropdownButton(
+                        value: selectedDistrict,
+                        isExpanded: true,
+                        iconSize: 25,
+                        iconEnabledColor: Color(0xFFAC8AE9).withOpacity(0.8),
+                        iconDisabledColor: Color(0xFFAC8AE9).withOpacity(0.8),
+                        dropdownColor: Colors.white,
+                        items: nepalDistricts.map((String value){
+                          return DropdownMenuItem(
+                            value: value,
+                            child: Text(value, style: TextStyle(
+                              fontSize: 11.sp,
+                              fontWeight: FontWeight.bold,
+                              color: CustomColor.primaryTextColor.withOpacity(0.8),
+                            ),),
+                          );
+                        }).toList(),
+
+                        onChanged: (String ? newValue) {
+                          setState(() {
+                            if(newValue != null)
+                            {
+                              selectedDistrict = newValue;
+                            }
+                          });
+
+                        },
+                      ),
+                    ),
+                  ),
+
+
                   SizedBox(
                     height: 20.h,
                   ),
@@ -1112,6 +1247,7 @@ class _AddRoomDetailState extends State<AddRoomDetail> {
                               "Room Title" : roomTitleController.text,
                               "Description" : descriptionController.text,
                               "Location" : addressController.text,
+                              "District" : selectedDistrict,
                               "Contact Number" : phoneNumberController.text,
                               "Contact Email" : lowerCaseEmail,
                               "Room Price" : roomPriceController.text,

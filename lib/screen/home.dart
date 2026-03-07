@@ -7,6 +7,7 @@ import 'package:room_rent_app/provider/roomDetailProvider.dart';
 import 'package:room_rent_app/provider/sharedPreferenceForUserDetailProvider.dart';
 import 'package:room_rent_app/screen/addRoomDetail.dart';
 import 'package:room_rent_app/screen/displayRoomDetail.dart';
+import 'package:room_rent_app/screen/filterPostDetailScreen.dart';
 import 'package:room_rent_app/screen/settingScreen.dart';
 import 'package:room_rent_app/service/firebaseService.dart';
 import 'package:room_rent_app/util/customColor.dart';
@@ -152,7 +153,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: CircleAvatar(
                             backgroundColor: Colors.transparent,
                             backgroundImage: Provider.of<SharedPreferenceForUserDetailProvider>(context, listen: false).getUserProfileSecureUrl == "" ? null : NetworkImage(Provider.of<SharedPreferenceForUserDetailProvider>(context, listen: false).getUserProfileSecureUrl),
-                            radius: 26.r,
+                            radius: 24.r,
                             child: Provider.of<SharedPreferenceForUserDetailProvider>(context, listen: false).getUserProfileSecureUrl == "" ? Icon(Icons.person, color: Colors.black, size: 20,) : null,
                           ),
                         ),
@@ -474,26 +475,145 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      floatingActionButton: SizedBox(
-        width: 130.w,
-        height: 70.h,
-        child: FloatingActionButton(
-          onPressed: ()
-          {
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => AddRoomDetail()
-            ));
+      // floatingActionButton: SizedBox(
+      //   width: 130.w,
+      //   height: 70.h,
+      //   child: FloatingActionButton(
+      //     onPressed: ()
+      //     {
+      //       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => AddRoomDetail()
+      //       ));
+      //
+      //     },
+      //      child: Text("Publish Room", style: TextStyle(
+      //       color: Colors.white,
+      //       fontSize: 13.sp,
+      //       fontWeight: FontWeight.bold,
+      //      ),),
+      //      backgroundColor: Color(0xFF5C1196).withOpacity(0.5),
+      //      foregroundColor: Colors.white,
+      //      splashColor: Color(0xFF5C1196),
+      //      ),
+      //      ),
 
-          },
-           child: Text("Publish Room", style: TextStyle(
-            color: Colors.white,
-            fontSize: 13.sp,
-            fontWeight: FontWeight.bold,
-           ),),
-           backgroundColor: Color(0xFF5C1196).withOpacity(0.5),
-           foregroundColor: Colors.white,
-           splashColor: Color(0xFF5C1196),
+    floatingActionButton: SizedBox(
+      width: 130.w,
+      height: 130.h,
+      child: Container(
+        // color: Colors.grey,
+        child: Column(
+          children: <Widget>[
+          InkWell(
+           onTap: ()
+           {
+             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => FilterPostDetailScreen()
+              ));
+           },
+           child: Container(
+
+             alignment: Alignment.centerRight,
+             child: Container(
+               width: 45.w,
+               height: 45.h,
+               alignment: Alignment.centerRight,
+                 decoration: BoxDecoration(
+                   color: Color(0xFF5C1196).withOpacity(0.5),
+                   borderRadius: BorderRadius.circular(10.r),
+                 ),
+                 child: Center(child: Icon(Icons.filter_list_alt, color: Colors.white, size: 20,)),
+             ),
            ),
-           ),
+         ),
+            SizedBox(
+              height: 10.h,
+            ),
+
+
+            InkWell(
+              onTap: ()
+              {
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => AddRoomDetail()
+                ));
+              },
+              child: Container(
+
+                width: 130.w,
+                height: 70.h,
+                decoration: BoxDecoration(
+                  color: Color(0xFF5C1196).withOpacity(0.5),
+                  borderRadius: BorderRadius.circular(15.r),
+                ),
+                child: Center(
+                  child: Text("Publish Room", style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 13.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+         ),
+
+      // floatingActionButton: SizedBox(
+      //   width: 130.w,
+      //   height: 70.h,
+      //   child: FloatingActionButton(
+      //     onPressed: ()
+      //     {
+      //       print("Pressed");
+      //       // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => AddRoomDetail()
+      //       // ));
+      //
+      //     },
+      //      child: Column(
+      //        children: <Widget>[
+      //          InkWell(
+      //            onTap: ()
+      //            {
+      //              print("Publish");
+      //            },
+      //            child: Container(
+      //              color: Colors.cyan,
+      //              child: Text("Publish Room", style: TextStyle(
+      //               color: Colors.white,
+      //               fontSize: 13.sp,
+      //               fontWeight: FontWeight.bold,
+      //              ),
+      //              ),
+      //            ),
+      //          ),
+      //          SizedBox(
+      //            height: 20.h,
+      //          ),
+      //
+      //          InkWell(
+      //            onTap: ()
+      //            {
+      //              print("Filter");
+      //            },
+      //            child: Container(
+      //              color: Colors.cyan,
+      //              child: Text("Publish Room", style: TextStyle(
+      //                color: Colors.white,
+      //                fontSize: 13.sp,
+      //                fontWeight: FontWeight.bold,
+      //              ),
+      //              ),
+      //            ),
+      //          ),
+      //
+      //        ],
+      //      ),
+      //      backgroundColor: Colors.transparent,
+      //      foregroundColor: Colors.transparent,
+      //     elevation: 0.0,
+      //      splashColor: Color(0xFF5C1196),
+      //      ),
+      //      ),
     );
   }
 }
