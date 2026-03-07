@@ -179,10 +179,18 @@ class _FilterPostDetailScreenState extends State<FilterPostDetailScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
+                              Text("Make Your Finding Easy", style: TextStyle(
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFFAC8AE9),
+                              ),),
+                              SizedBox(
+                                height: 10.h,
+                              ),
                               Text("Select District", style: TextStyle(
                                 fontSize: 14.sp,
                                 fontWeight: FontWeight.bold,
-                                color: Color(0xFFAC8AE9).withOpacity(0.7),
+                                color: Color(0xFFFF8A39).withOpacity(0.7),
                               ),),
                               SizedBox(
                                 height: 10.h,
@@ -235,7 +243,7 @@ class _FilterPostDetailScreenState extends State<FilterPostDetailScreen> {
                              ),
 
                               SizedBox(
-                                height: 10.h,
+                                height: 15.h,
                               ),
 
                               Center(

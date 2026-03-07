@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:room_rent_app/provider/circularLoadingProvider.dart';
-import 'package:room_rent_app/provider/filterPostProvider.dart';
 import 'package:room_rent_app/provider/multiplePictureDisplayProvider.dart';
 import 'package:room_rent_app/provider/roomDetailProvider.dart';
 import 'package:room_rent_app/provider/sharedPreferenceForUserDetailProvider.dart';
@@ -11,7 +10,6 @@ import 'package:room_rent_app/screen/addRoomDetail.dart';
 import 'package:room_rent_app/screen/customerServiceAndSupportScreen.dart';
 import 'package:room_rent_app/screen/displayRoomDetail.dart';
 import 'package:room_rent_app/screen/editProfileScreen.dart';
-import 'package:room_rent_app/screen/filterPostDetailScreen.dart';
 import 'package:room_rent_app/screen/home.dart';
 import 'package:room_rent_app/screen/loginScreen.dart';
 import 'package:room_rent_app/screen/postDetailScreen.dart';
@@ -30,7 +28,6 @@ void main() async
       ChangeNotifierProvider(create: (context) => MultiplePictureDisplayProvider(),),
       ChangeNotifierProvider(create: (context) => SharedPreferenceForUserDetailProvider(),),
       ChangeNotifierProvider(create: (context) => CircularLoadingProvider(),),
-      ChangeNotifierProvider(create: (context) => FilterPostProvider(),),
       ChangeNotifierProvider(create: (context) => RoomDetailProvider(),),
     ],
     child: const MyApp(),
@@ -49,12 +46,12 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
+        title: 'RoomKhoj',
         theme: ThemeData(
         
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
-        home: const FilterPostDetailScreen(),
+        home: const RoomKhojLoadingScreen(),
       ),
     );
   }
