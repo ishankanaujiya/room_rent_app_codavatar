@@ -330,6 +330,36 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
                                                                 ],
                                                               ),
                                                             ),
+                                                             Container(
+                                                               width: 150.w,
+                                                              child: Row(
+                                                                children: [
+                                                                  Text(
+                                                                  "District: ",
+                                                                  style: TextStyle(
+                                                                    color: Colors.black,
+                                                                    fontSize: 9.sp,
+                                                                    fontWeight:
+                                                                        FontWeight.w600,
+                                                                  ),
+                                                                  ),
+
+                                                                   SizedBox(
+                                                                    width: 5.w,
+                                                                  ),
+
+                                                                  Text(
+                                                                  documentSnapshot['District'],
+                                                                  style: TextStyle(
+                                                                    color: Colors.black,
+                                                                    fontSize: 9.sp,
+                                                                    fontWeight:
+                                                                        FontWeight.w600,
+                                                                  ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
                                                         ],
                                                       ),
                                                     ),
