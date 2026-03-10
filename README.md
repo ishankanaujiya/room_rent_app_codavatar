@@ -43,7 +43,7 @@
 - **Frontend:** Flutter (Dart)  
 - **Backend (API):** Node.js, Express.js  
 - **API Deployment:** Vercel  
-- **APP Deployment:** Google Play Store  
+- **App Deployment:** Google Play Store  
 - **Authentication & Database:** Firebase 
 - **API Testing:** Postman   
 - **Image Storage:** Cloudinary  
