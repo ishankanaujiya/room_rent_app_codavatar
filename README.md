@@ -143,6 +143,13 @@ flutter run
 
 ---
 
+## 📱 App Screenshots
+
+### 🔐 Login Screen
+![Login Screen](assets/roomKhojPurple.png)
+
+---
+
 ## 🤝 Contributing
 
 We welcome contributions to improve **RoomKhoj**.  
