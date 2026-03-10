@@ -147,7 +147,8 @@ flutter run
 
 ### 🔐 Login Screen
 ![Login Screen](assets/roomKhojPurple.png)
-
+### 🔐 Login Screen
+![Login Screen](assets/roomKhojPurple.png)
 ---
 
 ## 🤝 Contributing
