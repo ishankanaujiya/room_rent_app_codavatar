@@ -144,24 +144,7 @@ flutter run
 ---
 
 ## 📱 Visual Overview
-## 📱 App Screenshots
-
-| RoomKhoj                               | Login                            |
-|----------------------------------------|----------------------------------|
-| ![RoomKhoj](assets/roomKhojScreen.png) | ![Login](assets/loginScreen.png) |
-
-| Registration                                   | Home                           |
-|------------------------------------------------|--------------------------------|
-| ![Registration](assets/registrationScreen.png) | ![Home](assets/homeScreen.png) |
-
-| Easy Search                         | 24/7 Support                                   |
-|-------------------------------------|------------------------------------------------|
-| ![Easy Search](assets/pageView.png) | ![Custmer Support](assets/pageViewInitial.png) |
-
-| Setting                              |
-|--------------------------------------|
-| ![Setting](assets/settingScreen.png) |
-
+[ !RoomKhoj](assets/roomkhojPurple.png)
 ---
 
 ## 🤝 Contributing
