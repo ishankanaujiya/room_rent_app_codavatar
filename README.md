@@ -144,7 +144,7 @@ flutter run
 ---
 
 ## 📱 Visual Overview
- ![RoomKhoj](assets/roomKhojPurple.png)
+ ![RoomKhoj](assets/roomKhojVisual.png)
 ---
 
 ## 🤝 Contributing
